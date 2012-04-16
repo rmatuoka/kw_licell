@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20120322203407) do
     t.string   "name"
     t.datetime "pub_start"
     t.datetime "pub_end"
-    t.integer  "clicks",             :default => 0
+    t.integer  "clicks"
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(:version => 20120322203407) do
   end
 
   create_table "gifts", :force => true do |t|
-    t.string   "gift_cod"
+    t.string   "gift_code"
     t.boolean  "used"
-    t.datetime "valido"
-    t.decimal  "discount",   :precision => 10, :scale => 2
+    t.datetime "valid"
+    t.decimal  "discount",   :precision => 10, :scale => 0
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20120322203407) do
     t.integer  "order_id"
     t.integer  "product_id"
     t.integer  "amount"
-    t.decimal  "price",      :precision => 10, :scale => 2
+    t.decimal  "price",      :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -168,20 +168,20 @@ ActiveRecord::Schema.define(:version => 20120322203407) do
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "summary"
-    t.decimal  "price",                   :precision => 10, :scale => 2
-    t.decimal  "discount",                :precision => 10, :scale => 2
+    t.decimal  "price",                   :precision => 10, :scale => 0
+    t.decimal  "discount",                :precision => 10, :scale => 0
     t.text     "features"
     t.text     "description"
     t.text     "usage"
     t.datetime "pub_start"
     t.datetime "pub_end"
-    t.integer  "views",                                                  :default => 0
+    t.integer  "views"
     t.integer  "subcategory_id"
     t.boolean  "published"
     t.string   "tweet_text"
     t.string   "like_link"
     t.string   "video"
-    t.integer  "vendas",                                                 :default => 0
+    t.integer  "vendas"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "bibliography"

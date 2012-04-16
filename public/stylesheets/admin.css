@@ -1,0 +1,219 @@
+body {
+  background-color: #4B7399;
+  font-family: Tahoma, Helvetica, Arial;
+  font-size: 13px;
+}
+
+a img {
+  border: none;
+}
+
+a {
+  color: #575353;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+h1
+{
+	color:#2e4214;
+	font-family: Tahoma, Helvetica, Arial;
+	font-size: 24px;
+}
+
+h2
+{
+	color:#2e4214;
+	font-family: Tahoma, Helvetica, Arial;
+	font-size: 16px;
+}
+
+th
+{
+	color:#2e4214;
+	font-family: Tahoma, Helvetica, Arial;
+	font-size: 16px;
+	background-color:#e4e4e4;
+}
+
+tr:hover
+{
+	background-color:#e4e4e4;
+}
+
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 10px;
+}
+
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+#user_nav
+{
+	width: 75%;
+	margin: 0 auto;
+	background-color: #FFF;
+	padding: 10px 40px;
+	border: solid 1px black;
+	margin-top: 20px;
+	text-align:right;
+}
+
+#user_nav span
+{
+	float:right;
+}
+
+#menu
+{
+	width: 75%;
+	margin: 0 auto;
+	background-color: #FFF;
+	padding: 20px 40px;
+	border: solid 1px black;
+	margin-top: 5px;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+#search input
+{
+	border:1px solid #666666;
+	background-color:#f6f3f1;
+	height:40px;
+	font-size:18px;
+	font-family: Tahoma, Helvetica, Arial;
+}
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}
+
+.error_messages ul {
+  margin: 0;
+}
+.Related_products{
+	height:309px;
+	overflow:auto;
+	margin-bottom:10px;
+}
+.Related_products input{
+
+}
+.pqno{
+	display: block;
+	float: left;
+	width: 185px;
+}
+.pqno input{
+	width:177px;
+}
+
+.mdio{
+	display: block;
+	float: left;
+	width: 300px;
+	margin-right: 10px;
+}
+.mdio textarea{
+	width:297px;
+}
+.grde{
+	display: block;
+	float: left;	
+	width: 450px;
+}
+.pedido_ok{
+	background-color: green;
+}
+.pedido_enviar{
+	background-color: red;
+}
+.pedido_pendente{
+	background-color:yellow;
+}
+.pedido_cancelado{
+	background-color:gray;
+}
+
+.tablesorter{
+	width:100%; 
+	margin-top:10px;
+}
+	.tablesorter th{
+		text-align:left; 
+		background-color:#CCC;
+	}
+	.tablesorter th.header { 
+	    background-image: url(../images/bg.gif);     
+	    cursor: pointer; 
+	    font-weight: bold; 
+	    background-repeat: no-repeat; 
+	    background-position: center left; 
+	    padding-left: 20px; 
+	  /*  border: 1px solid #dad9c7; 
+	    margin-left: -1px;*/ 
+	}	
+	.tablesorter th.headerSortUp { 
+	    background-image: url(../images/asc.gif); 
+	    background-color: #aaa; 
+	}
+	.tablesorter th.headerSortDown { 
+	    background-image: url(../images/desc.gif); 
+	    background-color: #aaa; 
+	}
+	.tablesorter td { 
+		height:20px;
+	}
+	.notactive { 
+		background-color:red;
+	}
+.p_index{
+	margin-top:10px;
+}				
+#table_user a{
+	color:black;
+}

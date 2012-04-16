@@ -1,60 +1,10 @@
-
-<div id="Most_searched">
-        <div id="Search_bar_big">
-			<%=form_tag '/search/results', :method => :get %>
-            <table width="970" border="0">
-              <tr height="20">
-                <td colspan="3"><a href="#"><img src="/images/tit_backtop.png" width="116" height="8" style="text-align:right; float:right; margin-right:20px;" /></a></td>
-              </tr>
-              <tr>
-                <td width="690" height="40"><div id="Search_for_big" ><%=text_field_tag :keyword, 'Digite o nome do produto.',:onblur=>"if(this.value == '') this.value='Digite o nome do produto.';", :onfocus=>"if(this.value=='Digite o nome do produto.') this.value='';"%></div></td>
-                <td width="151"><%= select_tag(:category, options_from_collection_for_select( @category_site, :id, :name),:include_blank=>"Todos" ,:style => "width:160px; margin-left:8px;") %></td>
-                <td width="115"><%=image_submit_tag("user_bars/bt_search.png", :width=>"34", :height=>"23")%></td>
-              </tr>
-            </table>
-			</form>
-        </div>
-    <!-- <h2><img src="/images/tit_maisbuscados.png" width="161" height="14" alt="mais buscados" title="mais buscados" /></h2>
-    <img src="/images/img_greenline.png" width="938" height="3" style="margin-bottom:10px;" />
-	-->
-	<div id="Tag_cloud">
-		<% tag_cloud(@tagcloud, %w(Tag_medium Tag_big Tag_biger Tag_giant)) do |tag, css_class| %>
-				<%= link_to tag.name + " ", "/search/results?keyword=" + tag.name, :class => css_class %> 
-		<% end %>
-
-   	</div>
-    <img src="/images/img_cards.png" width="941" height="37" />
+    <div id='content-footer'>
+            <h4>Ultimas buscas:</h4>
+            <p>Lorem, ipsum, dolor, sit, amet, fames, est, leo, fusce, mauris ,sit, ipsum ,dolor, aliquam, nulla. Gravida, tincidunt, nulla, cras, fermentum, magnis, rutrum, integer, cras, blandit, erat, ipsum ,vestibulum, velit, Lorem, ipsum, dolor, sit, amet, fames, est, leo, fusce, mauris ,sit, ipsum ,dolor, aliquam, nulla. Gravida, tincidunt, nulla, cras, fermentum, magnis, rutrum, integer, cras, blandit, erat, ipsum ,vestibulum, velit.</p>
+    </div>
 </div>
-        <div id="Footer">
-        	<table width="970" border="0" style="text-align:center; margin:auto;">
-              <tr>
-                <td width="540" height="34"><img src="/images/img_ecovita2011.png" width="78" height="9" style="float:left; margin-left:10px;" /></td>
-                <td width="420">
-                    	<%=link_to "Prazos de Entrega", deliveries_path%> | <%=link_to "Política de Privacidade", politics_path%> | <%=link_to "Termos de Uso", terms_path%> | <%=link_to "Fale Conosco", sitecontacts_path%>
-                </td>
-              </tr>
-				<tr>
-					<td colspan="2" style="padding:15px;">
-						<span style="color:#A4D227;">ECO VITA FARMACIA DE MANIPULAÇÃO LTDA ME</span><br/>
-						<br/>
-						<span style="color:#A4D227;">Horário de funcionamento:</span> De segunda a sexta, das 8h00 às 19 horas e aos sábados, das 9h00 às 18h00 - (11) 4411-6000<br/>
-						<br/>
-						<span style="color:#A4D227;">Farmacêutica Responsável:</span> Andrea Alexandre - CRF-SP 26.632<br/>
-						<br/>
-						<span style="color:#A4D227;">Autorizações ANVISA:</span> MS 0.50133.7<br/>
-						<br/>
-						<span style="color:#A4D227;">OS MEDICAMENTOS SOB PRESCRIÇÃO SÓ SERÃO DISPENSADOS MEDIANTE APRESENTAÇÃO DA RECEITA OU ENVIO POR FAX OU E-MAIL.</span> <br/>
-						É proibido comercializar medicamentos controlados por meio remoto. Medicamentos podem causar efeitos indesejados. Evite a automedicação: informe-se com o farmacêutico.<br/>
-						<br/>
-						<span style="color:#A4D227;">SE PERSISTIREM OS SINTOMAS, O MEDICO DEVERÁ SER CONSULTADO. <br/>
-					</td>
-				</tr>
-              <tr>
-                <td height="141" colspan="2" style="border-top:#CCC 1px solid;"><a href="http://www.korewa.com.br" target="_blank"><img src="/images/img_logokorewa.png" width="81" height="33" alt="korewa" title="korewa" /></a></td>
-              </tr>
-            </table>
-
-        	<div id=""></div>
-        </div>
-
+<div id='footer'>
+	<div id='footer-itens'>
+    	<a href="#">Prazos de Entrega</a> | <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a> | <a href="#">Fale Conosco</a>
+    </div>
 </div>

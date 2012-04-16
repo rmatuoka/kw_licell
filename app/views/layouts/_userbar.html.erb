@@ -1,5 +1,13 @@
 	
 			<%if current_user%>
+      <!-- new USUARIO LOGADO -->
+      <div id='itens-top-bar'>        	
+          <%=link_to(image_tag("bt_top_um.png",:width=>"121" , :height=>"17"), accounts_path, :class => "top-bar" )%>
+          <%=link_to(image_tag("bt_top_dois.png",:width=>"145" , :height=>"20"), carrinhos_path, :class => "top-bar" )%>
+          <%=link_to(image_tag("bt_top_tres.png",:width=>"48" , :height=>"11"), logout_path, :class => "top-bar" )%>
+      </div>
+
+
 				<div id="User_bar">
 					<!-- USUARIO LOGADO -->
 					<table width="942" border="0">
@@ -48,6 +56,15 @@
 			});
 			</script>
 			<div id="User_bar_logoff">
+
+
+      <!-- new USUARIO deslogado -->
+      <div id='itens-top-bar'>        	
+          <%=link_to(image_tag("bt_top_um.png",:width=>"121" , :height=>"17"), accounts_path, :class => "top-bar" )%>
+          <%=link_to(image_tag("bt_top_dois.png",:width=>"145" , :height=>"20"), carrinhos_path, :class => "top-bar" )%>
+          <%=link_to(image_tag("bt_top_tre1.png",:width=>"48" , :height=>"11"), logout_path, :class => "top-bar" )%>
+      </div>
+
 				<table width="942" border="0">
 	              <tr height="33">
 	                <td width="466" style="*width:540px;"><span class="Text_name" style="margin-left:35px; margin-right:290px;"><%=data_atual_extenso%></span><span class="Text_login"><%=image_tag("bt_ico_login.png",:style=>"position:relative;top:0px;margin-right:12px;")%><%= link_to "Login", login_path, :class=> "Text_userbar iframe",:style=>"position:relative;top:0px;"%></span></td>

@@ -2,12 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Ecovita Farmácia de Manipulação<%=yield :title%></title>
-<%=stylesheet_link_tag "template"%>
-<%=stylesheet_link_tag "home"%>
-<%=stylesheet_link_tag "slidetabs"%>
-<%=stylesheet_link_tag "ui-lightness/jquery-ui-1.8.17.custom.css"%>
-<%=stylesheet_link_tag "jquery.fancybox-1.3.4"%>
+<title>Licell <%=yield :title%></title>
+<%=stylesheet_link_tag "geral.css"%>
+<%=stylesheet_link_tag "reset.css"%>
 
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 
@@ -16,11 +13,102 @@
 <%=javascript_include_tag "jquery-ui-1.8.17.custom.min.js"%>
 <%=javascript_include_tag "jquery_ujs.js"%>
 <%=javascript_include_tag "autocomplete-rails.js"%>
-<%=javascript_include_tag "fancybox/jquery.fancybox-1.3.4.pack.js"%>
-<%=javascript_include_tag "fancybox/jquery.easing-1.3.pack.js"%>
-<%=javascript_include_tag "fancybox/jquery.mousewheel-3.0.4.pack.js"%>
-<%= javascript_include_tag "jcycle" %>
-
+<%=javascript_include_tag "jquery.min.js"%>
+<%=javascript_include_tag "cycle.js"%>
+<%=javascript_include_tag "easing.js"%>
+<%= javascript_include_tag "jquery.easing.compatibility.js" %>
+<script>
+	$(document).ready(function(e) {
+        $('#s4') 
+		.before('<div id="nav">') 
+		.cycle({ 
+			fx:     'turnLeft', 
+			speed:  'fast', 
+			timeout: 0, 
+			pager:  '#nav' 
+		});
+		$('.produto-um').mouseenter(function(){
+			$(".p-des-um").removeClass('hide');
+			$(".p-fot-um").animate({marginTop: -100});
+			$(".p-des-um").animate({marginTop: -100});
+			});
+		$('.produto-um').mouseleave(function(){
+			$(".p-fot-um").animate({marginTop: 0});
+			$(".p-des-um").animate({marginTop: 0});
+			$(".p-des-um").addClass('hide');
+			});
+		$('.produto-dois').mouseenter(function(){
+			$(".p-des-dois").removeClass('hide');
+			$(".p-fot-dois").animate({marginTop: -100});
+			$(".p-des-dois").animate({marginTop: -100});
+			});
+		$('.produto-dois').mouseleave(function(){
+			$(".p-fot-dois").animate({marginTop: 0});
+			$(".p-des-dois").animate({marginTop: 0});
+			$(".p-des-dois").addClass('hide');
+			});
+		$('.produto-tres').mouseenter(function(){
+			$(".p-des-tres").removeClass('hide');
+			$(".p-fot-tres").animate({marginTop: -100});
+			$(".p-des-tres").animate({marginTop: -100});
+			});
+		$('.produto-tres').mouseleave(function(){
+			$(".p-fot-tres").animate({marginTop: 0});
+			$(".p-des-tres").animate({marginTop: 0});
+			$(".p-des-tres").addClass('hide');
+			});
+		$('.produto-quatro').mouseenter(function(){
+			$(".p-des-quatro").removeClass('hide');
+			$(".p-fot-quatro").animate({marginTop: -100});
+			$(".p-des-quatro").animate({marginTop: -100});
+			});
+		$('.produto-quatro').mouseleave(function(){
+			$(".p-fot-quatro").animate({marginTop: 0});
+			$(".p-des-quatro").animate({marginTop: 0});
+			$(".p-des-quatro").addClass('hide');
+			});
+		$('.produto-cinco').mouseenter(function(){
+			$(".p-des-cinco").removeClass('hide');
+			$(".p-fot-cinco").animate({marginTop: -100});
+			$(".p-des-cinco").animate({marginTop: -100});
+			});
+		$('.produto-cinco').mouseleave(function(){
+			$(".p-fot-cinco").animate({marginTop: 0});
+			$(".p-des-cinco").animate({marginTop: 0});
+			$(".p-des-cinco").addClass('hide');
+			});
+		$('.produto-seis').mouseenter(function(){
+			$(".p-des-seis").removeClass('hide');
+			$(".p-fot-seis").animate({marginTop: -100});
+			$(".p-des-seis").animate({marginTop: -100});
+			});
+		$('.produto-seis').mouseleave(function(){
+			$(".p-fot-seis").animate({marginTop: 0});
+			$(".p-des-seis").animate({marginTop: 0});
+			$(".p-des-seis").addClass('hide');
+			});
+		$('.produto-sete').mouseenter(function(){
+			$(".p-des-sete").removeClass('hide');
+			$(".p-fot-sete").animate({marginTop: -100});
+			$(".p-des-sete").animate({marginTop: -100});
+			});
+		$('.produto-sete').mouseleave(function(){
+			$(".p-fot-sete").animate({marginTop: 0});
+			$(".p-des-sete").animate({marginTop: 0});
+			$(".p-des-sete").addClass('hide');
+			});
+		$('.produto-oito').mouseenter(function(){
+			$(".p-des-oito").removeClass('hide');
+			$(".p-fot-oito").animate({marginTop: -100});
+			$(".p-des-oito").animate({marginTop: -100});
+			});
+		$('.produto-oito').mouseleave(function(){
+			$(".p-fot-oito").animate({marginTop: 0});
+			$(".p-des-oito").animate({marginTop: 0});
+			$(".p-des-oito").addClass('hide');
+			});
+    });
+</script>
 <script>
 $(document).ready(function() {
     $("#Menu").hide();
@@ -112,10 +200,84 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+<div id='top-bar'>
+  <%=render :file => "layouts/_userbar.html.erb"%>
+</div>
+<div id='header'>
+	<div id='header-content'>
+    	<div id='header-logo'>
+        	<a href="#" class="top-bar-um"><img src="images/logo.png" border='0' /></a>
+        </div>
+        <div id='header-nav'>
+        	<a href="#"><div class="nav nav-bg">PROTEÇÃO</div></a>
+            <a href="#"><div class="nav">ACESSÓRIOS</div></a>
+            <a href="#"><div class="nav nav-bg">ENERGIA</div></a>
+            <a href="#"><div class="nav">ESPORTE</div></a>
+            <a href="#"><div class="nav nav-bg">UTILITÁRIOS</div></a>
+            <a href="#"><div class="nav">CARREGADORES</div></a>
+        </div>
+    </div>
+</div>
+<div id='slider'>
+	<div id="slider-container">
+        <div id='s4'>
+            <a href="#"><img src="images/img_slider.png" border='0' width="942" height="264" /></a>
+            <a href="#"><img src="images/img_slider.png" border='0' width="942" height="264" /></a>
+            <a href="#"><img src="images/img_slider.png" border='0' width="942" height="264" /></a>
+            <a href="#"><img src="images/img_slider.png" border='0' width="942" height="264" /></a>
+            <a href="#"><img src="images/img_slider.png" border='0' width="942" height="264" /></a>
+        </div>
+    </div>
+</div>
+<div id='content'>
+	<div id='content-itens'>
+    	<div id='produtos-bloco'>
+        <%@mais_vistos.each do |produto|%>
+            <div class="produto-um produto">
+            	<div id='prod-top'>
+                	<h3><%=produto.name%></h3>
+                    <p><%=truncate(produto.summary, :length => 55)%></p>
+                </div>
+                <div id='prod-img'>
+						        <%=link_to (image_tag(produto.product_images.first.image.url("medium")), produto_path(produto.url_slug)) if !produto.product_images.first.blank? %>
+						
+						        <%=link_to(image_tag("missing_thumb.jpg"), produto_path(produto.url_slug)) if produto.product_images.first.blank? %>
+                </div>
+                <div id='prod-fot' class="p-fot-um">
+                    <div id='prod-add'>
+                      <%=link_to image_tag("bt_add_cart.jpg", :width=>"81", :height=>"43"), add_to_cart_produto_path(produto)%>
+                    </div>
+                    <%if produto.discount.blank?%>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b><%=number_to_currency(produto.price)%></h2>
+                    </div>
+                    <%else%>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b><%=number_to_currency(produto.price - produto.discount)%></h2>
+                    </div>
+                    <%end%>
+                </div>
+                <div id='prod-des' class="hide p-des-um">
+                	<p><%=truncate(produto.summary, :length => 55)%></p>
+                </div>
+            </div>
+        <%end%>
+				
+
+     
+        <div class="clear"></div>
+    </div>
+
+    <%=render :file => "layouts/_footer.html.erb"%>
+
+
+
+
+<!-- --------------------------old----------------------------- -->
 <div id="General">
 
 	<div id="Header">
-  		<%=render :file => "layouts/_userbar.html.erb"%>
+  		<%#=render :file => "layouts/_userbar.html.erb"%>
     	<div id="Logo"><img src="images/logo.png" width="267" height="112" /></div>
 	    <div id="Search_bar">
 	        <%=form_tag '/search/results', :method => :get %>
@@ -160,9 +322,9 @@ $(document).ready(function() {
     </div>
     <div id="Destaque">
 		<div id="DestaqueBox">
-			<%@banners_home.each do |banner|%>
-				<a href="<%=banner.link%>"><%=image_tag(banner.image.url)%></a>
-			<%end%>
+			<%# @banners_home.each do |banner|%>
+				<!--<a href="<%#=banner.link%>"><%#=image_tag(banner.image.url)%></a> -->
+			<%#end%>
 		</div>
 		<div id="featured_navigation_numbers"> </div>
 		<!-- <img src="images/img_destaque_temp.png" width="927" height="354" style=" z-index:-1000; margin-top:-60px;" /> -->
@@ -217,9 +379,9 @@ $(document).ready(function() {
                                                            
             </div>
 			<!-- BANNERS LATERAIS -->
-			<%@banners_laterais.each do |banner|%>
-				<div id="Right_up"><%=link_to image_tag(banner.image.url()), banner_path(banner.url_slug)%></div>
-			<%end%>
+			<%# @banners_laterais.each do |banner|%>
+			<!--	<div id="Right_up"><%#=link_to image_tag(banner.image.url()), banner_path(banner.url_slug)%></div> -->
+			<%#end%>
 			
 			<!-- 
 				<div id="Right_up"><a href="#"><img src="images/img_exemple1.png" width="222" height="305" /></a></div>
@@ -231,6 +393,7 @@ $(document).ready(function() {
       </div>
     </div>
 	<!-- FOOTER -->
-	<%=render :file => "layouts/_footer.html.erb"%>
+	<%#=render :file => "layouts/_footer.html.erb"%>
+<!-- --------------------------old----------------------------- -->
 </body>
 </html>
