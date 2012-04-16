@@ -1,0 +1,28 @@
+<%content_for :title do%>
+	Minha Conta
+<%end%>
+
+<%content_for :head do%>
+	<%=stylesheet_link_tag "user_terms"%>
+<%end%>
+
+<div id="Content_products">
+
+<div id="Products">
+        <p class="Bread_crumb"><%=link_to "home", root_path%></p>
+        <h1 style=" vertical-align:middle; text-align:left;">Minha Conta</h1>
+        <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
+        <div class="Text_box">
+        	<p class="Tit_1">Olá, <%=current_user.nome%></p><br>
+        	<p class="Content">Para alterar o seu cadastro ou verificar seus pedidos, clique nos botões abaixo!</p>
+            <br />
+            
+        </div>
+        <%=link_to image_tag("img_editar_cadastro.png"), edit_user_path(current_user)%>
+		<%=link_to image_tag("img_vertodos_pedidos.png", :style => "margin-left:170px;"), myorders_path%>
+		<br /><br /><br /><br />
+		<%=link_to image_tag("img_listadepresentes.jpg", :style => "margin-left:30px; float:left;"), wishlists_path%>
+
+
+   
+</div>

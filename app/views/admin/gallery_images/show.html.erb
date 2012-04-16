@@ -1,0 +1,23 @@
+<% title "Gallery Image" %>
+
+<p>
+  <strong>Gallery:</strong>
+  <%= @gallery_image.gallery_id %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @gallery_image.name %>
+</p>
+<p>
+  <strong>Published:</strong>
+  <%= @gallery_image.published %>
+</p>
+<p>
+  <strong>Imagem:</strong><br />
+  <%= image_tag(@gallery_image.image.url("thumb")) %>
+</p>
+<p>
+  <%= link_to "Edit", edit_admin_page_gallery_gallery_image_path(@page, @gallery, @gallery_image) %> |
+  <%= link_to "Destroy", admin_page_gallery_gallery_image_path(@page, @gallery, @gallery_image), :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_page_gallery_gallery_images_path(@page, @gallery) %>
+</p>

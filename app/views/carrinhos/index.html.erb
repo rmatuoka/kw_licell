@@ -1,0 +1,115 @@
+<%content_for :title do%>
+	Meu Carrinho
+<%end%>
+
+<%=content_for :head do%>
+	<%=stylesheet_link_tag "cart"%>
+	
+	<script>
+	$(document).ready(function() {
+	    // Hides the submit button
+		$('a.iframe').fancybox({
+			'width'		: 500,
+			'height'	: 280,
+			'centerOnScroll' : true
+		});
+	
+	});
+	</script>
+<%end%>
+<div id="Content_products">
+
+<div id="Products">
+	<p class="Bread_crumb"><%=link_to "home", root_path%> </p>
+    <h1 style=" vertical-align:middle; text-align:left;">Meu Carrinho</h1>
+    <img src="images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />        
+	
+	<div id="Cart">
+    <%if !@cart.items.blank?%>
+
+		<div class="Title_table">
+            <table width="700" border="0">
+              <tr>
+                <td height="26" class="Tit_text">&nbsp;</td>
+                <td class="Tit_text">Produto</td>
+                <td class="Tit_text">Valor Un.</td>
+                <td class="Tit_text">Quantidade</td>
+                <td class="Tit_text"><!-- Presente --></td>
+                <td class="Tit_text">&nbsp;</td>
+              </tr>
+            </table>
+        </div>
+        
+		<%for cart_item in @cart.items%>
+			<%if cart_item.quantity > 0 %>
+				<div class="Content_table">
+		            <table width="685">
+		                <tr class="Bg_table_line">
+		                <td width="95" height="42"><img src="images/img_product.png" width="23" height="41" /></td>
+		                <td width="118"><%=link_to cart_item.title, produto_path(cart_item.url_slug)%></td>
+		                <td width="112"><b><%=number_to_currency(cart_item.price)%></b></td>
+		                <td width="114"><%=cart_item.quantity%></td>
+		                <td width="115"><!-- <input type="checkbox" /> --></td>
+		                <td width="103"><%=link_to image_tag("img_excluir.png"), remove_from_cart_produto_path(cart_item.id_product)%></td>
+		              </tr>
+		            </table>
+		        </div>
+			<%end%>
+		<%end%>
+		
+         
+	</div>
+	
+  <div id="Gift_certificate">
+        <div id="Gift_box">
+         	<form action="/carrinhos" method="get">
+   			<label>
+				Código vale presente:
+				<%=flash[:gift]%>
+				<%=text_field_tag :gift_cod, params[:gift_cod], :class => "Gift_cert" %>
+			</label>
+			
+			<input type="submit" />
+			</form>
+            <br /><br />
+            <!-- <label>Cep: <input class="Cep1_1" type="text" /> - <input class="Cep1_2" type="text" /></label> -->
+            <br>
+        </div>    
+        <div id="Total">
+        	<div id="Price_box">
+				<b class="Price_f" ><label>Total sem frete: </label><%=number_to_currency(@total_final)%></b> 
+				<br /><br />                
+				<b class="Price_f" ><label>*O frete será calculado através do pagSeguro </label></b> 
+            </div>      
+        </div>
+     	<%=form_for(Order.new) do |f|%>
+			<%=link_to image_tag("bt_limpar_carrinho.png"), empty_cart_carrinhos_path%>
+			<%=link_to image_tag("bt_continuar_comprando.png"), root_path%>
+		
+			<%if current_user%>
+				<!-- LOGADO< EXIBIR BOTAO PAGSEGURO -->
+					<%=image_submit_tag "bt_finalizarcompra.png"%>
+			
+			<%else%>
+			<a class="iframe" href="/user_sessions/new"><img src="images/bt_finalizarcompra.png" width="212" height="32" /></a>
+			<%end%>  
+		<%end%>
+	  
+		<div id="Warning">
+        	<img src="/images/img_warning.png" width="112" height="110" style="float:left; margin-left:5px;" />
+       	  	<p class="w">Prazos de Entrega</p>
+          	<p>Todos os pedidos são enviados mediante confirmação do pagamento. Os prazos de entrega podem variar de acordo com a região do País. Normalmente o prazo para a entrega não excede 10 dias. </p>
+      	</div>
+		<%else%>
+			<div id="Warning">
+	        	<img src="/images/img_warning.png" width="112" height="110" style="float:left; margin-left:5px;" />
+	       	  	<p class="w">Seu carrinho está vazio!</p>
+	      	</div>
+		<%end%>
+    </div>
+	
+
+
+                                                        
+   
+</div>

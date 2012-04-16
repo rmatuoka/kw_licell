@@ -1,0 +1,24 @@
+<% title "Galleries" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Page</th>
+    <th>Published</th>
+    <th>Clicks</th>
+  </tr>
+  <% for gallery in @galleries %>
+    <tr>
+      <td><%= gallery.name %></td>
+      <td><%= gallery.page_id %></td>
+      <td><%= gallery.published %></td>
+      <td><%= gallery.clicks %></td>
+      <td><%= link_to "Imagens", admin_page_gallery_gallery_images_path(@page, gallery) %></td>
+	  <td><%= link_to "Show", admin_page_gallery_path(@page, gallery) %></td>
+      <td><%= link_to "Edit", edit_admin_page_gallery_path(@page, gallery) %></td>
+      <td><%= link_to "Destroy", admin_page_gallery_path(@page, gallery), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Gallery", new_admin_page_gallery_path(@page) %></p>

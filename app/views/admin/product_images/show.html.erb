@@ -1,0 +1,19 @@
+<% title "Product Image" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product_image.name %>
+</p>
+<p>
+  <strong>Product:</strong>
+  <%= @product_image.product_id %>
+</p>
+<p>
+  <strong>Imagem:</strong><br />
+  <%= image_tag(@product_image.image.url("thumb")) %>
+</p>
+<p>
+  	<%= link_to "Edit", edit_admin_category_subcategory_product_product_image_path(@category, @subcategory, @product, @product_image) %> |
+	<%= link_to "Destroy", admin_category_subcategory_product_product_image_path(@category, @subcategory, @product, @product_image), :confirm => 'Are you sure?', :method => :delete %> |
+	<%= link_to "View All", admin_category_subcategory_product_product_images_path(@category, @subcategory, @product)  %>
+</p>

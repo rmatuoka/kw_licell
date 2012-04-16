@@ -1,0 +1,54 @@
+<% 
+	content_for :title do "Recuperar Senha" end
+%>
+<%content_for :head do%>
+<%= stylesheet_link_tag "login"%>
+<%=javascript_include_tag "jquery.validate.min.js"%>
+<%=javascript_include_tag "meusmetodos.js"%>
+	<script>
+		jQuery(document).ready(function(){		
+    	jQuery('#password_new').validate({
+        rules: {
+			"user[password]":{
+				required:true,
+				minlength: 6
+			},			
+			"user[password_confirmation]": {
+                required: true,
+                minlength: 6,
+				equalTo: "#user_password"
+            }
+			
+        },
+        messages: {
+			"user[password]":{
+				required: "Preencha com uma senha",
+				minlength: "Mínimo de 6 caracteres"	
+			},
+			"user[password_confirmation]":{
+				required: "Preencha com a confirmação",
+				minlength: "Mínimo de 6 caracteres",
+				equalTo: "Confirmação não é igual a senha"	
+			}
+        }
+    });
+});
+	</script>
+<%end%>
+<div id ="Box_Forgot">
+	<h1>Alteração da senha</h1>
+	<div id="flash_error_cadastro" style="display:none;"></div> 
+	<%=raw "<div id='aviso_show_notice'>"+notice+"</div>" if !notice.blank?%>
+	<%= form_for @user, :url => password_reset_path, :method => :put, :html => {:id => "password_new" }  do |f| %>
+		<p>
+			<%= f.label :password, "Senha", :class=>"Text_tile" %>
+			<%= f.password_field :password%>
+		</p>
+		<p>
+			<%= f.label :password_confirmation, "Confirmação", :class=>"Text_tile"  %>
+			<%= f.password_field :password_confirmation %>
+		</p>
+		<br />
+		<%= f.submit "Alterar senha", :id => "botao", :class => "Bt_enviar" %> 
+	<% end %>
+</div>

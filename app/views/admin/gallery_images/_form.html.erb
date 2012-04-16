@@ -1,0 +1,20 @@
+<%= form_for ([:admin, @page, @gallery, @gallery_image], :html => { :multipart => :true }) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :gallery_id %><br />
+    <%= f.text_field :gallery_id %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :published %><br />
+    <%= f.check_box :published %>
+  </p>
+  <p>
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

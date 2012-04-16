@@ -1,0 +1,22 @@
+<div id="login_show">
+	<%= form_for @user_session do |f| %>
+		<%= f.error_messages :header_message => "",
+		  :message => "",
+		  :header_tag => "" %>
+		<%= flash[:error]%>
+		<%= f.label :email, "E-mail", :class=>"Text_tile" %>
+        <%= f.text_field :email %>
+		<br /><br />
+		<%= f.label :password, raw("&nbsp; Senha"), :class=>"Text_tile" %>
+        <%= f.password_field :password %>
+		<br />
+        <%=image_submit_tag "bt_entrar.png", :style => "margin-top:10px; border:none;"%><br>
+		<br>
+	<% end %>
+	<a class="Text_tile" href="javascript:void(0);" onclick="window.parent.location ='/users/new'">Não é cadastrado? clique aqui.</a><br /><br />
+	<%= link_to "Esqueceu a senha? clique aqui.", new_password_reset_path(), :class=>"Text_tile"%>
+	<a class="Text_tile" href="javascript:void(0);" onclick="window.parent.location ='/password_resets/new"></a>
+</div>
+
+
+

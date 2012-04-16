@@ -1,0 +1,72 @@
+<% title "Product" %>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @product.name %>
+</p>
+<p>
+  <strong>Resumo:</strong>
+  <%= @product.summary %>
+</p>
+<p>
+  <strong>Valor:</strong>
+  <%= @product.price %>
+</p>
+<p>
+  <strong>Disconto:</strong>
+  <%= @product.discount %>
+</p>
+<p>
+  <strong>Bibliografía:</strong>
+  <%= @product.bibliography %>
+</p>
+<p>
+  <strong>Características:</strong>
+  <%= @product.features %>
+</p>
+<p>
+  <strong>Descrição:</strong>
+  <%= @product.description %>
+</p>
+<p>
+  <strong>Uso:</strong>
+  <%= @product.usage %>
+</p>
+<p>
+  <strong>Data Inicial da Publicação:</strong>
+  <%= @product.pub_start %>
+</p>
+<p>
+  <strong>Data Final da Publicação:</strong>
+  <%= @product.pub_end %>
+</p>
+<p>
+  <strong>Visualizações:</strong>
+  <%= @product.views %>
+</p>
+<p>
+  <strong>Publicado:</strong>
+  <%= @product.published %>
+</p>
+<p>
+  <strong>Texto do Twitter:</strong>
+  <%= @product.tweet_text %>
+</p>
+<p>
+  <strong>Links curtidos:</strong>
+  <%= @product.like_link %>
+</p>
+<p>
+  <strong>Video:</strong>
+  <%= @product.video %>
+</p>
+<p>
+  <strong>Vendas:</strong>
+  <%= @product.vendas %>
+</p>
+
+<p>
+  <%= link_to "Editar", edit_admin_category_subcategory_product_path(@category, @subcategory, @product) %> |
+  <%= link_to "Excluir", admin_category_subcategory_product_path(@category, @subcategory,  @product), :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Ver Todos", admin_category_subcategory_products_path(@category, @subcategory) %>
+</p>
