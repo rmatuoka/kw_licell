@@ -63,11 +63,13 @@ body{
 	}
 
 #header-content{
-	width:960px;
+	position:relative;
+	width:980px;
 	margin:0 auto;
 	}
 
 #header-logo{
+	position:relative;
 	width:960px;
 	float:left;
 	margin-top:15px;
@@ -75,11 +77,13 @@ body{
 	}
 
 #header-nav{
+	position:relative;
 	float:left;
 	margin-top:13px;
 	}
 
 .nav{
+	position:relative;
 	text-align:center;
 	padding-top:14px;
 	height:26px;
@@ -133,6 +137,7 @@ body{
 	}
 
 #header-title h1{
+	position:relative;
 	font-family: Felix;
 	font-size:25px;
 	color:#999;
@@ -160,7 +165,7 @@ body{
 	width:246px;
 	}
 
-#content-left ul a li{
+#content-left ul li a{
 	width:246px;
 	height:37px;
 	text-align:center;
@@ -173,19 +178,19 @@ body{
 	font-weight:600;
 	}
 
-#content-left ul a{
+#content-left ul li a{
 	text-decoration:none;
 	}
 
-#content-left ul a li:hover{
-	background:#d7f3ff;
+#content-left ul li a:hover{
+	background:#d7f3ff !important;;
 	}
 
-.item-b{
+.item-b a{
 	background:#fff !important;
 	}
 
-.item-b:hover{
+.item-b a:hover {
 	background:#d7f3ff!important;
 	}
 
@@ -193,6 +198,194 @@ body{
 	float:right;
 	width:734px;
 	}
+
+#prod-table h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:17px;
+	color:#fff;
+	margin:5px;
+	}
+
+#prod-table h6{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:17px;
+	color:#00b4ff;
+	margin:5px;
+	}
+
+#prod-table p{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#5c5c5c;
+	margin:5px;
+	}
+
+.produto{
+	position:relative;
+	float:left;
+	width:240px;
+	height:325px;
+	}
+
+.produto:hover #prod-top{
+	background-color:#008cc7;
+	}
+
+.prod-top{
+	position:absolute;
+	width:225px;
+	height:42px;
+	background-color:#00b4ff;
+	padding:5px;
+	}
+
+.prod-top h3{
+	color:#FFFFFF;
+	font-family:Felix;
+	font-size:18px;
+	}
+
+.prod-top p{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	font-size:15px;
+	}
+
+.prod-img{
+	position:absolute;
+	top:42px;
+	background-image:url('../images/bg_img_prod.jpg');
+	background-position:top center;
+	width:235px;
+	height:228px;
+	text-align:center;
+	}
+
+.prod-img img{
+	margin-top:15px;
+	}
+
+.prod-fot{
+	position:absolute;
+	top:270px;
+	width:235px;
+	height:44px;
+	background-color:#d7d7d7;
+	border-top:2px solid #ff5c1b;
+	}
+
+.prod-val{
+	float:right;
+	margin-right:20px;
+	}
+
+.prod-val h2{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#000;
+	font-size:20px;
+	margin-top:12px;
+	}
+
+.prod-val b{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#ff5c1b;
+	font-size:15px;
+	
+	}
+
+.prod-add{
+	float:right;
+	}
+
+.prod-des{
+	position:absolute;
+	top:314px;
+	width:225px;
+	background-color:#fff;
+	padding:5px;
+	}
+
+.prod-des p{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#000;
+	font-size:15px;
+	}
+
+	
+#content-abas{
+	margin-top:50px;
+	margin-bottom:50px;
+	}
+
+#content-abas ul{
+	list-style:none; 
+	text-decoration:none;
+	}
+
+.abas{
+	text-decoration:none;
+	}
+
+.abas li{
+	width:150px; 
+	height:32px;
+	padding-top:16px;
+	float:left; 
+	margin-right:5px; 
+	text-align:center; 
+	font-family:Arial, Helvetica, sans-serif; 
+	text-decoration:none; 
+	background-color:#d3f2ff;
+	}
+
+.abas li:hover{
+	text-decoration:none;
+	}
+
+.abas li a{
+	text-decoration:none;
+	font-size:15px;
+	color:#8fa2aa; 
+	}
+
+.ativo{
+	background-color:#00b4ff !important; 
+	text-decoration:none;
+	font-family:Arial, Helvetica, sans-serif; 
+	text-decoration:none; 
+	background-color:#d3f2ff;
+	color:#fff !important; 
+	}
+
+.ativo a{
+	text-decoration:none;
+	color:#fff !important; 
+	}
+
+#noticia{
+	position:relative; 
+	width:734px; 
+	height:auto; 
+	padding:10px; 
+	clear:both; 
+	background-color:#ededed;
+	}
+
+#noticia h2{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:17px;
+	color:#00b4ff;
+	margin:5px;
+	}
+
+#noticia p{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#5c5c5c;
+	margin:5px;
+	}
+
+#noticia div{display:none;}
 
 .produto{
 	position:relative;
@@ -286,16 +479,17 @@ body{
 	}
 	
 .content-slider{
-	width:960px;
+	width:965px;
 	margin:0 auto;
 	}
 
-#content-footer{
-	width:960px;
+.content-footer{
+	position:relative;
+	width:960px !important;
 	margin:0 auto;
 	}
 
-#content-footer h4{
+.content-footer h4{
 	color:#ff5c1b;
 	font-family:Felix;
 	font-size:15px;
@@ -303,7 +497,7 @@ body{
 	margin-bottom:5px;
 	}
 
-#content-footer p{
+.content-footer p{
 	font-family:Arial, Helvetica, sans-serif;
 	color:#b2b2b2;
 	font-size:15px;
@@ -311,6 +505,7 @@ body{
 	}
 
 #footer{
+	position:relative;
 	background-image:url('../images/bg_bandeiras.png');
 	background-position:top center;
 	background-repeat:no-repeat;
@@ -320,6 +515,7 @@ body{
 	}
 
 #footer-itens{
+	position:relative;
 	width:960px;
 	padding-top:60px;
 	margin:0 auto;

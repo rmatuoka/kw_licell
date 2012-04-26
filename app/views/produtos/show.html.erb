@@ -3,9 +3,11 @@
 <%end%>
 
 <%content_for :head do%>
+  <%=stylesheet_link_tag "interna2"%>
 	<%=stylesheet_link_tag "rating"%>
 	<%=stylesheet_link_tag "skin"%>	
 	<%=javascript_include_tag "rating"%>
+  <%= javascript_include_tag "jquery.min.js"%>
 	<%=javascript_include_tag "jquery.validate.min"%>
 	<%=javascript_include_tag "additional-methods.min"%>
 	<%=javascript_include_tag "jcarousel.min"%>
@@ -83,7 +85,199 @@
 	
 	});
 	</script>
+<script>
+$(function(){
+	$('#conteudo').hide();
+	var noticia;	
+	var hash = window.location.hash;
+	if (hash !='')
+	{
+		noticia = $(hash).html();
+		$('.abas li a[href="' + hash + '"]').parent().addClass('ativo');		
+	} else {
+		noticia = $('#conteudo div:first-child').html();			
+		$('.abas li:first-child').addClass('ativo');		
+	}
+	$('#noticia').append('<div>' + noticia + '</div>').find('div').slideDown();
+	$('.abas li a').click(function(){
+		$('.abas li').removeClass('ativo');
+		$(this).parent().addClass('ativo');
+		var ancora = $(this).attr('href');
+		var nome = ancora.substr(1, ancora.length);
+		noticia = $('#conteudo div[id="' + nome + '"]').html();
+		$('#noticia').empty();
+		$('#noticia').append('<div>' + noticia + '</div>').find('div').slideDown();
+	return false();
+	})
+})
+
+</script>
 <%end%>
+	<div id="content-itens">
+    	<div id='content-left'>
+        	<ul>
+            	<a href="#"><li>ITEM</li></a>
+                <a href="#"><li class="item-b">ITEM</li></a>
+                <a href="#"><li>ITEM</li></a>
+                <a href="#"><li class="item-b">ITEM</li></a>
+                <a href="#"><li>ITEM</li></a>
+                <a href="#"><li class="item-b">ITEM</li></a>
+                <a href="#"><li>ITEM</li></a>
+                <a href="#"><li class="item-b">ITEM</li></a>
+                <a href="#"><li>ITEM</li></a>
+                <a href="#"><li class="item-b">ITEM</li></a>
+            </ul>
+        </div>
+        <div id='content-right'>
+        	<div id='prod-table'>
+           	  <table width="733" border="0" cellspacing="0" cellpadding="0" bgcolor="#e8e8e8">
+                  <tr>
+                    <td height="52" colspan="3" bgcolor="#00b4ff" valign="middle"><h1>Loren ipsum dolor sit amet neon</h1></td>
+                  </tr>
+                  <tr>
+                    <td width="284" height="272" align="center" valign="middle" bgcolor="#FFFFFF"><img src="images/img_cel.png" style="margin-top:30px;" /></td>
+                    <td colspan="2" rowspan="3" bgcolor="#FFFFFF" bordercolor="#e8e8e8" style="padding:10px;" >
+                    	<h6>Lorem ipsum</h6>
+						<p>Lorem ipsum dolor sit amet, non leo. Cras ligula odio hendrerit mi. Enim arcu pede luctus eleifend ullamcorper vehicula, purus malesuada vel, est imperdiet justo eu tristique. Aenean amet. Duis eu, dolor morbi a. Varius vel morbi amet neque, wisi velit viverra.
+Lorem ipsum dolor sit amet, non leo. Cras ligula odio hendrerit mi. Enim arcu pede luctus eleifend ullamcorper vehicula, purus malesuada vel, est imperdiet justo eu tristique. Aenean amet. Duis eu, dolor morbi a. Varius vel morbi amet neque, wisi velit viverra.<p></td>
+                  </tr>
+                  <tr>
+                    <td style="background-image:url('../images/bg_prod1_int2.jpg;');" height="22">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td style="background-image:url('../images/bg_prod2_int2.jpg;');" height="31">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td style="background:#e8e8e8;"></td>
+                    <td width="209"><a href="#"><img src="../images/bt_add_whish.jpg" /></a></td>
+                    <td width="240" align="right"><a href="#"><img src="../images/bt_add_cart_int.jpg" /></a></td>
+                  </tr>
+                </table>
+            </div>
+          <div id='content-abas'>
+            	<ul class="abas">
+                    <li><a href="#noticia1">Descrição</a></li>
+                    <li><a href="#noticia2">Características</a></li>
+                    <li><a href="#noticia3">Modo de Uso</a></li>
+                    <li><a href="#noticia4">Detalhes</a></li>
+                </ul>
+                <div id="noticia"></div>
+                <div id="conteudo">
+                <div id="noticia1">
+                    <h2>Lorem ipsum</h2>
+                    <p>Lorem ipsum dolor sit amet, non leo. Cras ligula odio hendrerit mi. Enim arcu pede luctus eleifend ullamcorper vehicula, purus malesuada vel, est imperdiet justo eu tristique. Aenean amet. Duis eu, dolor morbi a. Varius vel morbi amet neque, wisi velit viverra.
+Lorem ipsum dolor sit amet, non leo. Cras ligula odio hendrerit mi. Enim arcu pede luctus eleifend ullamcorper vehicula, purus malesuada vel, est imperdiet justo eu tristique. Aenean amet. Duis eu, dolor morbi a. Varius vel morbi amet neque, wisi velit viverra.</p>
+                </div>
+                <div id="noticia2">
+                    <h2>Lorem ipsum</h2>
+                    <p>Lorem ipsum dolor sit amet, non leo. Cras ligula odio hendrerit mi. Enim arcu pede luctus eleifend ullamcorper vehicula, purus malesuada vel, est imperdiet justo eu tristique. Aenean amet. Duis eu, dolor morbi a. Varius vel morbi amet neque, wisi velit viverra.
+Lorem ipsum dolor sit amet, non leo. Cras ligula odio hendrerit mi. Enim arcu pede luctus eleifend ullamcorper vehicula, purus malesuada vel, est imperdiet justo eu tristique. Aenean amet. Duis eu, dolor morbi a. Varius vel morbi amet neque, wisi velit viverra.</p>
+                </div>
+                <div id="noticia3">
+                    <h2>Lorem ipsum</h2>
+                    <p>Lorem ipsum dolor sit amet, non leo. Cras ligula odio hendrerit mi. Enim arcu pede luctus eleifend ullamcorper vehicula, purus malesuada vel, est imperdiet justo eu tristique. Aenean amet. Duis eu, dolor morbi a. Varius vel morbi amet neque, wisi velit viverra.
+Lorem ipsum dolor sit amet, non leo. Cras ligula odio hendrerit mi. Enim arcu pede luctus eleifend ullamcorper vehicula, purus malesuada vel, est imperdiet justo eu tristique. Aenean amet. Duis eu, dolor morbi a. Varius vel morbi amet neque, wisi velit viverra.</p>
+                </div>
+                <div id="noticia4">
+                    <h2>Lorem ipsum</h2>
+                    <p>Lorem ipsum dolor sit amet, non leo. Cras ligula odio hendrerit mi. Enim arcu pede luctus eleifend ullamcorper vehicula, purus malesuada vel, est imperdiet justo eu tristique. Aenean amet. Duis eu, dolor morbi a. Varius vel morbi amet neque, wisi velit viverra.
+Lorem ipsum dolor sit amet, non leo. Cras ligula odio hendrerit mi. Enim arcu pede luctus eleifend ullamcorper vehicula, purus malesuada vel, est imperdiet justo eu tristique. Aenean amet. Duis eu, dolor morbi a. Varius vel morbi amet neque, wisi velit viverra.</p>
+                </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <div class="clear"></div>
+    <div id='content-footer'>
+				<h5>Recomendamos</h5>
+    		<div id='produtos-bloco'>
+            <div class="produto-um produto">
+            	<div id='prod-top'>
+                	<h3>Lorem ipsum</h3>
+                    <p>dolor sit amet, aliquam nunce</p>
+                </div>
+                <div id='prod-img'>
+                	<img src="images/img_cel.png" border='0' width="194" height="198" />
+                </div>
+                <div id='prod-fot' class="p-fot-um">
+                    <div id='prod-add'>
+						<a href="#"><img src="images/bt_add_cart.jpg" border='0' width="81" height="43" /></a>
+                    </div>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b> 80,00</h2>
+                    </div>
+                </div>
+                <div id='prod-des' class="hide p-des-um">
+                	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
+                </div>
+            </div>
+            <div class="produto-dois produto">
+            	<div id='prod-top'>
+                	<h3>Lorem ipsum</h3>
+                    <p>dolor sit amet, aliquam nunce</p>
+                </div>
+                <div id='prod-img'>
+                	<img src="images/img_cel.png" border='0' width="194" height="198" />
+                </div>
+                <div id='prod-fot' class="p-fot-dois">
+                    <div id='prod-add'>
+						<a href="#"><img src="images/bt_add_cart.jpg" border='0' width="81" height="43" /></a>
+                    </div>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b> 80,00</h2>
+                    </div>
+                </div>
+                <div id='prod-des' class="hide p-des-dois">
+                	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
+                </div>
+            </div>
+            <div class="produto-tres produto">
+            	<div id='prod-top'>
+                	<h3>Lorem ipsum</h3>
+                    <p>dolor sit amet, aliquam nunce</p>
+                </div>
+                <div id='prod-img'>
+                	<img src="images/img_cel.png" border='0' width="194" height="198" />
+                </div>
+                <div id='prod-fot' class="p-fot-tres">
+                    <div id='prod-add'>
+						<a href="#"><img src="images/bt_add_cart.jpg" border='0' width="81" height="43" /></a>
+                    </div>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b> 80,00</h2>
+                    </div>
+                </div>
+                <div id='prod-des' class="hide p-des-tres">
+                	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
+                </div>
+            </div>
+            <div class="produto-quatro produto">
+            	<div id='prod-top'>
+                	<h3>Lorem ipsum</h3>
+                    <p>dolor sit amet, aliquam nunce</p>
+                </div>
+                <div id='prod-img'>
+                	<img src="images/img_cel.png" border='0' width="194" height="198" />
+                </div>
+                <div id='prod-fot' class="p-fot-quatro">
+                    <div id='prod-add'>
+						<a href="#"><img src="images/bt_add_cart.jpg" border='0' width="81" height="43" /></a>
+                    </div>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b> 80,00</h2>
+                    </div>
+                </div>
+                <div id='prod-des' class="hide p-des-quatro">
+                	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <h4>Ultimas buscas:</h4>
+            <p>Lorem, ipsum, dolor, sit, amet, fames, est, leo, fusce, mauris ,sit, ipsum ,dolor, aliquam, nulla. Gravida, tincidunt, nulla, cras, fermentum, magnis, rutrum, integer, cras, blandit, erat, ipsum ,vestibulum, velit, Lorem, ipsum, dolor, sit, amet, fames, est, leo, fusce, mauris ,sit, ipsum ,dolor, aliquam, nulla. Gravida, tincidunt, nulla, cras, fermentum, magnis, rutrum, integer, cras, blandit, erat, ipsum ,vestibulum, velit.</p>
+    </div>
+
+
+
 <div id="Content_products">
 
 <div id="Products">
@@ -296,4 +490,4 @@
    </div>
                                                         
    <img src="/images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" /> 
-</div>
+

@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Ecovita Farmácia de Manipulação :: <%=yield :title%></title>
-<%=stylesheet_link_tag "internal"%>
-<%=stylesheet_link_tag "product"%>
+<title>Licell :: <%=yield :title%></title>
+<%=stylesheet_link_tag "reset"%>
+<%=stylesheet_link_tag "interna"%>
 <%=stylesheet_link_tag "slidetabs"%>
 <%=stylesheet_link_tag "ui-lightness/jquery-ui-1.8.17.custom.css"%>
 <%=stylesheet_link_tag "jquery.fancybox-1.3.4"%>
@@ -18,6 +18,32 @@
 <%=javascript_include_tag "fancybox/jquery.easing-1.3.pack.js"%>
 <%=javascript_include_tag "fancybox/jquery.mousewheel-3.0.4.pack.js"%>
 <%=javascript_include_tag "funcoes"%>
+<%=javascript_include_tag "cycle.js"%>
+<%=javascript_include_tag "easing.js"%>
+<%= javascript_include_tag "jquery.easing.compatibility.js" %>
+<script>
+	$(document).ready(function(e) {
+        $('#s4') 
+		.before('<div id="nav">') 
+		.cycle({ 
+			fx:     'turnLeft', 
+			speed:  'fast', 
+			timeout: 0, 
+			pager:  '#nav' 
+		});
+    $('#produtos-bloco > .produto').mouseenter(function(){
+      $("#p-des-"+$(this).attr('id')).removeClass('hide');
+			$("#p-fot-"+$(this).attr('id')).animate({marginTop: -100});
+			$("#p-des-"+$(this).attr('id')).animate({marginTop: -100});	
+			});
+		$('#produtos-bloco > .produto').mouseleave(function(){
+			$("#p-fot-"+$(this).attr('id')).animate({marginTop: 0});
+			$("#p-des-"+$(this).attr('id')).animate({marginTop: 0});
+			$("#p-des-"+$(this).attr('id')).addClass('hide');
+			});
+
+    });
+</script>
 
 
 
@@ -39,54 +65,47 @@
 </head>
 
 <body>
-<div id="General">
-
-	<div id="Header">
-  		<%=render :file => "layouts/_userbar.html.erb"%>
-
-    	<div id="Logo"><%=link_to image_tag("logo.png"), root_path%></div>
-   		<div id="Search_bar">
-			<%=form_tag '/search/results', :method => :get %>
-            <table width="953" border="0">
-              <tr height="33">
-                <td width="230" height="29">
-					<img src="/images/tit_categorias.png" width="123" height="27" alt="Categorias" title="Categorias" style="float:left; margin-left:15px;" />
-				</td>
-                <td width="485">
-					<div id="Search_for_small">
-						<%#=text_field_tag :keyword, 'Digite o nome do produto.',:onblur=>"if(this.value == '') this.value='Digite o nome do produto.';", :onfocus=>"if(this.value=='Digite o nome do produto.') this.value='';"%>
-						
-						<%=autocomplete_field_tag 'keyword', '', autocomplete_product_name_search_index_path, :size => 20, :onblur=>"if(this.value == '') this.value='Digite o nome do produto.';", :onfocus=>"if(this.value=='Digite o nome do produto.') this.value='';"%>
-					</div>
-				</td>
-                <td width="164">
-					<%= select_tag(:category, options_from_collection_for_select(@category_site, :id, :name), :include_blank=>"Todos",:style => "width:155px; margin-right:2px;") %> 
-                </td>
-                <td width="56">
-					<%=image_submit_tag("user_bars/bt_search.png", :width=>"34", :height=>"23")%>
-				</td>
-              </tr>
-              <tr height="20">
-                <td></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-              </tr>
-            </table>
-			</form>
-    	</div>
+    <div id='top-bar'>
+      <%=render :file => "layouts/_userbar.html.erb"%>
     </div>
-    <div id="Content">
-    	<%=yield%>	
-	<div id="Category">
-		<%=render :file => "layouts/_menu_interna.html.erb"%>         
-	</div>
-		<div class="clear"></div>
-	</div>
-    </div>
-	<!-- FOOTER -->
-	<%=render :file => "layouts/_footer.html.erb"%>
+	  <div id="header">
+      <div id='header-content'>
+        	  <div id='header-logo'>
+            	<a href="#" class="top-bar-um"><img src="../images/logo.png" border='0' /></a>
+            </div>
+            <div id='header-nav'>
+            	  <a href="#"><div class="nav nav-bg">PROTEÇÃO</div></a>
+                <a href="#"><div class="nav">ACESSÓRIOS</div></a>
+                <a href="#"><div class="nav nav-bg">ENERGIA</div></a>
+                <a href="#"><div class="nav">ESPORTE</div></a>
+                <a href="#"><div class="nav nav-bg">UTILITÁRIOS</div></a>
+                <a href="#"><div class="nav">CARREGADORES</div></a>
+            </div>
+            <div id='header-bread'>
+            	<p>home / proteção / nome produto</p>
+            	<h1>Categoria: <b>Proteção</b></h1>
+            </div>
+            <div id='header-title'>
+            	<h1>PROTEÇÃO</h1>
+            </div>
+        </div>
 
-	
+    </div>
+
+  <div id="content">
+	  <%=yield%>
+  <div class="clear"></div>
+
+  <!-- FOOTER -->
+  <div class='content-footer'>
+        <h4>Ultimas buscas:</h4>
+        <p>Lorem, ipsum, dolor, sit, amet, fames, est, leo, fusce, mauris ,sit, ipsum ,dolor, aliquam, nulla. Gravida, tincidunt, nulla, cras, fermentum, magnis, rutrum, integer, cras, blandit, erat, ipsum ,vestibulum, velit, Lorem, ipsum, dolor, sit, amet, fames, est, leo, fusce, mauris ,sit, ipsum ,dolor, aliquam, nulla. Gravida, tincidunt, nulla, cras, fermentum, magnis, rutrum, integer, cras, blandit, erat, ipsum ,vestibulum, velit.</p>
+  </div> 		
+  </div>	
+  <div class="clear"></div>
+  <div id="footer">
+	  <%=render :file => "layouts/_footer.html.erb"%>
+  </div>
+
 </body>
 </html>
