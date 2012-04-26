@@ -1,7 +1,7 @@
 class DevelopmentMailInterceptor
   def self.delivering_email(message)
-    message.subject = "---=== Farmacia Ecovita Teste de Email ===---"
-    message.to = "bsilva@korewa.com.br"
-    message.bcc = "bsilva@korewa.com.br"
+    message.subject = "---=== Licell teste de Email ===---"
+    message.to = "log@korewa.com.br"
+    message.bcc = "log@korewa.com.br"
   end
 end

@@ -1,0 +1,91 @@
+#contet-top-fim h1{
+	width:950px;
+	height:35px;
+	padding-top:13px;
+	padding-left:15px;
+	background-color:#f6f6f6;
+	margin-left:10px;
+	margin-top:20px;
+	color:#00b4ff;
+	font-family:Ebrima;
+	font-size:25px;
+	}
+
+#content-itens p{
+	font-family:Ebrima;
+	font-size:20px;
+	color:#5c5c5c;
+	margin-top:10px;
+	margin-left:25px;
+	}
+
+#content-itens p a{
+	font-family:Ebrima;
+	font-size:20px;
+	color:#00b4ff;
+	text-decoration:none;
+	}
+
+#content-itens a img{
+	margin-top:20px;
+	margin-left:25px;
+	}
+#tabela-carrinho{
+	width:960px;
+	min-height:20px;
+	height:auto;
+	border:none;
+	margin-left:10px;
+	margin-top:30px;	
+}
+#tabela-carrinho-titulo h1{
+	color:#e04000;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	margin:0px;
+	width:0px !important;
+	background-color:transparent;
+	height:25px;
+	}
+
+#tabela-carrinho-titulo h2{
+	color:#0079ac;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	margin:0px;
+	}
+
+#tabela-carrinho-linha{
+	height:30px;
+	}
+
+#tabela-carrinho-linha p{
+	margin:0px;
+	padding:0px;
+	margin-left:10px;
+	}
+
+#cel-quantidade{
+	background-color:#FFFFFF;
+	border:1px solid #CCC;
+	width:60px;
+	height:50px;
+	display:table-cell;
+	vertical-align:middle;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:25px;
+	color:#939393;
+	}
+
+#prazos p{
+	margin:0px;
+	padding:0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#939393;
+	margin-left:25px;
+	}
+
+#prazos p b{
+	color:#e04000
+	}

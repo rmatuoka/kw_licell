@@ -73,14 +73,16 @@
         	  <div id='header-logo'>
             	<a href="#" class="top-bar-um"><img src="../images/logo.png" border='0' /></a>
             </div>
+            
             <div id='header-nav'>
-            	  <a href="#"><div class="nav nav-bg">PROTEÇÃO</div></a>
-                <a href="#"><div class="nav">ACESSÓRIOS</div></a>
-                <a href="#"><div class="nav nav-bg">ENERGIA</div></a>
-                <a href="#"><div class="nav">ESPORTE</div></a>
-                <a href="#"><div class="nav nav-bg">UTILITÁRIOS</div></a>
-                <a href="#"><div class="nav">CARREGADORES</div></a>
-            </div>
+            <% addclass = false 
+              @category_site.each do |category|%>
+            	  <div class="nav <%=("nav-bg") if addclass == true %>" ><%=link_to category.name, categoria_path(category.url_slug)%></div>
+            <% addclass = !addclass
+              end%>
+            </div>           
+
+
             <div id='header-bread'>
             	<p>home / proteção / nome produto</p>
             	<h1>Categoria: <b>Proteção</b></h1>
@@ -94,15 +96,7 @@
 
   <div id="content">
 	  <%=yield%>
-  <div class="clear"></div>
-
-  <!-- FOOTER -->
-  <div class='content-footer'>
-        <h4>Ultimas buscas:</h4>
-        <p>Lorem, ipsum, dolor, sit, amet, fames, est, leo, fusce, mauris ,sit, ipsum ,dolor, aliquam, nulla. Gravida, tincidunt, nulla, cras, fermentum, magnis, rutrum, integer, cras, blandit, erat, ipsum ,vestibulum, velit, Lorem, ipsum, dolor, sit, amet, fames, est, leo, fusce, mauris ,sit, ipsum ,dolor, aliquam, nulla. Gravida, tincidunt, nulla, cras, fermentum, magnis, rutrum, integer, cras, blandit, erat, ipsum ,vestibulum, velit.</p>
-  </div> 		
-  </div>	
-  <div class="clear"></div>
+    <div class="clear"></div>
   <div id="footer">
 	  <%=render :file => "layouts/_footer.html.erb"%>
   </div>

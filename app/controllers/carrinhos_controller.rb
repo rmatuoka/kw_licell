@@ -3,6 +3,9 @@ class CarrinhosController < ApplicationController
   layout "interna"
   
   def index
+    
+       
+
     if !params[:gift_cod].blank?
       if !params[:gift_cod].empty?
         #VALE PRESENTE
@@ -19,6 +22,8 @@ class CarrinhosController < ApplicationController
     else
       @total_final = @cart.total_price
     end
+
+    
   end
   
   def empty_cart

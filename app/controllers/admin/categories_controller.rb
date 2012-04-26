@@ -18,11 +18,18 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(params[:category])
-    if @category.save
-      redirect_to admin_category_path(@category), :notice => "Successfully created category."
-    else
-      render :action => 'new'
+    @categories = Category.all
+
+    if @categories.count < 6
+      @category = Category.new(params[:category])
+      if @category.save
+        redirect_to admin_category_path(@category), :notice => "Successfully created category."
+      else
+        render :action => 'new'
+      end
+    else      
+      flash[:error] = "Não é possível criar mais do que 6 categorias"
+      redirect_to admin_categories_path    
     end
   end
 

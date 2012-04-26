@@ -35,14 +35,14 @@ class UserMailer < ActionMailer::Base
   def order_start(order)
     @order = order
     @order_itens = OrderProduct.all(:conditions => ['order_id = ?', @order.id])    
-    mail(:to=>"vendas@farmaciaecovita.com.br", :bcc => "bsilva@korewa.com.br, rmatuoka@korewa.com.br", :subject => @order.user.nome + " - Novo Pedido através do Site")
+    mail(:to=>"vendas@licell.com.br", :bcc => "log@korewa.com.br", :subject => @order.user.nome + " - Novo Pedido através do Site")
   end
   
   #Enviado quando o pagamento for concluido!
   def order_completed(order)
     @order = order
     @order_itens = OrderProduct.all(:conditions => ['order_id = ?', @order.id])    
-    mail(:to=>"vendas@farmaciaecovita.com.br", :bcc => "bsilva@korewa.com.br, rmatuoka@korewa.com.br", :subject => @order.user.nome + " - Pagamento Efetuado")    
+    mail(:to=>"vendas@licell.com.br", :bcc => "log@korewa.com.br", :subject => @order.user.nome + " - Pagamento Efetuado")    
   end
   
   #Enviado quando o tem algum comentário em algum produto
@@ -50,12 +50,12 @@ class UserMailer < ActionMailer::Base
     @user = user
     @product = product
     
-    mail(:to=>"sac@farmaciaecovita.com.br", :bcc => "bsilva@korewa.com.br, rmatuoka@korewa.com.br", :subject => @user.nome + " comentou no produto " + @product.name)    
+    mail(:to=>"sac@licell.com.br", :bcc => "log@korewa.com.br", :subject => @user.nome + " comentou no produto " + @product.name)    
   end
   
   def reports(vendasok)
      @vendasefetuadas = vendasok
-     mail(:to => "andreafarma@uol.com.br", :cc=> "andrea@farmaciaecovita.com.br", :bcc => "bsilva@korewa.com.br, rmatuoka@korewa.com.br, vendas@farmaciaecovita.com.br", :subject => "Relatorio de Vendas aprovadas!")
+     mail(:to => "vendas@licell.com.br", :bcc => "log@korewa.com.br", :subject => "Relatorio de Vendas aprovadas!")
    end
   
 end

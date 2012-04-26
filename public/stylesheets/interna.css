@@ -81,19 +81,20 @@ body{
 	float:left;
 	margin-top:13px;
 	}
-
-.nav{
+.nav a{
+	font-family: Ebrima;
+	font-size:17px;
+	color:#727272;
+	font-weight:600;
+	text-decoration:none;
+} 
+.nav  {
 	position:relative;
 	text-align:center;
 	padding-top:14px;
 	height:26px;
 	width:160px;
 	float:left;
-	font-family: Ebrima;
-	font-size:17px;
-	color:#727272;
-	font-weight:600;
-	text-decoration:none;
 	}
 
 .nav:hover{
