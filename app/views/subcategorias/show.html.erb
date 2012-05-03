@@ -1,68 +1,84 @@
 <%content_for :title do%>
 	<%=@subcategory.category.name%> :: <%=@subcategory.name%>
 <%end%>
+<script>
+	$(document).ready(function(e) {
+        $('#s4') 
+		.before('<div id="nav">') 
+		.cycle({ 
+			fx:     'turnLeft', 
+			speed:  'fast', 
+			timeout: 0, 
+			pager:  '#nav' 
+		});
+    $('#produtos-bloco > .produto').mouseenter(function(){
+      $("#p-des-"+$(this).attr('id')).removeClass('hide');
+			$("#p-fot-"+$(this).attr('id')).animate({marginTop: -100});
+			$("#p-des-"+$(this).attr('id')).animate({marginTop: -100});	
+			});
+		$('#produtos-bloco > .produto').mouseleave(function(){
+			$("#p-fot-"+$(this).attr('id')).animate({marginTop: 0});
+			$("#p-des-"+$(this).attr('id')).animate({marginTop: 0});
+			$("#p-des-"+$(this).attr('id')).addClass('hide');
+			});
 
-<div id="Content_products">
-<div id="Products">
-            <p class="Bread_crumb"><%=link_to "home", home_index_path%> / <%=link_to @subcategory.category.name, categoria_path(@subcategory.category.url_slug)%> / <%=link_to @subcategory.name, subcategoria_path(@subcategory.url_slug)%></p>
-            <h1 style=" vertical-align:middle; text-align:left;"><%=@subcategory.category.name%> : <%=@subcategory.name%></h1>
-            <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
-            <div id=""><!-- <img src="/images/img_product_destaque.jpg" width="700" height="181" /> --></div>
-            <!--<img src="/images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" />  -->
-                    <!-- <label style=" vertical-align:middle;">Items por Pagina</label>
-                    <select name="items por pagina" style=" text-align:left; margin-right:260px; ">
-                        <option value="">5</option>
-                        <option value="1">10</option>
-                        <option value="1">20</option>
-                        <option value="1">30</option>
-                    </select> 
-                    <label style=" vertical-align:middle;">Ordenar por categoria</label>
-                    <select name="items por pagina" style=" text-align:left;">
-                        <option value="">Mais Vendidos</option>
-                        <option value="1">categoria</option>
-                        <option value="1">categoria</option>
-                        <option value="1">categoria</option>
-                    </select>--> <br /><br /><br /><br />
-         
-              <!-- PRODUTO -->
-				<%@products.each do |produto|%>
-				<div id="Product" class="p">
-                  	<div id="Name"><%=produto.name%></div>
-					<div id="Photo">
-						<%=link_to(image_tag(produto.product_images.first.image.url("thumb")), produto_path(produto.url_slug)) if !produto.product_images.first.blank? %>
+    });
+</script>
+	<div id="content-itens">
+    	  <div id='content-left'>
+        	<ul>
+              <% addclass = false
+                @subcategorias.each do |sub| %>
+                <li <%=("class='item-b'") if addclass == true %>><%= link_to sub.name , subcategoria_path(sub.url_slug)%></li>
+              <% addclass = !addclass
+                 end%>
+          </ul>
+        </div>
+        <div id='content-right'>
+         	<div id='produtos-bloco'>
 
-						<%=link_to(image_tag("missing_thumb.jpg"), produto_path(produto.url_slug)) if produto.product_images.first.blank? %>
-					</div>
-                  <div id="Values">
-                      	<h3><%=truncate(produto.summary, :length => 55)%></h3><br />
-                      <%if produto.discount.blank?%>
-							<h4 class="Price_of">
-							<b class="Price_for">por: <%=number_to_currency(produto.price)%></b>
-							</h4>
-						<%else%>
-							<h4 class="Price_of">
-								de: <%=number_to_currency(produto.price)%> <br />
-							<b class="Price_for">por: <%=number_to_currency(produto.price - produto.discount)%></b>
-							</h4>
-						<%end%>
-						
-						<br />
+          <%  count = 0
+              @products.each do |produto|
+          %>
+              <div class="produto" id='<%=count%>'>
+              	<div class='prod-top'>
+                  	<h3><%=produto.name%></h3>
+                      <p><%=truncate(produto.summary, :length => 55)%></p>
                   </div>
-                  <h5><%=link_to "+ "+produto.subcategory.category.name,categoria_path(produto.subcategory.category.url_slug)%></h5>
-                  <div class="Buttons">
-						<%=link_to image_tag("bt_addtocart.png"), add_to_cart_produto_path(produto)%><br/>
-
-							<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.farmaciaecovita.com.br" data-text="<%=produto.tweet_text%>" data-count="none" data-via="farmaecovita" style="display:inline-block;">Tweet</a>
-
-							<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.farmaciaecovita.com.br/produtos/<%=produto.id%>&layout=button_count&show_faces=false&action=like" style="border: medium none; overflow: hidden; width: 80px; height: 20px; display:inline-block;" allowtransparency="true" scrolling="no" frameborder="0"></iframe>           
-
-
+                  <div class='prod-img'>
+						          <%=link_to (image_tag(produto.product_images.first.image.url("medium")), produto_path(produto.url_slug)) if !produto.product_images.first.blank? %>
+						
+						          <%=link_to(image_tag("missing_thumb.jpg"), produto_path(produto.url_slug)) if produto.product_images.first.blank? %>
+                  </div>
+                  <div class="prod-fot" id="p-fot-<%=count%>">
+                      <div class='prod-add'>
+                        <%=link_to image_tag("bt_add_cart.jpg", :width=>"81", :height=>"43"), add_to_cart_produto_path(produto)%>
+                      </div>
+                      <%if produto.discount.blank?%>
+                      <div class='prod-val'>
+                      	<h2><b>R$</b><%=number_to_currency(produto.price)%></h2>
+                      </div>
+                      <%else%>
+                      <div class='prod-val'>
+                      	<h2><b>R$</b><%=number_to_currency(produto.price - produto.discount)%></h2>
+                      </div>
+                      <%end%>
+                  </div>
+                  <div class="hide prod-des" id="p-des-<%=count%>">
+                  	<p><%=truncate(produto.summary, :length => 55)%></p>
                   </div>
               </div>
-				<%end%>
-              
-  		<div style="clear:both;"></div>
-		<p><%= will_paginate @products %></p>
-       <!-- <p ><a href="#" class="pages"><< </a><a href="#" class="pages"> 1 </a><a href="#" class="pages"> 2 </a><a href="#" class="pages"> 3 </a><a href="#" class="pages"> 4 </a><a href="#" class="pages"> 5 </a><a href="#" class="pages"> 6 </a><a href="#" class="pages"> >></a></p>-->                                                   
-       <img src="/images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" /> 
+          <%  count = count + 1 
+            end
+          %>
+        </div>        
       </div>
+    </div>
+    <div class="clear"></div>
+    <!-- FOOTER -->
+    <div class='content-footer'>
+          <h4>Ultimas buscas:</h4>
+          <p>Lorem, ipsum, dolor, sit, amet, fames, est, leo, fusce, mauris ,sit, ipsum ,dolor, aliquam, nulla. Gravida, tincidunt, nulla, cras, fermentum, magnis, rutrum, integer, cras, blandit, erat, ipsum ,vestibulum, velit, Lorem, ipsum, dolor, sit, amet, fames, est, leo, fusce, mauris ,sit, ipsum ,dolor, aliquam, nulla. Gravida, tincidunt, nulla, cras, fermentum, magnis, rutrum, integer, cras, blandit, erat, ipsum ,vestibulum, velit.</p>
+    </div> 		
+    </div>	
+    <div class="clear"></div>

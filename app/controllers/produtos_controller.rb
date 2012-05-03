@@ -8,6 +8,7 @@ class ProdutosController < ApplicationController
     @recomendados = @produto.recommendeds.all(:conditions => ['`products`.`price` > 0 AND IF(`products`.`stock_control` = 1, `products`.`stock_quantity` > 0 AND `products`.`published` = 1,  `products`.`published` = 1)'])
     @produto.views = views
     @produto.save
+    @categoria = Category.find(@produto.subcategory.category_id)
   end
   
   def add_to_cart
@@ -39,11 +40,11 @@ class ProdutosController < ApplicationController
     
     redirect_to wishlists_path
   end
-  
   def before
     @produto = Product.find(params[:id])
     @subcategory = @produto.subcategory
     @category = @subcategory.category
+    @subcategorias = @category.subcategories.all
     if !@produto.published
       redirect_to home_path
     end

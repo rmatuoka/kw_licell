@@ -28,8 +28,8 @@
     	  <div id='content-left'>
         	<ul>
               <% addclass = false
-                @subcategorias.each do |c| %>
-                <li <%=("class='item-b'") if addclass == true %>><%= link_to c.name ,"#"%></li>
+                @subcategorias.each do |sub| %>
+                <li <%=("class='item-b'") if addclass == true %>><%= link_to sub.name , subcategoria_path(sub.url_slug)%></li>
               <% addclass = !addclass
                  end%>
           </ul>
