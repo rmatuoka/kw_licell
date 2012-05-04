@@ -1,99 +1,57 @@
-	
+<%=javascript_include_tag "funcoes"%>
+		
 			<%if current_user%>
       <!-- new USUARIO LOGADO -->
       <div id='itens-top-bar'>        	
           <%=link_to(image_tag("bt_top_um.png",:width=>"121" , :height=>"17"), accounts_path, :class => "top-bar" )%>
-          <%=link_to(image_tag("bt_top_dois.png",:width=>"145" , :height=>"20"), carrinhos_path, :class => "top-bar" )%>
+          <%=link_to(image_tag("bt_top_dois.png",:width=>"145" , :height=>"20"), :class => "top-bar closed")%>
           <%=link_to(image_tag("bt_top_tres.png",:width=>"48" , :height=>"11"), logout_path, :class => "top-bar" )%>
+        	<div id="Menu_Cart">
+                <div id="Menu">
+                  <ul>
+                      <%if !@cart.items.blank?%>
+				              <%for cart_item in @cart.items%>
+					              <li><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produto_path(cart_item.id_product)%></li>
+				              <%end%>
+					              <li>Total : <%=number_to_currency(@cart.total_price)%></li>
+					              <li><%=link_to("Finalizar Compra",carrinhos_path)%></li><br /><br />
+                        <li><%=link_to("Ir Para o carrinho",carrinhos_path)%></li>
+				              <%else%>
+						              <li>Não há itens no carrinho.</li>
+				              <%end%>
+                  </ul>
+                </div>
+            </div>	
       </div>
 
-
-				<div id="User_bar">
-					<!-- USUARIO LOGADO -->
-					<table width="942" border="0">
-		              <tr height="33">
-		                <td width="466"><span class="Text_userbar" style="margin-left:35px;"><%=data_atual_extenso%></span></td>
-		                <td width="154"><span class="Text_userbar"><%=image_tag("user_bars/img_myacount.png", :class => "img_userbar")%><%=link_to "Minha conta", accounts_path, :class => "Text_userbar"%></span></td>
-		                <td width="198"><span class="Text_userbar"><%=image_tag("user_bars/img_mycart.png", :class => "img_userbar")%><%=link_to "Meu Carrinho", carrinhos_path, :class=> "Text_userbar"%></span> </td>
-		                <td width="96"><span class="Text_userbar">&nbsp;<%=link_to "Sair", logout_path, :class =>"Text_userbar"%> <%=image_tag("user_bars/img_arrowlogout.png", :class => "img_userbar")%></span> </td>
-		              </tr>
-		              <tr>
-		                <td>&nbsp;</td>
-		                <td>&nbsp;</td>
-		                <td>
-		                	<div id="Menu_Cart">
-		                        <div id="Menu">
-		                          <ul>
-		                            <%if !@cart.items.blank?%>
-										<%for cart_item in @cart.items%>
-											<li><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produto_path(cart_item.id_product)%></li>
-										<%end%>
-											<li>Total : <%=number_to_currency(@cart.total_price)%></li>
-											<li><%=link_to("Finalizar Compra",carrinhos_path)%></li>
-									<%else%>
-											<li>Não há itens no carrinho.</li>
-									<%end%>
-		                          </ul>
-		                        </div>
-		                        <img src="/images/menu/top_loginbar_abadown.png" id="botao" class="closed"  />
-		                    </div>	
-		                </td>
-		                <td>&nbsp;</td>
-		              </tr>
-		            </table>
-				</div>
 			<%else%>
-			<script>
-			$(document).ready(function() {
-			    
-				$('a.iframe').fancybox({
-					'width'		: 500,
-					'height'	: 280,
-					'centerOnScroll' : true
-				});
-
-			
-			});
-			</script>
 			<div id="User_bar_logoff">
 
 
       <!-- new USUARIO deslogado -->
-      <div id='itens-top-bar'>        	
+      <div id='itens-top-bar'>   
+          <span><%=data_atual_extenso%></span>     	
           <%=link_to(image_tag("bt_top_um.png",:width=>"121" , :height=>"17"), accounts_path, :class => "top-bar" )%>
-          <%=link_to(image_tag("bt_top_dois.png",:width=>"145" , :height=>"20"), carrinhos_path, :class => "top-bar" )%>
-          <%=link_to(image_tag("bt_top_tre1.png",:width=>"48" , :height=>"11"), logout_path, :class => "top-bar" )%>
+          <%=image_tag("bt_top_dois.png",:width=>"145" , :height=>"20", :class => "top-bar closed", :id=>"botao" ) %>
+          <%=link_to(image_tag("bt_logar.png",:width=>"48" , :height=>"11"), login_path, :class => "top-bar" )%>
+        	<div id="Menu_Cart">
+                <div id="Menu">
+                  <ul>
+                      <%if !@cart.items.blank?%>
+				              <%for cart_item in @cart.items%>
+					              <li><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produto_path(cart_item.id_product)%></li>
+				              <%end%>
+					              <li>Total : <%=number_to_currency(@cart.total_price)%></li>
+					              <li><%=link_to("Finalizar Compra",carrinhos_path)%></li><br /><br />
+                        <li><%=link_to("Ir Para o carrinho",carrinhos_path)%></li>
+				              <%else%>
+						              <li>Não há itens no carrinho.</li>
+				              <%end%>
+                  </ul>
+                </div>
+            </div>	
       </div>
 
-				<table width="942" border="0">
-	              <tr height="33">
-	                <td width="466" style="*width:540px;"><span class="Text_name" style="margin-left:35px; margin-right:290px;"><%=data_atual_extenso%></span><span class="Text_login"><%=image_tag("bt_ico_login.png",:style=>"position:relative;top:0px;margin-right:12px;")%><%= link_to "Login", login_path, :class=> "Text_userbar iframe",:style=>"position:relative;top:0px;"%></span></td>
-	                <td width="154"><span class="Text_userbar"><img src="/images/user_bars/img_myacount.png" width="25" height="17" class="img_userbar" style="*margin-left:26px" /><%=link_to "Cadastrar-se", new_user_path, :class => "Text_userbar"%></span></td>
-	                <td width="198"><span class="Text_userbar"><img src="/images/user_bars/img_mycart.png" width="25" height="17" class="img_userbar" style="*margin-left:45px;" /><%=link_to "Meu Carrinho", carrinhos_path, :class=> "Text_userbar"%></span> </td>
-	              <tr>
-	                <td>&nbsp;</td>
-	                <td>&nbsp;</td>
-	                <td>
-	                	<div id="Menu_Cart">
-	                        <div id="Menu">
-	                          <ul>
-	                              <%if !@cart.items.blank?%>
-									<%for cart_item in @cart.items%>
-										<li><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produto_path(cart_item.id_product)%></li>
-									<%end%>
-										<li>Total : <%=number_to_currency(@cart.total_price)%></li>
-										<li><%=link_to("Finalizar Compra",carrinhos_path)%></li>
-									<%else%>
-											<li>Não há itens no carrinho.</li>
-									<%end%>
-	                          </ul>
-	                        </div>
-	                        <img src="/images/menu/top_loginbar_abadown.png" id="botao" class="closed"  />
-	                    </div>	
-	                </td>
-	              </tr>
-	            </table>
-			</div>
 			<%end%>
 			<!-- /USUARIO LOGADO -->
 	

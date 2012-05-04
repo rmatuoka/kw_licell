@@ -1,0 +1,65 @@
+
+/* CSS Document */
+
+
+/* Aba carrinho*/
+#itens-top-bar
+{
+position:relative;
+height:37px;
+}
+#Menu_Cart
+{
+	position:absolute !important;
+	left:650px;
+	border:red 1px solid;
+	width:300px;
+	z-index:2000;
+}
+	#Menu_Cart #Menu
+	{
+		position:relative !important;
+		left:0px;
+		width:200px;
+		height:auto;
+		border:red 1px solid;
+		background:white;
+	}
+		#Menu_Cart #Menu ul
+		{
+			background-image:url(../images/user_bars/bg_transp.png);
+			background-repeat:repeat-y;
+			background-position:top center;
+			text-align:center;
+			width:200px;
+		}
+			#Menu_Cart #Menu ul li
+			{
+				list-style:none;
+				padding-top:10px;
+				padding-bottom:15px;
+			}
+				#Menu_Cart #Menu ul li a
+				{
+					text-decoration:none;
+					color:00b4ff;
+				}
+				#Menu_Cart #Menu ul li a:hover
+				{
+					color:00b4ff;
+				}							
+				#Menu_Cart #Menu ul li img
+				{
+					vertical-align:middle;
+					margin-right:10px;
+				}
+				#Menu_Cart #Menu ul li h3
+				{
+					font-family:Arial;
+					font-size:12px;
+					color:#00b4ff;
+					font-weight:normal;
+					
+				}
+				
+
