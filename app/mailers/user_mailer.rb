@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => "Farmácia Ecovita - Vendas <vendas@farmaciaecovita.com.br>"
+  default :from => "Licell - Vendas <vendas@licell.com.br>"
 
 
   

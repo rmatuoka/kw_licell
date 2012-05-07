@@ -10,10 +10,10 @@
         <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
         <div class="Text_box">
         	<p class="Tit_1">Olá, <%=current_user.nome%></p><br>
-        	<p class="Content">Seu medicamento será manipulado mediante confirmação do pagamento junto à pagseguro.
+        	<p class="Content">Seu Produto será enviado mediante confirmação do pagamento junto à pagseguro.
 				Para acompanhar o status do seu pedido clique no link abaixo ou acesse: <%=link_to "Minha conta", accounts_path%></p>
             <br />
-			<p>Obrigado por escolher a Ecovita!</p>
+			<p>Obrigado por escolher a Licell!</p>
 			<br />
 			<%= pagseguro_form @order_product, :submit => "Clique aqui para efetuar o pagamento!" %>
 
