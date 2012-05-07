@@ -11,18 +11,18 @@ height:37px;
 #Menu_Cart
 {
 	position:absolute !important;
-	left:650px;
-	border:red 1px solid;
-	width:300px;
+	left:659px;
+	top:31px;
+	width:276px;
 	z-index:2000;
 }
 	#Menu_Cart #Menu
 	{
 		position:relative !important;
 		left:0px;
-		width:200px;
+		width:276px;
 		height:auto;
-		border:red 1px solid;
+		border:#8cddff 3px solid;
 		background:white;
 	}
 		#Menu_Cart #Menu ul
@@ -36,8 +36,72 @@ height:37px;
 			#Menu_Cart #Menu ul li
 			{
 				list-style:none;
-				padding-top:10px;
-				padding-bottom:15px;
+				width:276px;
+			}
+			.Cart_item 
+			{
+				font-family:Felix;
+				color:#00b4ff;
+				font-size:12px;
+				text-align:center;
+				height:31px;
+				background:#c1ecff;
+				padding-top:15px
+	
+			}
+			.Cart_item a
+			{
+				font-family:Felix;
+				color:#00b4ff;
+				font-size:12px;				
+			}
+			.Total_txt
+			{
+				height:17px;
+				background:#8cddff;
+				font-family:Felix !important;
+				color:#6d6d6d !important;
+				font-size:12px;
+				width:270px !important;
+				font-weight:normal;
+				text-align:left;
+				padding-left:6px;
+				padding-top:3px;
+
+			}
+			.Total_val
+			{
+				height:27px;
+				background:#c1ecff;
+				color:#6d6d6d;
+				font-size:20px;
+				font-weight:normal;
+				text-align:center;
+				padding-top:9px;
+			}
+			.Btns_place
+			{
+				background:#8cddff;	
+			}
+			.Btn_fnz_cmp
+			{
+				position:relative;
+				left:34px;
+				font-family:Felix;
+				color:#6d6d6d;
+				font-size:14px;							
+			}
+			.Btns_place a:hover
+			{
+				color:#d63d00;								
+			}
+			.Btn_cart
+			{
+				position:relative;
+				left:-35px;
+				font-family:Felix;
+				color:#6d6d6d;
+				font-size:14px;				
 			}
 				#Menu_Cart #Menu ul li a
 				{

@@ -2,7 +2,7 @@
 		
 			<%if current_user%>
       <!-- new USUARIO LOGADO -->
-      <div id='itens-top-bar'>        	
+      <div id='itens-top-bar' >        	
           <%=link_to(image_tag("bt_top_um.png",:width=>"121" , :height=>"17"), accounts_path, :class => "top-bar" )%>
           <%=link_to(image_tag("bt_top_dois.png",:width=>"145" , :height=>"20"), :class => "top-bar closed")%>
           <%=link_to(image_tag("bt_top_tres.png",:width=>"48" , :height=>"11"), logout_path, :class => "top-bar" )%>
@@ -21,7 +21,7 @@
 				              <%end%>
                   </ul>
                 </div>
-            </div>	
+            </div>
       </div>
 
 			<%else%>
@@ -29,7 +29,7 @@
 
 
       <!-- new USUARIO deslogado -->
-      <div id='itens-top-bar'>   
+      <div id='itens-top-bar' style="height:45px !important;">   
           <span><%=data_atual_extenso%></span>     	
           <%=link_to(image_tag("bt_top_um.png",:width=>"121" , :height=>"17"), accounts_path, :class => "top-bar" )%>
           <%=image_tag("bt_top_dois.png",:width=>"145" , :height=>"20", :class => "top-bar closed", :id=>"botao" ) %>
@@ -39,11 +39,11 @@
                   <ul>
                       <%if !@cart.items.blank?%>
 				              <%for cart_item in @cart.items%>
-					              <li><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produto_path(cart_item.id_product)%></li>
+					              <li class="Cart_item"><%=link_to cart_item.quantity.to_s + "  " +cart_item.title + "(s)", produto_path(cart_item.id_product)%></li>
 				              <%end%>
-					              <li>Total : <%=number_to_currency(@cart.total_price)%></li>
-					              <li><%=link_to("Finalizar Compra",carrinhos_path)%></li><br /><br />
-                        <li><%=link_to("Ir Para o carrinho",carrinhos_path)%></li>
+                        <li class="Total_txt">Total :</li>
+					              <li class="Total_val"><%=number_to_currency(@cart.total_price)%></li>
+					              <li class="Btns_place"><%=link_to("Ir Para o carrinho",carrinhos_path, :class =>"Btn_cart")%><%=link_to("Finalizar Compra",carrinhos_path, :class =>"Btn_fnz_cmp")%></li>
 				              <%else%>
 						              <li>Não há itens no carrinho.</li>
 				              <%end%>
