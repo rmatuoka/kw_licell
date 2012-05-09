@@ -4,13 +4,13 @@
 		  :message => "",
 		  :header_tag => "" %>
 		<%= flash[:error]%>
-		<%= f.label :email, "E-mail", :class=>"Text_tile" %>
+		<%= f.label :email, raw("&nbsp;&nbsp; Email"), :class=>"Text_tile" %>
         <%= f.text_field :email %>
 		<br /><br />
 		<%= f.label :password, raw("&nbsp; Senha"), :class=>"Text_tile" %>
         <%= f.password_field :password %>
 		<br />
-        <%=image_submit_tag "bt_entrar.png", :style => "margin-top:10px; border:none;"%><br>
+        <%= f.submit "Entrar", :class => "Bt_enviar"%><br>
 		<br>
 	<% end %>
 	<a class="Text_tile" href="javascript:void(0);" onclick="window.parent.location ='/users/new'">Não é cadastrado? clique aqui.</a><br /><br />
