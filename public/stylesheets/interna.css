@@ -201,6 +201,38 @@ body{
 	text-transform:uppercase!important;
 	text-decoration:none;
 	}
+	
+	
+/*  inicio standard layout tela  */
+#Box_content
+{
+	position:relative;
+	width:960px;
+	margin:0 auto;
+}
+	#Box_content h1
+	{
+		color:#00b4ff;
+		font-size:25px;
+		border:#f6f6f6 18px solid;
+		background:#f6f6f6;
+		margin-top:18px;
+		margin-left:-9px;
+	}
+	#Box_content .Text_box
+	{
+		position:relative;
+		margin-left:18px;
+	}
+	#Box_content .Text_box p
+	{
+		font-family:Ebrima;
+		font-size:20px;
+		color:#5c5c5c;
+	}
+/*  Final standard layout tela  */
+
+
 #content{
 	position:relative;
 	top:-10px;

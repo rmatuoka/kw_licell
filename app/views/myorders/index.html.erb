@@ -29,12 +29,11 @@
 	</script>
 <%end%>
 
-<div id="Content_products">
+<div id="Box_content">
+
 
 	<div id="Products">
-		<p class="Bread_crumb"><%=link_to "home", home_index_path%> / <%=link_to "minha conta", accounts_path%></p> 
-		<h1 style=" vertical-align:middle; text-align:left;">Minha Conta : Meus Pedidos</h1>
-		<img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />        
+		<h1 style=" vertical-align:middle; text-align:left;">Minha Conta : Meus Pedidos</h1>       
 		<%@myorders.each do |order|%>
 		<!-- item-start --> 		
 		<div id="Cart">        
@@ -98,6 +97,8 @@
 			</div>
 		</div>  
 		<%end%> 
-	</div>                                                    
+	</div> 
+</div>	                                                   
+</div>	                                                   
 <!--item-end-->
 

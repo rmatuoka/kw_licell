@@ -5,24 +5,45 @@
 <%content_for :head do%>
 	<%=stylesheet_link_tag "user_terms"%>
 <%end%>
+<style>
+.bt_cad_edit {
+position: relative;
+width: 102px;
+height: 32px;
+cursor: pointer;
+border-radius: 10px;
+background: #999;
+font-family: Verdana, Geneva, sans-serif;
+font-size: 12px;
+font-weight: bold;
+color: white;
+background: linear-gradient(#D6D6D6, #2F2F2F 70%);
+background: -moz-linear-gradient(#D6D6D6, #2F2F2F 70%);
+background: -webkit-gradient(linear, 0 0, 0 70%, from(#D6D6D6), to(#2F2F2F));
+-pie-background: linear-gradient(#D6D6D6, #2F2F2F 70%);
+background: url (image.png) repeat-x 0px 0px;
+cursor: pointer;
+}
 
-<div id="Content_products">
-
-<div id="Products">
-        <p class="Bread_crumb"><%=link_to "home", root_path%></p>
+</style>
+<div id="Box_content">
         <h1 style=" vertical-align:middle; text-align:left;">Minha Conta</h1>
-        <img src="/images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
-        <div class="Text_box">
+        <br /><br />
+        <div class="Text_box">  
         	<p class="Tit_1">Olá, <%=current_user.nome%></p><br>
         	<p class="Content">Para alterar o seu cadastro ou verificar seus pedidos, clique nos botões abaixo!</p>
+            <br />            	
+        	<p class="Content" style="text-align:left; font-size:12px;">
+        		A Licell se compromete a manter a sua privacidade durante toda a navegação em nosso sistema.<br />
+				<br />
+				Todas as informações cadastrais são de uso exclusivo da Licell.<br />
+				<br />
+        	</p>
+        	<br /><br />
+			<%=link_to image_tag("img_editar_cadastro.png"), edit_user_path(current_user)%>
+			<%=link_to image_tag("img_vertodos_pedidos.png", :style => "margin-left:170px;"), myorders_path%>
+			<br /><br /><br /><br />
+			<%#=link_to image_tag("img_listadepresentes.png", :style => "margin-left:30px; float:left;"), wishlists_path%>        	
             <br />
-            
-        </div>
-        <%=link_to image_tag("img_editar_cadastro.png"), edit_user_path(current_user)%>
-		<%=link_to image_tag("img_vertodos_pedidos.png", :style => "margin-left:170px;"), myorders_path%>
-		<br /><br /><br /><br />
-		<%=link_to image_tag("img_listadepresentes.jpg", :style => "margin-left:30px; float:left;"), wishlists_path%>
-
-
-   
+		</div>
 </div>

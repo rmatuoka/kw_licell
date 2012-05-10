@@ -8,7 +8,6 @@
 <%=stylesheet_link_tag "slidetabs"%>
 
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
-<%=javascript_include_tag "funcoes"%>
 <%=javascript_include_tag "rails"%>
 <%=javascript_include_tag "jquery"%>
 <%=javascript_include_tag "jquery-ui-1.8.17.custom.min.js"%>
@@ -18,27 +17,13 @@
 <%=javascript_include_tag "cycle.js"%>
 <%=javascript_include_tag "easing.js"%>
 <%= javascript_include_tag "jquery.easing.compatibility.js" %>
+<%= javascript_include_tag "funcoes.js"%>
+
 <script>
 	$(document).ready(function(e) {
-        $('#s4') 
-		.before('<div id="nav">') 
-		.cycle({ 
-			fx:     'turnLeft', 
-			speed:  'fast', 
-			timeout: 0, 
-			pager:  '#nav' 
-		});
-    $('#produtos-bloco > .produto').mouseenter(function(){
-      $("#p-des-"+$(this).attr('id')).removeClass('hide');
-			$("#p-fot-"+$(this).attr('id')).animate({marginTop: -100});
-			$("#p-des-"+$(this).attr('id')).animate({marginTop: -100});	
-			});
-		$('#produtos-bloco > .produto').mouseleave(function(){
-			$("#p-fot-"+$(this).attr('id')).animate({marginTop: 0});
-			$("#p-des-"+$(this).attr('id')).animate({marginTop: 0});
-			$("#p-des-"+$(this).attr('id')).addClass('hide');
-			});
-
+		CartSlider();
+        CycleInit();
+		ProductsOver();
     });
 </script>
 

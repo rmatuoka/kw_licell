@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function CartSlider(){
     $("#Menu").hide();
 //	$("#botao").addClass("closed");  
 	
@@ -32,7 +32,32 @@ $(document).ready(function() {
 		//$(this > ".Buttons").fadeOut("slow");
     });
 	
-	$("#tabs").tabs();
-	
-});
+	//$("#tabs").tabs();
+}
 
+function CycleInit()
+{
+	$('#s4')
+		.before('<div id="nav">')
+		.cycle({
+			fx:     'turnLeft',
+			speed:  'fast',
+			timeout: 0,
+			pager:  '#nav'
+	});
+}
+
+function ProductsOver()
+{
+	$('#produtos-bloco > .produto').mouseenter(function(){
+		$("#p-des-"+$(this).attr('id')).removeClass('hide');
+		$("#p-fot-"+$(this).attr('id')).animate({marginTop: -100});
+		$("#p-des-"+$(this).attr('id')).animate({marginTop: -100});
+	});
+	$('#produtos-bloco > .produto').mouseleave(function(){
+		$("#p-fot-"+$(this).attr('id')).animate({marginTop: 0});
+		$("#p-des-"+$(this).attr('id')).animate({marginTop: 0});
+		$("#p-des-"+$(this).attr('id')).addClass('hide');
+	});
+
+}
