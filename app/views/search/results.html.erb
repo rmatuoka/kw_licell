@@ -1,68 +1,68 @@
 <% content_for :head do%>
 <%=stylesheet_link_tag "search_results"%>	
 <%end%>
-<div id="Content_products">
-
+<div id="Box_content">
 <div id="Products">
-          <p class="Bread_crumb"><%= link_to "home", root_path%></p>
           <h1 style=" vertical-align:middle; text-align:left;">Busca : <%=params[:keyword]%></h1>
-          <img src="images/img_tit_line.png" width="700" height="3" style="margin-bottom:10px; margin-left:-4px; margin-top:10px;" />
           <img src="images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" />  
                 <%=form_tag '/search/results', :method => :get %>
 				<%= hidden_field_tag :keyword, nil,:value=>params[:keyword]%>
 				<%= hidden_field_tag :category, nil,:value=>params[:category]%>
 				<label style=" vertical-align:middle; text-align:left;">Items por Pagina:</label>
-                  <select name="pag" id="pag"style=" text-align:left;">
+		    <select name="pag" id="pag"style=" text-align:left;">
                       <option value="5">5</option>
                       <option value="10" selected>10</option>
                       <option value="20">20</option>
                       <option value="30">30</option>
-                  </select> 
-                  <label style=" vertical-align:middle; text-align:left;">Ordenar por:</label>
-                  <select name="order" id="order" style=" text-align:left; margin-right:10px;">
+		    </select> 
+		    <label style=" vertical-align:middle; text-align:left;">Ordenar por:</label>
+		    <select name="order" id="order" style=" text-align:left; margin-right:10px;">
                       <option value="1">Mais Vendidos</option>
                       <option value="2">Menor Preço</option>
                       <option value="3">Maior Preço</option>
                       <option value="4">Nome</option>
-                  </select>
-				<%= submit_tag "Ordenar...", :style=>"text-align:left; margin-right:200px;" %>
- 				</form>
-				<br /><br /><br /><br />       
-			<%if flash[:error]%>
-				<%= content_tag :div, flash[:error], :id => "flash_error" %>
-			<%end%>
+		    </select>
+		    <%= submit_tag "Ordenar...", :style=>"text-align:left; margin-right:200px;" %>
+		</form>
+		<br /><br /><br /><br />       
+		<%if flash[:error]%>
+			<%= content_tag :div, flash[:error], :id => "flash_error" %>
+		<%end%>
 			<%if !@Results.blank?%>
-				<% @Results.each do |resultado|%>
-				<div id="Product_search">
-						<div id="Photo">
-							<%=link_to(image_tag(resultado.product_images.first.image.url("thumb")), produto_path(resultado.url_slug)) if !resultado.product_images.first.blank? %>
-
-							<%=link_to(image_tag("missing_thumb.jpg"), produto_path(resultado.url_slug)) if resultado.product_images.first.blank? %>
-							<%
-							"Foto"	#image_tag(resultado.product_images.first.image.url,:width=>"74", :height=>"128" )
-							%>
-						</div>
-						<div id="Info_text">
-							<p class="Title">
-								<%= resultado.name%>
-							</p>
-							<p>
-								<%=truncate(resultado.summary, :length => 100)%> <%=link_to image_tag("tit_vejamais.png", :width=>"64", :height=>"11", :alt=>"veja mais", :title=>"veja mais", :style=>"margin-top:4px;"), produto_path(resultado.url_slug)%>
-							</p>
-						</div>
-	            		<div id="Field_buttons">
-							<%=link_to image_tag("bt_addtocart_src.png",:width=>"222", :height=>"32", :style=>"margin-left:10px; margin-top:10px;"), add_to_cart_produto_path(resultado)%>
-							<%if resultado.discount.blank?%>
-								<strong class="For">Por:<strong><%=number_to_currency(resultado.price)%></strong></strong>
-							<%else%>
-								<strong class="From">De:<strong><%=number_to_currency(resultado.price)%></strong></strong>
-				            	<strong class="For">Por:<strong><%=number_to_currency(resultado.price - resultado.discount)%></strong></strong>
-							<%end%>
-							<!-- <a href="#"><img src="images/img_stars_search.png" width="116" height="17" style="margin-left:10px;margin-top:10px;" /></a> -->
-							<br />
-	                  	</div>			
-				</div>
-				<% end %>
+				<% count = 0 
+				    @Results.each do |produto|
+				%>
+				              <div class="produto" id='<%=count%>'>
+						<div class='prod-top'>
+							<h3><%=produto.name%></h3>
+						      <p><%=truncate(produto.summary, :length => 55)%></p>
+						  </div>
+						  <div class='prod-img'>
+											  <%=link_to (image_tag(produto.product_images.first.image.url("medium")), produto_path(produto.url_slug)) if !produto.product_images.first.blank? %>
+										
+											  <%=link_to(image_tag("missing_thumb.jpg"), produto_path(produto.url_slug)) if produto.product_images.first.blank? %>
+						  </div>
+						  <div class="prod-fot" id="p-fot-<%=count%>">
+						      <div class='prod-add'>
+							<%=link_to image_tag("bt_add_cart.jpg", :width=>"81", :height=>"43"), add_to_cart_produto_path(produto)%>
+						      </div>
+						      <%if produto.discount.blank?%>
+						      <div class='prod-val'>
+							<h2><b>R$</b><%=number_to_currency(produto.price)%></h2>
+						      </div>
+						      <%else%>
+						      <div class='prod-val'>
+							<h2><b>R$</b><%=number_to_currency(produto.price - produto.discount)%></h2>
+						      </div>
+						      <%end%>
+						  </div>
+						  <div class="hide prod-des" id="p-des-<%=count%>">
+							<p><%=truncate(produto.summary, :length => 55)%></p>
+						  </div>
+					      </div>
+				<% count = count + 1 
+				    end 
+				%>
 			<%else%>
 
 			<p>Nenhum registro foi localizado! Tente novamente.</p>
@@ -71,3 +71,4 @@
      <%= will_paginate @Results if !@Results.blank? %>                                               
      <img src="images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" /> 
     </div>
+

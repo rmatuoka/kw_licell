@@ -100,6 +100,7 @@ body{
 	}
 
 #header-content{
+	position:relative;
 	width:960px;
 	margin:0 auto;
 	}
@@ -110,6 +111,38 @@ body{
 	margin-top:15px;
 	margin-left:-50px;
 	}
+/*  inicio header busca  */
+#header-busca{
+	position:absolute;
+	right:48px;
+	top:76px;
+	}
+
+.ipt_busca{
+	border:1px solid transparent;
+	background-color:transparent;
+	width:412px;
+	height:29px;
+	background-image:url('../images/bg_busca.png');
+	background-position:top center;
+	background-repeat:no-repeat;
+	font-family: Ebrima;
+	font-size:20px;
+	color:#bfbfbf;
+	padding:10px;
+	margin-right:10px;
+	}
+
+.drop_busca{
+	
+	width:204px;
+	height:49px;
+	font-family: Ebrima;
+	font-size:20px;
+	color:#bfbfbf;
+	margin-right:10px;
+	}	
+/*  fim header busca  */	
 #header-nav{
 	float:left;
 	margin-top:15px;
