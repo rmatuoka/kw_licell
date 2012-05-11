@@ -104,7 +104,7 @@
                     </div>
                     <%else%>
                     <div class='prod-val'>
-                    	<h2><b>R$</b><%=number_to_currency(produto.price - produto.discount)%></h2>
+                    	<h2><b>R$:</b><%=number_to_currency(produto.price - produto.discount , :unit=>"")%></h2>
                     </div>
                     <%end%>
                 </div>

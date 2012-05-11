@@ -21,24 +21,23 @@
 <%= javascript_include_tag "jquery.easing.compatibility.js" %>
 <%= javascript_include_tag "funcoes.js"%>
 <script>
-	$(document).ready(function(e) {
-		CartSlider();
-        //CycleInit();
-		ProductsOver();
+    $(document).ready(function(e) {
+	CartSlider();
+	//CycleInit();
+	ProductsOver();
     });
 </script>
 <%=yield :head%>
 </head>
-
-<body>
-    <div id='top-bar'>
-      <%=render :file => "layouts/_userbar.html.erb"%>
-    </div>
-	  <div id="header">
-		<div id='header-content'>
-        	<div id='header-logo'>
-				<%=link_to(image_tag("logo.png"), home_index_path, :class => "top-bar-um" )%>
-            </div>
+    <body>
+	<div id='top-bar'>
+	  <%=render :file => "layouts/_userbar.html.erb"%>
+	</div>
+	<div id="header">
+	    <div id='header-content'>
+	    <div id='header-logo'>
+		<%=link_to(image_tag("logo.png"), home_index_path, :class => "top-bar-um" )%>
+	    </div>
 	    <div id='header-busca'>
 		<%=form_tag '/search/results', :method => :get %>
 		    <%=autocomplete_field_tag 'keyword', 'Digite o nome do produto.', autocomplete_product_name_search_index_path, :size => 20, :class =>"ipt_busca" , :onblur=>"if(this.value == '') this.value='Digite o nome do produto.';", :onfocus=>"if(this.value=='Digite o nome do produto.') this.value='';"%>
@@ -71,11 +70,8 @@
               	<h1>CARRINHO</h1>
               </div>
             <% end %>
-
         </div>
-
     </div>
-
 	<div id="content">
 		<%=yield%>
 		<div class="clear"></div>
@@ -83,6 +79,5 @@
 	<div id="footer">
 	  <%=render :file => "layouts/_footer.html.erb"%>
 	</div>
-
-</body>
+    </body>
 </html>
