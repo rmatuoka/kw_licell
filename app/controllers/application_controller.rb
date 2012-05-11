@@ -54,7 +54,7 @@ class ApplicationController < ActionController::Base
     end 
     
     #carrega_tagcloud
-    @tagcloud = Keyword.tag_counts_on(:tags, :at_least => 200, :limit => 50)
+    @tagcloud = Keyword.tag_counts_on(:tags, :limit => 50)
   end
   
   def logado

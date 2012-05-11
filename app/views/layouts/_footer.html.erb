@@ -1,3 +1,18 @@
+<div class="content-footer">
+	<div id="tagcloud">
+		<!-- TAG CLOUD-->
+		<h4>Ultimas buscas:</h4>
+		<p>
+		<% tag_cloud(@tagcloud, %w(Tag_medium Tag_big Tag_biger Tag_giant)) do |tag, css_class| %>
+				<%= link_to tag.name + " ", "/search/results?keyword=" + tag.name, :class => css_class %> 
+		<% end %>
+		</p>
+		<!-- TAG CLOUD-->
+	</div>
+</div>
+
+
+
 <div id="footer">
 	<div id="footer-itens">
     	<%=link_to "Prazos de Entrega", deliveries_path%> | <%=link_to "Política de Privacidade", politics_path%> | <%=link_to "Termos de Uso", terms_path%> | <%=link_to "Fale Conosco", sitecontacts_path%>
