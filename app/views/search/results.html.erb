@@ -8,21 +8,21 @@
                 <%=form_tag '/search/results', :method => :get %>
 				<%= hidden_field_tag :keyword, nil,:value=>params[:keyword]%>
 				<%= hidden_field_tag :category, nil,:value=>params[:category]%>
-				<label style=" vertical-align:middle; text-align:left;">Items por Pagina:</label>
+				<label style=" vertical-align:middle; text-align:left;" class="text_search_list">Items por Pagina:</label>
 		    <select name="pag" id="pag"style=" text-align:left;">
                       <option value="5">5</option>
                       <option value="10" selected>10</option>
                       <option value="20">20</option>
                       <option value="30">30</option>
 		    </select> 
-		    <label style=" vertical-align:middle; text-align:left;">Ordenar por:</label>
+		    <label style=" vertical-align:middle; text-align:left;" class="text_search_list">Ordenar por:</label>
 		    <select name="order" id="order" style=" text-align:left; margin-right:10px;">
                       <option value="1">Mais Vendidos</option>
                       <option value="2">Menor Preço</option>
                       <option value="3">Maior Preço</option>
                       <option value="4">Nome</option>
 		    </select>
-		    <%= submit_tag "Ordenar...", :style=>"text-align:left; margin-right:200px;" %>
+		    <%= submit_tag "Ordenar...", :style=>"text-align:left; margin-right:200px;"%>
 		</form>
 		<br /><br /><br /><br />       
 		<%if flash[:error]%>
@@ -52,7 +52,7 @@
 						      </div>
 						      <%else%>
 						      <div class='prod-val'>
-							<h2><b>R$</b><%=number_to_currency(produto.price - produto.discount)%></h2>
+							<h2><b>R$:</b><%=number_to_currency(produto.price - produto.discount , :unit=>"")%></h2>
 						      </div>
 						      <%end%>
 						  </div>

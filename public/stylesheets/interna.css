@@ -83,7 +83,7 @@ body{
 		top:9px;
 		left:0px;
 		font-family:Verdana, Geneva, sans-serif;
-		font-size:12px;
+		font-size:13px;
 		color:#fff;
 	}
 #header{
@@ -238,6 +238,25 @@ body{
 	margin-right:10px;
 	}	
 /*  fim header busca  */
+.text_search_list
+{
+	font-family: Ebrima;
+	font-size:20px;
+	color:#9F9F9F;	
+}
+input
+{
+	font-family: Ebrima;
+	font-size:20px;
+	color:#727272;
+}
+select
+{
+	font-family: Ebrima;
+	font-size:20px;
+	color:#727272;
+}
+
 /*  inicio standard layout tela  */
 #Box_content
 {
