@@ -48,3 +48,13 @@ table {
 .clear{
 	clear:both;
 	}
+	
+*
+{
+	font-weight:normal !important;
+}
+
+b
+{
+	font-weight:bold !important;
+}
