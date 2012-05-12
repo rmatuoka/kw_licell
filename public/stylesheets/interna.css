@@ -36,7 +36,7 @@ body{
 	background-image:url('../images/bg_top.png');
 	background-position:top center;
 	background-repeat:no-repeat;
-	z-index:1000;
+	z-index:1100;
 	}
 
 #itens-top-bar{
@@ -55,7 +55,10 @@ body{
 		left:0px;
 		top:-1px;
 	}
-
+	#botao
+	{
+		cursor:pointer;
+	}
 	.Bt_top_2
 	{
 		position:relative;
