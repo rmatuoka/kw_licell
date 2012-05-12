@@ -1,0 +1,84 @@
+.input_form{
+	height:54px; 
+	border:1px solid #dedede; 
+	background-color:#fff;
+	}
+	.short_input_form
+	{
+		width:55px;
+	}
+	.small_input_form
+	{
+		width:275px;
+	}
+	.medium_input_form
+	{
+		width:362px;
+	}
+	.big_input_form
+	{
+		width:446px;	
+	}
+	.giant_input_form{
+		width:911px;
+	}	
+
+#form_cadastro{
+	background-color:#f6f6f6;
+	width:925px;
+	margin:0 auto;
+	padding:20px;
+	}
+
+#form_linha{
+	height:58px;
+	margin-top:10px !important;
+	margin-bottom:10px !important;
+	}
+
+#id_sexo{
+	margin-left:470px;
+	margin-top:-38px;
+	}
+
+#form_cadastro h1{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size:17px;
+	color:#939393;
+	font-style:italic;
+	font-weight:normal !important;
+	}
+
+#form_cadastro h2{
+	font-family: Ebrima;
+	font-size:20px;
+	color:#696969;
+	font-style:italic;
+	}
+
+#form_cadastro h3{
+	font-family: Ebrima;
+	font-size:20px;
+	color:#00b4ff;
+	font-style:italic;
+	}
+
+#form_cadastro h4{
+	font-family: Ebrima;
+	font-size:20px;
+	color:#fd2ef6;
+	font-style:italic;
+	}
+
+#form_cadastro form{
+	margin-top:50px;
+	}
+
+#form_cadastro input{
+	font-family: Ebrima;
+	font-size:20px;
+	color:#939393;
+	font-style:italic;
+	padding-left:10px;
+	white-space: pre;
+	}

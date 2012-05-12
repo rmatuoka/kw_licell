@@ -95,3 +95,14 @@ function ProductsOver()
 	});
 
 }
+
+function check_text_onfocus(obj)
+{	
+    if(obj.value == obj.defaultValue)
+        obj.value = '';
+}
+function check_text_onblur(obj)
+{
+    if(obj.value=='')
+        obj.value = obj.defaultValue;
+}
