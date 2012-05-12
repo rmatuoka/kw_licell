@@ -3,16 +3,22 @@
 <%end%>
 
 <%content_for :head do%>
-  <%=stylesheet_link_tag "interna2"%>
+	<%=stylesheet_link_tag "reset"%>
+    <%=stylesheet_link_tag "interna2"%>
+	<%=stylesheet_link_tag "interna"%>
 	<%=stylesheet_link_tag "rating"%>
-	<%=stylesheet_link_tag "skin"%>	
-	<%=javascript_include_tag "rating"%>
-  <%= javascript_include_tag "jquery.min.js"%>
-	<%=javascript_include_tag "jquery.validate.min"%>
-	<%=javascript_include_tag "additional-methods.min"%>
-	<%=javascript_include_tag "jcarousel.min"%>
-	<%= javascript_include_tag "jcycle" %>
+	<%=stylesheet_link_tag "skin"%>
+	<%=stylesheet_link_tag "skin-carousel"%>	
+	<%=javascript_include_tag "jquery.min.js"%>
+	<%=javascript_include_tag "rating.js"%>
+	<%=javascript_include_tag "jquery.validate.min.js"%>
+	<%=javascript_include_tag "additional-methods.min.js"%>
 	
+	<%=javascript_include_tag "jcycle.js" %>
+	<%=javascript_include_tag "cycle.js" %>
+	<%=javascript_include_tag "easing.js" %>
+	<%=javascript_include_tag "javascripts/jquery.easing.compatibility.js" %>
+	<%=javascript_include_tag "jcarousel.min.js"%>
 	<script>
 	$(document).ready(function() {
 	    // Hides the submit button
@@ -190,6 +196,7 @@ $(function(){
             </div>
         </div>        
     </div>
+	</div>
     <div class="clear"></div>
     <div id='content-footer'>
 				<h5>Recomendamos</h5>
@@ -275,8 +282,6 @@ $(function(){
                 </div>
             </div>
             <div class="clear"></div>
-            
-			
     </div>
 </div>
 

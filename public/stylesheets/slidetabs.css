@@ -87,10 +87,10 @@ height:37px;
 			.Btn_fnz_cmp
 			{
 				position:relative;
-				left:34px;
+				left:6px;
 				font-family:Felix;
 				color:#6d6d6d;
-				font-size:14px;							
+				font-size:12px;							
 			}
 			.Btns_place a:hover
 			{
@@ -99,10 +99,10 @@ height:37px;
 			.Btn_cart
 			{
 				position:relative;
-				left:-35px;
+				left:-5px;
 				font-family:Felix;
 				color:#6d6d6d;
-				font-size:14px;				
+				font-size:12px;				
 			}
 				#Menu_Cart #Menu ul li a
 				{
