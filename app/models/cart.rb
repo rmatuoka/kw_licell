@@ -25,6 +25,18 @@ class Cart
     end
   end
   
+  def remove_product_all(product)
+    current_item = @items.find {|item| item.product == product}
+    current_item.quantity.times do
+      if current_item
+          current_item.decrement_quantity
+      else
+          @items << CartItem.new(product)
+      end
+    end
+  end
+    
+      
   def total_price
     @items.sum {|item| (item.price)}
   end

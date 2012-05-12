@@ -14,7 +14,7 @@ height:37px;
 	left:659px;
 	top:31px;
 	width:276px;
-	z-index:20000 !important;
+	z-index:2000 !important;
 }
 	#Menu_Cart #Menu
 	{
@@ -24,7 +24,7 @@ height:37px;
 		height:auto;
 		border:#8cddff 3px solid;
 		background:white;
-		z-index:20000 !important;
+		z-index:2000 !important;
 	}
 		#Menu_Cart #Menu ul
 		{

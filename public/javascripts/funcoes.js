@@ -35,6 +35,15 @@ function CartSlider(){
 	//$("#tabs").tabs();
 }
 
+function Fancyshow()
+{
+	$('a.iframe').fancybox({
+		'width'     : 500,
+        'height'    : 320,
+        'centerOnScroll' : true
+    });
+}
+
 function CycleInit()
 {
 	$('#s4')

@@ -71,8 +71,10 @@ KwLicell::Application.routes.draw do |map|
     member do
       get :add_to_cart
       get :remove_from_cart
+      get :remove_all_from_cart      
       get :add_to_wishlist
       get :remove_from_wishlist
+      get :remove_all_from_cart
     end
   }
   resources :search  do

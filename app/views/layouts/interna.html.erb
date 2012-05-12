@@ -24,7 +24,8 @@
 	$(document).ready(function(e) {
 		CartSlider();
         //CycleInit();
-		ProductsOver();
+		ProductsOver();	
+		Fancyshow();	
     });
 </script>
 <%=yield :head%>
@@ -83,6 +84,11 @@
 	<div id="footer">
 	  <%=render :file => "layouts/_footer.html.erb"%>
 	</div>
-
+<script>
+$("a.Bt_top_3_out").fancybox({
+     'width'     : 500,
+     'height'    : 280,
+ });
+</script>
 </body>
 </html>

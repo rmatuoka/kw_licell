@@ -19,85 +19,86 @@
 <%end%>
 
 <div id='content-itens'>
-		<div id='contet-top-fim'>
-          
-          <%if !@cart.items.blank?%>
-          <div id="tabela-carrinho">
-       	  <table width="960" border="0" cellspacing="0" cellpadding="0" >
-        	  <tr>
-        	    <td id="tabela-carrinho-titulo" height="25" align="right" bgcolor="#dedede"></td>
-        	    <td id="tabela-carrinho-titulo" height="25" align="left" bgcolor="#dedede"><h1>Produto</h1></td>
-        	    <td id="tabela-carrinho-titulo" width="161" align="center" valign="middle" bgcolor="#d5d5d5"><h2>Valor Unitário</h2></td>
-        	    <td id="tabela-carrinho-titulo" width="147" align="center" valign="middle" bgcolor="#cdcdcd"><h2>Quantidade</h2></td>
-        	    <td id="tabela-carrinho-titulo" width="119" align="center" valign="middle" bgcolor="#b5b5b5"><h2>Atualizar</h2></td>
-        	    <td id="tabela-carrinho-titulo" width="120" align="center" valign="middle" bgcolor="#bcbcbc"><h2>Excluir</h2></td>
-      	    </tr>
-          </table>
-          <%for cart_item in @cart.items%>
-	          <%if cart_item.quantity > 0 %>          
-          <table width="960" border="0" cellspacing="0" cellpadding="0" >
-        	  <tr>
-        	    <td id="tabela-carrinho-linha" width="108" height="100" align="center" valign="top" bgcolor="#f6f6f6"><img src="images/img_prod_carrinho.png" style="margin:5px; vertical-align:middle;"/></td>
-        	    <td id="tabela-carrinho-linha" width="305" height="100" align="left" valign="top" bgcolor="#f6f6f6"><p><%=link_to cart_item.title, produto_path(cart_item.url_slug)%></p></td>
-        	    <td id="tabela-carrinho-linha" height="100" width="161" align="center" valign="middle" bgcolor="#f6f6f6"><p><%=number_to_currency(cart_item.price)%></p></td>
-        	    <td id="tabela-carrinho-linha" height="100" width="147" align="center" valign="middle" bgcolor="#f6f6f6"><div id='cel-quantidade'><%=cart_item.quantity%></div></td>
-        	    <td id="tabela-carrinho-linha" height="100" width="119" align="center" valign="middle" bgcolor="#f6f6f6"><img src="images/bt_atualiza.png" style="margin:5px; vertical-align:middle;" /></td>
-        	    <td id="tabela-carrinho-linha" height="100" width="120" align="center" valign="middle" bgcolor="#f6f6f6"><%=link_to image_tag("bt_excluir.png" , :style=>"margin:5px; vertical-align:middle;"), remove_from_cart_produto_path(cart_item.id_product)%></td>
-      	    </tr>
-          </table>
-          	<%end%>
-          </div>
-		      <%end%>
-          
-          <table width="965" border="0" cellspacing="0" cellpadding="0" style="margin-left:-15px; margin-top:5px;">
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td width="172" height="58" align="center" valign="middle" bgcolor="#ddf5ff" style="color:#7d7d7d; font-family:Arial, Helvetica, sans-serif; font-size:20px; vertical-align:middle;">Total sem frete: </td>
-            <td width="130" height="58" align="center" valign="middle" bgcolor="#c5edff" style="color:#008cca; font-family:Arial, Helvetica, sans-serif; font-size:20px; vertical-align:middle;"><%=number_to_currency(@total_final)%></td>
-            <td width="39">&nbsp;</td>
-          </tr>
-          <tr>
-            <td width="341"></td>
-            <td width="341">&nbsp;</td>
-            <td style="color:#ff4900; font-family:Arial, Helvetica, sans-serif; font-size:15px;">*O frete será calculado através do pagSeguro.</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-     	<%=form_for(Order.new) do |f|%>
-      <table width="965" border="0" cellspacing="0" style="margin-left:-15px; margin-top:5px;">
-        <tr>
-          <td width="341" align="center"><%=link_to image_tag("bt_limpar_carrinho.png"), empty_cart_carrinhos_path%></td>
-          <td width="341" align="center"><%=link_to image_tag("bt_continuar_comprando.png", :style=>"margin-left:-38px;"), root_path%></td>
-			<%if current_user%>
-				<!-- LOGADO< EXIBIR BOTAO PAGSEGURO -->
-          <td colspan="3" align="center"><%=image_submit_tag "bt_finalizar_compra.png", :style=>"margin-left:-75px;"%></td>
-        </tr>	
-			<%else%>
-          <td colspan="3" align="center"><%=link_to image_tag("bt_finalizar_compra.png", :style=>"margin-left:-38px;"), "/user_sessions/new"%></td>
-          <%=link_to image_tag("")%>
-        </tr>  
-			<%end%>  
-		<%end%>
-          <tr>
-            <td colspan="5" id="prazos">
-            	<p style="margin-top:10px;"><b>Prazos de Entrega:</b> Todos os pedidos são enviados mediante confirmação do pagamento.</p>
-				      <p>Os prazos de entrega podem variar de acordo com a região do País.</p>
-				      <p>Normalmente o prazo para a entrega não excede 10 dias.</p>
-			      </td>
-         </tr>
-        </table>
-		<%else%>
-			<div id="Warning"style="margin-top:110px;text-align:center;">
-        <b style="color:red; font-size:30px;">Seu carrinho está vazio!</b>
-	   </div>
-		<%end%>
+	<div id='contet-top-fim'>
 
-  	  </div>
-    </div>
+	<%if !@cart.items.blank?%>
+		<div id="tabela-carrinho">
+			<table width="960" border="0" cellspacing="0" cellpadding="0" >
+				<tr>
+					<td id="tabela-carrinho-titulo" height="25" align="right" bgcolor="#dedede"></td>
+					<td id="tabela-carrinho-titulo" height="25" align="left" bgcolor="#dedede"><h1>Produto</h1></td>
+					<td id="tabela-carrinho-titulo" width="161" align="center" valign="middle" bgcolor="#d5d5d5"><h2>Valor Unitário</h2></td>
+					<td id="tabela-carrinho-titulo" width="147" align="center" valign="middle" bgcolor="#cdcdcd"><h2>Quantidade</h2></td>
+					<td id="tabela-carrinho-titulo" width="119" align="center" valign="middle" bgcolor="#b5b5b5"><h2>Atualizar</h2></td>
+					<td id="tabela-carrinho-titulo" width="120" align="center" valign="middle" bgcolor="#bcbcbc"><h2>Excluir</h2></td>
+				</tr>
+			</table>
+		<%for cart_item in @cart.items%>
+			<%if cart_item.quantity > 0 %>          
+			<table width="960" border="0" cellspacing="0" cellpadding="0" >
+				<tr>
+					<td id="tabela-carrinho-linha" width="108" height="100" align="center" valign="top" bgcolor="#f6f6f6"><img src="images/img_prod_carrinho.png" style="margin:5px; vertical-align:middle;"/></td>
+					<td id="tabela-carrinho-linha" width="305" height="100" align="left" valign="top" bgcolor="#f6f6f6"><p><%=link_to cart_item.title, produto_path(cart_item.url_slug)%></p></td>
+					<td id="tabela-carrinho-linha" height="100" width="161" align="center" valign="middle" bgcolor="#f6f6f6"><p><%=number_to_currency(cart_item.price)%></p></td>
+					<td id="tabela-carrinho-linha" height="100" width="147" align="center" valign="middle" bgcolor="#f6f6f6"><div id='cel-quantidade'><%=cart_item.quantity%></div></td>
+					<td id="tabela-carrinho-linha" height="100" width="119" align="center" valign="middle" bgcolor="#f6f6f6"><div class="cel-alt-quant"><%= link_to(image_tag("desc.gif", :width => "45px", :height =>"20px"),add_to_cart_produto_path(cart_item.id_product))%><%=link_to(image_tag("asc.gif", :width => "45px", :height =>"20px"),remove_from_cart_produto_path(cart_item.id_product))%></div></td>
+					<td id="tabela-carrinho-linha" height="100" width="120" align="center" valign="middle" bgcolor="#f6f6f6"><%=link_to image_tag("bt_excluir.png" , :style=>"margin:5px; vertical-align:middle;"), remove_all_from_cart_produto_path(cart_item.id_product)%></td>
+				</tr>
+			</table>
+			<%end%>
+		<%end%>
+			<table width="965" border="0" cellspacing="0" cellpadding="0" style="margin-left:-15px; margin-top:5px;">
+				<tr>
+					<td width="312">&nbsp;</td>
+					<td width="312">&nbsp;</td>
+					<td width="172" height="58" align="center" valign="middle" bgcolor="#ddf5ff" style="color:#7d7d7d; font-family:Arial, Helvetica, sans-serif; font-size:20px; vertical-align:middle;">Total sem frete: </td>
+					<td width="130" height="58" align="center" valign="middle" bgcolor="#c5edff" style="color:#008cca; font-family:Arial, Helvetica, sans-serif; font-size:20px; vertical-align:middle;"><%=number_to_currency(@total_final)%></td>
+					<td width="39">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="312">&nbsp;</td>
+					<td width="312">&nbsp;</td>
+					<td width="302" colspan="2" style="color:#ff4900; font-family:Arial, Helvetica, sans-serif; font-size:15px;">*O frete será calculado através do pagSeguro.</td>
+					<td width="39">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="5" width="100%">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="5" width="100%">
+						<%=form_for(Order.new) do |f|%>
+						<table width="963" border="0" cellspacing="0" style="margin-left:-15px; margin-top:5px;">
+							<tr>
+								<td width="341" align="center"><%=link_to image_tag("bt_limpar_carrinho.png"), empty_cart_carrinhos_path%></td>
+								<td width="341" align="center"><%=link_to image_tag("bt_continuar_comprando.png", :style=>"margin-left:-38px;"), root_path%></td>
+								<%if current_user%>
+								<!-- LOGADO< EXIBIR BOTAO PAGSEGURO -->
+								<td colspan="3" align="center"><%=image_submit_tag "bt_finalizar_compra.png", :style=>"margin-left:-75px;"%></td>
+							</tr>	
+								<%else%>
+								<td colspan="3" align="center"><%=link_to image_tag("bt_finalizar_compra.png", :style=>"margin-left:-38px;"), login_path, :class=>"iframe"%></td>
+							</tr>  
+								<%end%>  
+						<%end%>
+					</td>
+					
+				</tr>
+				<tr>
+					<td colspan="5" id="prazos">
+						<p style="margin-top:10px;"><b>Prazos de Entrega:</b> Todos os pedidos são enviados mediante confirmação do pagamento.</p>
+						<p>Os prazos de entrega podem variar de acordo com a região do País.</p>
+						<p>Normalmente o prazo para a entrega não excede 10 dias.</p>
+					</td>
+				</tr>
+			</table>
+	<%else%>
+	<div id="Warning"style="margin-top:110px;text-align:center;">
+		<b style="color:red; font-size:30px;">Seu carrinho está vazio!</b>
+	</div>
+	<%end%>
+
+	</div>
+</div>
 <div class="clear"></div>
 
 

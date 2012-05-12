@@ -36,7 +36,7 @@ body{
 	background-image:url('../images/bg_top.png');
 	background-position:top center;
 	background-repeat:no-repeat;
-	z-index:10000;
+	z-index:1000;
 	}
 
 #itens-top-bar{

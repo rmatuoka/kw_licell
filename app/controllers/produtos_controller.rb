@@ -25,6 +25,13 @@ class ProdutosController < ApplicationController
     redirect_to carrinhos_path
   end
   
+  def remove_all_from_cart
+    @cart = find_cart
+    product = Product.find(params[:id])
+    @cart.remove_product_all product
+    redirect_to carrinhos_path
+  end
+  
   def add_to_wishlist
     @wishlist = current_user.wishlists.build
     @wishlist.user_id = current_user.id
