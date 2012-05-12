@@ -7,9 +7,7 @@
         <div class="Text_box">       	
         	<p class="Content" style="text-align:left; font-size:12px;">
 			<b>Olá, <%=current_user.nome%></b><br /><br />
-        		Seu Produto será enviado mediante confirmação do pagamento junto à pagseguro.<br /><br />
-			Para acompanhar o status do seu pedido clique no link abaixo ou acesse: <%=link_to "Minha conta", accounts_path%><br /><br />
-			   
+        	Seu Produto será enviado mediante confirmação do pagamento junto à pagseguro.<br /><br />
 			Obrigado por escolher a Licell!<br /><br />
 			Todas as informações cadastrais são de uso exclusivo da Licell.<br /><br />
 			<%= pagseguro_form @order_product, :submit => "Clique aqui para efetuar o pagamento!" %>
