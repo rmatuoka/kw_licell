@@ -58,16 +58,16 @@
 #tabela-carrinho-linha{
 	height:30px;
 	}
+	
 	.cel-alt-quant
 	{
 		width: 45px;
-		border: 1px solid blue;
-		display: table-cell;
-		vertical-align: middle;
+		/*display: table-cell;*/
+		vertical-align: bottom;
+		
 	}	
 		.cel-alt-quant a
 		{
-			border:1px solid red;
 			height:20px;
 			width:45px;
 		}
