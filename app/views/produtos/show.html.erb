@@ -3,7 +3,6 @@
 <%end%>
 
 <%content_for :head do%>
-	<%=stylesheet_link_tag "skin"%>
 	<%=stylesheet_link_tag "skin-carousel"%>
 	<%=javascript_include_tag "cycle.js" %>
 	<%=javascript_include_tag "jcarousel.js"%>
@@ -96,6 +95,7 @@
 		<div id='bloco-recomendamos'>
 			<h5>Recomendamos</h5>
     		<ul id='produtos-bloco' class="mycarousel jcarousel-skin-tango">
+<<<<<<< HEAD
             <li class="produto-um produto">
             	<div id='prod-top'>
                 	<h3>Lorem ipsum</h3>
@@ -258,6 +258,41 @@
             </li>
             </ul>
 		</div>
+                <%  count = 0
+                    @recomendados.each do |produto|
+                %>
+                    <li  class="produto" id='<%=count%>'>
+                        <div class='prod-top'>
+                            <h3><%=produto.name%></h3>
+                            <p><%=truncate(produto.summary, :length => 55)%></p>
+                        </div>
+                        <div class='prod-img'>
+                                        <%=link_to (image_tag(produto.product_images.first.image.url("medium")), produto_path(produto.url_slug)) if !produto.product_images.first.blank? %>
+                                
+                                        <%=link_to(image_tag("missing_thumb.jpg"), produto_path(produto.url_slug)) if produto.product_images.first.blank? %>
+                        </div>
+                        <div class="prod-fot" id="p-fot-<%=count%>">
+                            <div class='prod-add'>
+                              <%=link_to image_tag("bt_add_cart.jpg", :width=>"81", :height=>"43"), add_to_cart_produto_path(produto)%>
+                            </div>
+                            <%if produto.discount.blank?%>
+                            <div class='prod-val'>
+                                <h2><b>R$</b><%=number_to_currency(produto.price)%></h2>
+                            </div>
+                            <%else%>
+                            <div class='prod-val'>
+                                <h2><b>R$:</b><%=number_to_currency(produto.price - produto.discount , :unit=>"")%></h2>
+                            </div>
+                            <%end%>
+                        </div>
+                        <div class="hide prod-des" id="p-des-<%=count%>">
+                            <p><%=truncate(produto.summary, :length => 55)%></p>
+                        </div>
+                    </li>
+                <%  count = count + 1 
+                    end
+                %>   
+            <div class="clear"></div>
     </div>
 <div class="clear"></div>
 </div>
