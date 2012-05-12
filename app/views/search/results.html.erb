@@ -1,9 +1,20 @@
 <% content_for :head do%>
 <%=stylesheet_link_tag "search_results"%>	
 <%end%>
+
+<%content_for :breadcrumb do%>
+	<div id='header-bread'>
+      	<p><%=link_to "home", home_index_path%> </p>
+      	<h1>Busca <b></b></h1>
+      </div>
+      <div id='header-title'>
+      	<h1>Busca</h1>
+      </div>
+<%end%>
+
 <div id="Box_content">
 <div id="Products">
-          <h1 style=" vertical-align:middle; text-align:left;">Busca : <%=params[:keyword]%></h1>
+          <h1 style=" vertical-align:middle; text-align:left;">Buscando por: <%=params[:keyword]%></h1>
           <img src="images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" />  
                 <%=form_tag '/search/results', :method => :get %>
 				<%= hidden_field_tag :keyword, nil,:value=>params[:keyword]%>

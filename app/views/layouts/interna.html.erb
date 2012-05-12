@@ -62,13 +62,7 @@
             	<h1><%=link_to @categoria.name, categoria_path(@categoria.url_slug)%></h1>
             </div>
             <%else%>
-              <div id='header-bread'>
-              	<p><%=link_to "home", home_index_path%> </p>
-              	<h1>Carrinho <b></b></h1>
-              </div>
-              <div id='header-title'>
-              	<h1>CARRINHO</h1>
-              </div>
+              <%=yield :breadcrumb%>
             <% end %>
         </div>
     </div>
