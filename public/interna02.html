@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="stylesheets/reset.css" rel="stylesheet" type="text/css" />
+<link href="stylesheets/interna.css" rel="stylesheet" type="text/css" />
+<link href="stylesheets/skin-carousel.css" rel="stylesheet" type="text/css" />
+<script src="javascripts/jquery.min.js"></script>
+<script src="javascripts/cycle.js"></script>
+<script src="javascripts/easing.js"></script>
+<script src="javascripts/jquery.easing.compatibility.js"></script>
+<script src="javascripts/jcarousel.js"></script>
+<script>
+	jQuery(document).ready(function() {
+   	 jQuery('.mycarousel').jcarousel();
+	});
+
+	$(document).ready(function(e) {
+		$('.s2').cycle({ 
+		fx:     'fade', 
+		speed:  'fast', 
+		timeout: 3000, 
+		next:   '#next2', 
+		prev:   '#prev2' 
+	});
+
+        $('.produto-um').mouseenter(function(){
+			$(".p-des-um").removeClass('hide');
+			$(".p-fot-um").animate({marginTop: -100});
+			$(".p-des-um").animate({marginTop: -100});
+			});
+		$('.produto-um').mouseleave(function(){
+			$(".p-fot-um").animate({marginTop: 0});
+			$(".p-des-um").animate({marginTop: 0});
+			$(".p-des-um").addClass('hide');
+			});
+		$('.produto-dois').mouseenter(function(){
+			$(".p-des-dois").removeClass('hide');
+			$(".p-fot-dois").animate({marginTop: -100});
+			$(".p-des-dois").animate({marginTop: -100});
+			});
+		$('.produto-dois').mouseleave(function(){
+			$(".p-fot-dois").animate({marginTop: 0});
+			$(".p-des-dois").animate({marginTop: 0});
+			$(".p-des-dois").addClass('hide');
+			});
+		$('.produto-tres').mouseenter(function(){
+			$(".p-des-tres").removeClass('hide');
+			$(".p-fot-tres").animate({marginTop: -100});
+			$(".p-des-tres").animate({marginTop: -100});
+			});
+		$('.produto-tres').mouseleave(function(){
+			$(".p-fot-tres").animate({marginTop: 0});
+			$(".p-des-tres").animate({marginTop: 0});
+			$(".p-des-tres").addClass('hide');
+			});
+		$('.produto-quatro').mouseenter(function(){
+			$(".p-des-quatro").removeClass('hide');
+			$(".p-fot-quatro").animate({marginTop: -100});
+			$(".p-des-quatro").animate({marginTop: -100});
+			});
+		$('.produto-quatro').mouseleave(function(){
+			$(".p-fot-quatro").animate({marginTop: 0});
+			$(".p-des-quatro").animate({marginTop: 0});
+			$(".p-des-quatro").addClass('hide');
+			});
+		$('.produto-cinco').mouseenter(function(){
+			$(".p-des-cinco").removeClass('hide');
+			$(".p-fot-cinco").animate({marginTop: -100});
+			$(".p-des-cinco").animate({marginTop: -100});
+			});
+		$('.produto-cinco').mouseleave(function(){
+			$(".p-fot-cinco").animate({marginTop: 0});
+			$(".p-des-cinco").animate({marginTop: 0});
+			$(".p-des-cinco").addClass('hide');
+			});
+		$('.produto-seis').mouseenter(function(){
+			$(".p-des-seis").removeClass('hide');
+			$(".p-fot-seis").animate({marginTop: -100});
+			$(".p-des-seis").animate({marginTop: -100});
+			});
+		$('.produto-seis').mouseleave(function(){
+			$(".p-fot-seis").animate({marginTop: 0});
+			$(".p-des-seis").animate({marginTop: 0});
+			$(".p-des-seis").addClass('hide');
+			});
+    });
+	
+$(function(){
+	$('#conteudo').hide();
+	var noticia;	
+	var hash = window.location.hash;
+	if (hash !='')
+	{
+		noticia = $(hash).html();
+		$('.abas li a[href="' + hash + '"]').parent().addClass('ativo');		
+	} else {
+		noticia = $('#conteudo div:first-child').html();			
+		$('.abas li:first-child').addClass('ativo');		
+	}
+	$('#noticia').append('<div>' + noticia + '</div>').find('div').slideDown();
+	$('.abas li a').click(function(){
+		$('.abas li').removeClass('ativo');
+		$(this).parent().addClass('ativo');
+		var ancora = $(this).attr('href');
+		var nome = ancora.substr(1, ancora.length);
+		noticia = $('#conteudo div[id="' + nome + '"]').html();
+		$('#noticia').empty();
+		$('#noticia').append('<div>' + noticia + '</div>').find('div').slideDown();
+	return false();
+	})
+})
+
+</script>
+</head>
+<body>
+<div id='top-bar'>
+	<div id='itens-top-bar'>
+    	<a href="#" class="top-bar"><img src="images/bt_top_um.png" border='0' width="121" height="17" /></a>
+        <a href="#" class="top-bar"><img src="images/bt_top_dois.png" border='0' width="145" height="20" /></a>
+        <a href="#" class="top-bar"><img src="images/bt_top_tres.png" border='0' width="48" height="11" /></a>
+    </div>
+</div>
+<div id='header'>
+	<div id='header-content'>
+    	<div id='header-logo'>
+        	<a href="#" class="top-bar-um"><img src="images/logo.png" border='0' /></a>
+        </div>
+        <div id='header-nav'>
+        	<a href="#"><div class="nav nav-bg">PROTEÇÃO</div></a>
+            <a href="#"><div class="nav">ACESSÓRIOS</div></a>
+            <a href="#"><div class="nav nav-bg">ENERGIA</div></a>
+            <a href="#"><div class="nav">ESPORTE</div></a>
+            <a href="#"><div class="nav nav-bg">UTILITÁRIOS</div></a>
+            <a href="#"><div class="nav">CARREGADORES</div></a>
+        </div>
+        <div id='header-bread'>
+        	<p>home / proteção / nome produto</p>
+        	<h1>Categoria: <b>Proteção</b></h1>
+        </div>
+        <div id='header-title'>
+        	<h1>PROTEÇÃO</h1>
+        </div>
+    </div>
+</div>
+<div id='content'>
+	<div id="content-itens">
+    	<div id='content-left'>
+        	<ul>
+            	<a href="#"><li>ITEM</li></a>
+                <a href="#"><li class="item-b">ITEM</li></a>
+                <a href="#"><li>ITEM</li></a>
+                <a href="#"><li class="item-b">ITEM</li></a>
+                <a href="#"><li>ITEM</li></a>
+                <a href="#"><li class="item-b">ITEM</li></a>
+                <a href="#"><li>ITEM</li></a>
+                <a href="#"><li class="item-b">ITEM</li></a>
+                <a href="#"><li>ITEM</li></a>
+                <a href="#"><li class="item-b">ITEM</li></a>
+            </ul>
+        </div>
+        <div id='content-right'>
+        	<div id='prod-table'>
+           	  <table width="733" border="0" cellspacing="0" cellpadding="0" bgcolor="#e8e8e8">
+                  <tr>
+                    <td height="52" colspan="3" bgcolor="#00b4ff" valign="middle"><h1>Loren ipsum dolor sit amet neon</h1></td>
+                  </tr>
+                  <tr>
+                    <td width="284" height="272" align="center" valign="middle" bgcolor="#FFFFFF"><img src="images/img_cel.png" style="margin-top:30px;" /></td>
+                    <td colspan="2" rowspan="3" bgcolor="#FFFFFF" bordercolor="#e8e8e8" style="padding:10px;" >
+                    	<h6>Lorem ipsum</h6>
+						<p>Lorem ipsum dolor sit amet, non leo. Cras ligula odio hendrerit mi. Enim arcu pede luctus eleifend ullamcorper vehicula, purus malesuada vel, est imperdiet justo eu tristique. Aenean amet. Duis eu, dolor morbi a. Varius vel morbi amet neque, wisi velit viverra.
+Lorem ipsum dolor sit amet, non leo. Cras ligula odio hendrerit mi. Enim arcu pede luctus eleifend ullamcorper vehicula, purus malesuada vel, est imperdiet justo eu tristique. Aenean amet. Duis eu, dolor morbi a. Varius vel morbi amet neque, wisi velit viverra.<p></td>
+                  </tr>
+                  <tr>
+                    <td background="images/bg_prod1_int2.jpg" height="22">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td background="images/bg_prod2_int2.jpg" height="15">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td bgcolor="#e8e8e8"></td>
+                    <td width="209"><a href="#"><img src="images/bt_add_whish.jpg" /></a></td>
+                    <td width="240" align="right"><a href="#"><img src="images/bt_add_cart_int.jpg" /></a></td>
+                  </tr>
+                </table>
+            </div>
+          <div id='content-abas'>
+            	<ul class="abas">
+                    <li><a href="#noticia1">Descrição</a></li>
+                    <li><a href="#noticia2">Características</a></li>
+                    <li><a href="#noticia3">Modo de Uso</a></li>
+                    <li><a href="#noticia4">Detalhes</a></li>
+                </ul>
+                <div id="noticia"></div>
+                <div id="conteudo">
+                <div id="noticia1">
+                    <h2>Lorem ipsum</h2>
+                    <p><%=raw(@produto.description)%></p>
+                </div>
+                <div id="noticia2">
+                    <h2>Lorem ipsum</h2>
+                    <p><%=raw(@produto.features)%></p>
+                </div>
+                <div id="noticia3">
+                    <h2>Lorem ipsum</h2>
+                    <p><%=raw(@produto.usage)%></p>
+                </div>
+                <div id="noticia4">
+                    <h2>Lorem ipsum</h2>
+                    <p><%=raw(@produto.bibliography)%></p>
+                </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <div class="clear"></div>
+    <div id='content-footer'>
+				<h5>Recomendamos</h5>
+    		<ul id='produtos-bloco' class="mycarousel jcarousel-skin-tango">
+            <li class="produto-um produto">
+            	<div id='prod-top'>
+                	<h3>Lorem ipsum</h3>
+                    <p>dolor sit amet, aliquam nunce</p>
+                </div>
+                <div id='prod-img'>
+                	<img src="images/img_cel.png" border='0' width="194" height="198" />
+                </div>
+                <div id='prod-fot' class="p-fot-um">
+                    <div id='prod-add'>
+						<a href="#"><img src="images/bt_add_cart.jpg" border='0' width="81" height="43" /></a>
+                    </div>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b> 80,00</h2>
+                    </div>
+                </div>
+                <div id='prod-des' class="hide p-des-um">
+                	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
+                </div>
+            </li>
+            <li class="produto-dois produto">
+            	<div id='prod-top'>
+                	<h3>Lorem ipsum</h3>
+                    <p>dolor sit amet, aliquam nunce</p>
+                </div>
+                <div id='prod-img'>
+                	<img src="images/img_cel.png" border='0' width="194" height="198" />
+                </div>
+                <div id='prod-fot' class="p-fot-dois">
+                    <div id='prod-add'>
+						<a href="#"><img src="images/bt_add_cart.jpg" border='0' width="81" height="43" /></a>
+                    </div>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b> 80,00</h2>
+                    </div>
+                </div>
+                <div id='prod-des' class="hide p-des-dois">
+                	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
+                </div>
+            </li>
+            <li class="produto-tres produto">
+            	<div id='prod-top'>
+                	<h3>Lorem ipsum</h3>
+                    <p>dolor sit amet, aliquam nunce</p>
+                </div>
+                <div id='prod-img'>
+                	<img src="images/img_cel.png" border='0' width="194" height="198" />
+                </div>
+                <div id='prod-fot' class="p-fot-tres">
+                    <div id='prod-add'>
+						<a href="#"><img src="images/bt_add_cart.jpg" border='0' width="81" height="43" /></a>
+                    </div>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b> 80,00</h2>
+                    </div>
+                </div>
+                <div id='prod-des' class="hide p-des-tres">
+                	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
+                </div>
+            </li>
+            <li class="produto-quatro produto">
+            	<div id='prod-top'>
+                	<h3>Lorem ipsum</h3>
+                    <p>dolor sit amet, aliquam nunce</p>
+                </div>
+                <div id='prod-img'>
+                	<img src="images/img_cel.png" border='0' width="194" height="198" />
+                </div>
+                <div id='prod-fot' class="p-fot-quatro">
+                    <div id='prod-add'>
+						<a href="#"><img src="images/bt_add_cart.jpg" border='0' width="81" height="43" /></a>
+                    </div>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b> 80,00</h2>
+                    </div>
+                </div>
+                <div id='prod-des' class="hide p-des-quatro">
+                	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
+                </div>
+            </li>
+            
+            </ul>
+            <div class="clear"></div>
+            <h4>Ultimas buscas:</h4>
+            <p>Lorem, ipsum, dolor, sit, amet, fames, est, leo, fusce, mauris ,sit, ipsum ,dolor, aliquam, nulla. Gravida, tincidunt, nulla, cras, fermentum, magnis, rutrum, integer, cras, blandit, erat, ipsum ,vestibulum, velit, Lorem, ipsum, dolor, sit, amet, fames, est, leo, fusce, mauris ,sit, ipsum ,dolor, aliquam, nulla. Gravida, tincidunt, nulla, cras, fermentum, magnis, rutrum, integer, cras, blandit, erat, ipsum ,vestibulum, velit.</p>
+    </div>
+</div>
+<div id='footer'>
+	<div id='footer-itens'>
+    	<a href="#">Prazos de Entrega</a> | <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a> | <a href="#">Fale Conosco</a>
+    </div>
+</div>
+</body>
+</html>
