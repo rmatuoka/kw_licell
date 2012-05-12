@@ -1,52 +1,45 @@
 <%=form_for @user do |f|%>
-<div id="Form">
-		<%= f.error_messages :header_message => "",
-		  :message => "",
-		  :header_tag => "" %>
-		
-        <div id="Form_box">
-			<%= f.label :nome, "Nome completo:" %>
-            <%=f.text_field :nome, :class => "Item_form"%>
-            <br /><br />
-			<%= f.label :sexo, "Sexo:"%>
-			<%= f.radio_button :sexo, :masculino %>
-				<b style="font-weight:normal; font-size:12px; color:#000;"> Masculino</b> 
-				<%= f.radio_button :sexo, :feminino %>
-				<b style="font-weight:normal; font-size:12px; color:#000;"> Feminino</b>
-	        <br /><br />
-			<%= f.label :nascimento, "Data de Nascimento:" %>
-            <%= f.date_select :nascimento, :start_year => 1920%>
-            <br /><br />
-			<%= f.label :rg, "Rg:"%>
-	        <%=f.text_field :rg, :class => "Item_form"%>
-	        <br /><br /> 
-			<%= f.label :cpf, "Cpf:"%>
-	        <%=f.text_field :cpf, :class => "Item_form"%>
-	        <br /><br /> 						
-			<%= f.label :email, "Email:"%>
-	        <%=f.text_field :email, :class => "Item_form"%>
-	        <br /><br /> 
-			<%= f.label :phone, "Telefone:" %>
-            <%=f.text_field :phone, :class => "Item_form" %>
-            <br /><br />
-			<%= f.label :cellphone, "Celular:"%>
-			<%=f.text_field :cellphone, :class => "Item_form"%>
-			<br /><br /> 			
-			<%= f.label :address, "Endereço:" %>
-            <%=f.text_field :address, :class => "Item_form"%>
-            <br /><br />
-			<%= f.label :quarter, "Bairro:" %>
-            <%=f.text_field :quarter, :class => "Item_form"%>
-            <br /><br />
-			<%= f.label :number, "Nº:"%>
-	        <%=f.text_field :number, :class => "N"%>&nbsp;
-			<%= f.label :complement, "Complemento:"%>
-			<%=f.text_field :complement, :class => "N"%>
-	       	<br /><br /> 
-			<%= f.label :city, "Cidade:"%>
-	        <%=f.text_field :city, :class => "Item_form_3"%> 
-			<%= f.label :state, "Uf:", :style=>" vertical-align:middle;" %>
-			<%= f.select :state, ([["AC", "AC"], ["AL","AL"], ["AP", "AP"],
+	<%= f.error_messages :header_message => "", :message => "", :header_tag => "" %>
+		<div id='form_linha'>
+			<%=f.text_field :nome, :value=>"Nome Completo:",:class => "input_form big_input_form", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>
+			<h2 id="id_sexo"><%= f.label :sexo, "Sexo:"%></h2>
+			<%= f.radio_button :sexo, :masculino, :class=>"input_form", :id=>"id_sexo", :style=>"margin-left:540px;" %><h3 id="id_sexo" style="margin-left:560px;">Masculino</h3>
+			<%= f.radio_button :sexo, :feminino, :class=>"input_form", :id=>"id_sexo", :style=>"margin-left:670px;" %><h4 id="id_sexo" style="margin-left:690px;">Feminino</h4><br />
+		</div>
+		<div id='form_linha'>
+			<h2 id="id_data"><%= f.label :nascimento, "Data de Nascimento:" %>
+				<%= f.date_select :nascimento,{ :start_year => 1920},{ :class => "input_form"}%>
+				<%=f.text_field :email, :class => "input_form big_input_form", :style=>"width:390px !important;", :value=>"E-mail:", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>
+			</h2>
+			<br />
+		</div>
+		<div id='form_linha'>
+			<%=f.text_field :rg, :class => "input_form big_input_form",:value=>"RG: 00.000.000-2", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>
+			<%=f.text_field :cpf, :class => "input_form big_input_form",:value=>"CPF: 000.000.000-00", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>
+			<br />
+		</div>
+		<div id='form_linha'>
+			<h2><%= f.label :phone, "Telefone:" %>
+					<input class="input_form short_input_form" /> 
+					<%=f.text_field :phone, :class => "input_form small_input_form" %>
+					&nbsp;&nbsp;
+				<%= f.label :cellphone, "Celular:"%>
+					<input class="input_form short_input_form" /> 
+					<%=f.text_field :cellphone, :class => "input_form small_input_form" %>
+			</h2><br />
+		</div>
+		<div id='form_linha'>
+			<%=f.text_field :address, :class => "input_form giant_input_form",:value=>"Endereço", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>
+		</div>
+		<div id='form_linha'>
+			<%=f.text_field :quarter, :class => "input_form big_input_form",:value=>"Bairro:", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>	
+			<%=f.text_field :number, :class => "input_form short_input_form",:style=>"margin-left:3px;",:value=>raw("N&deg;"), :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>
+			<%=f.text_field :complement, :class => "input_form medium_input_form",:style=>"margin-left:6px;",:value=>"Complemento:", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>
+			<br />
+		</div>
+		<div id='form_linha'>
+			<%=f.text_field :city, :class => "input_form medium_input_form",:value=>"Cidade:", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>	
+			<%= f.select(:state, [["AC", "AC"], ["AL","AL"], ["AP", "AP"],
 			["AM", "AM"], ["BA", "BA"], ["CE", "CE"],
 			["DF", "DF"], ["ES", "ES"], ["GO", "GO"],
 			["MA", "MA"], ["MT", "MT"], ["MS", "MS"],
@@ -54,26 +47,37 @@
 			["PR", "PR"], ["PE", "PE"], ["PI", "PI"],
 			["RJ", "RJ"], ["RN", "RN"], ["RS", "RS"],
 			["RO", "RO"], ["RR", "RR"], ["SC", "SC"],
-			["SP", "SP"], ["SE", "SE"], ["TO", "TO"]]) %>
-			<br /><br />
-			<%= f.label :cep, "Cep:"%>
-        	<%=f.text_field :cep, :class => "Item_form"%>
-			
-        </div> 
- </div>
- <div class="Box_password">
-	<div style="position:relative;  width: 240px; top: 18px;left:70px; *left:-200px;">
-		<%= f.label :password, "Senha:" %>
-		<%=f.password_field :password, :class => "Item_form_2"%>
-	</div>
-	<div style="position:relative;  width: 240px; top:2px; left:390px;*left:170px;">
-		<%= f.label :password_confirmation, "Repita Senha:" %>
-	 	<%=f.password_field :password_confirmation, :class => "Item_form_2"%>
-	</div>
- </div>
- <div class="clear"></div>
-<%=image_submit_tag "bt_finalizar_cadastro.png", :class=>"Bt_finalizar_cadastro"%>
-<input type="reset" value="" class="Bt_limpar_cadastro" >
+			["SP", "SP"], ["SE", "SE"], ["TO", "TO"]],{},{:class => "input_form",:style=>"width:127px;margin-left:5px;"}) %>
 
-
+			<%=f.text_field :cep, :class => "input_form medium_input_form",:style=>"margin-left:5px;",:value=>"CEP:", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>	
+			<br />
+		</div>
+		<div id='form_linha'>
+			<h2><%= f.label :password, "Sua Senha:" %>
+				<%=f.password_field :password, :class => "input_form small_input_form",:style=>"margin-left:5px;"%>	
+				<%= f.label :password_confirmation, "Repita Senha:" %>                  
+				<%=f.password_field :password_confirmation, :class => "input_form small_input_form"%>
+			</h2>
+		<h2>&nbsp;</h2>
+		<br />
+		</div>
+		<div id='form_linha'>
+			<%=image_submit_tag "bt_finalizar_cadastro.png", :style=>"margin-left:20px; float:right;"%>
+			<%if !current_user %>
+			<input type="image" src="../images/bt_limpa_cadastro.png" onclick="document.theForm.reset();return false;" style="float:right; margin-left:20px;" />
+			<%end%>	
+		</div>
 <%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+
