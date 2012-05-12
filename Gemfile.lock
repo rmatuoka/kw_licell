@@ -51,7 +51,7 @@ GEM
       daemons (>= 1.0.3)
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
-    mysql2 (0.2.18)
+    mysql2 (0.2.7)
     nifty-generators (0.4.6)
     pagseguro (0.1.13)
     polyglot (0.3.3)
@@ -89,7 +89,7 @@ PLATFORMS
 DEPENDENCIES
   mocha
   mongrel
-  mysql2
+  mysql2 (= 0.2.7)
   nifty-generators
   pagseguro (~> 0.1.12)
   rails (= 3.0.3)
