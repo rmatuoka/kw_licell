@@ -10,10 +10,9 @@
 .tab_orders_content
 {
 	width:960px;
-	min-height:200px;
+	min-height:68px;
 	height:auto;
 	text-align:left;
-	border:red 1px dashed;	
 }
 #tab_orders_content_int table
 {
@@ -24,7 +23,7 @@
 		display:inline-block;
 		*float:left;
 		*display:block;
-		width:700px;	
+		width:960px;	
 		height:50px;
 	}
 	#tab_orders .Cel_Cust
@@ -32,11 +31,23 @@
 		text-align:left !important;
 	}
 	
-	
-	#tab_orders .Tit_text
+	.Table_tit_sumary	
 	{
-		text-align:right;
+		text-align:left;
+		padding-top:7px;
+		padding-left:25px;
 	}
+	.Tit_text
+	{
+		text-align:left;
+		padding-left:34px;
+	}
+	.Tit_text_cont
+	{
+		text-align:center;
+		padding-left:27px;
+		padding-top:7px;
+	}	
 	.Table_tit
 	{
 		position:relative;
@@ -62,7 +73,8 @@
 		font-size:12px;
 		color:#999999;
 		text-align:left;
-		margin-left:14px;			
+		margin-left:14px;
+		padding-top:3px;			
 	}	
 	.Label_frete
 	{
@@ -98,27 +110,23 @@
 		font-family:Verdana, Geneva, sans-serif;
 		font-size:12px;
 		color:#fff;
-		vertical-align:midle;
-		float:left;
-		margin-left:55px;
-		padding-top:4px;
 	}	
 		#Status	
 		{
+			position:relative;
 			background-image:url(/images/bg_status.png);
-			background-position:center top;
+			background-position:center 0px;
 			background-repeat:no-repeat;
 			position:relative;
-			float:right;
 			display:block;
-			width:216px;
-			height:20px;
-			padding-top:3px;
 			text-align:center;
-			margin-right:6px;
 			font-family:Verdana, Geneva, sans-serif;
 			font-size:12px;
 			color:#999999;
+			padding-top:4px;
+			top:-17px;
+			left:23px;
+			height:25px;
 		}
 	.Bg_table_line
 	{
@@ -126,8 +134,8 @@
 		background-position:top center;
 		background-repeat:repeat-x;
 		text-align:center;
-		margin:auto;
-		height:67px;
+		height:31px;
+		padding-top:7px;
 	}
 
 	.Title_info
@@ -136,15 +144,14 @@
 		background-image:url(/images/bg_tab_mytabs_end.png);
 		background-repeat:no-repeat;
 		background-position:center top;
-		width:700px;
-		height:26px;
+		height:19px;
 		vertical-align:middle;
 		text-align:left;
 		margin:auto;
 	}
 	.Title_info table h2
 	{
-		text-align:center;
+		text-align:left;
 	}		
 	.Title_table2
 	{
@@ -157,10 +164,9 @@
 		font-weight:bold;
 		color:#666666;
 		text-align:center;
-		width:665px;
-		height:10px;
+		width:940px;
+		height:-10px;
 		text-align:center !important;
-		margin:auto;
 		margin-top:1px;
 		margin-bottom:1px;
 		padding:10px 10px 10px 10px;
@@ -172,8 +178,8 @@
 		font-size:12px;
 		color:#666666;
 		text-align:center;
-		width:685px;
-		height:67px;
+		width:960px;
+		height:25px;
 		text-align:center;
 		margin:auto;
 		margin-top:1px;	
@@ -187,7 +193,7 @@
 		font-family:Verdana, Geneva, sans-serif;
 		font-size:12px;
 		color:#fff;
-		width:685px;
+		width:960px;
 		height:65px;
 		text-align:left;
 		margin:auto;
