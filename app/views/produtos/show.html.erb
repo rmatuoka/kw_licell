@@ -3,122 +3,16 @@
 <%end%>
 
 <%content_for :head do%>
-	<%=stylesheet_link_tag "reset"%>
-    <%=stylesheet_link_tag "interna2"%>
-	<%=stylesheet_link_tag "interna"%>
-	<%=stylesheet_link_tag "rating"%>
 	<%=stylesheet_link_tag "skin"%>
-	<%=stylesheet_link_tag "skin-carousel"%>	
-	<%=javascript_include_tag "jquery.min.js"%>
-	<%=javascript_include_tag "rating.js"%>
-	<%=javascript_include_tag "jquery.validate.min.js"%>
-	<%=javascript_include_tag "additional-methods.min.js"%>
-	
-	<%=javascript_include_tag "jcycle.js" %>
+	<%=stylesheet_link_tag "skin-carousel"%>
 	<%=javascript_include_tag "cycle.js" %>
-	<%=javascript_include_tag "easing.js" %>
-	<%=javascript_include_tag "javascripts/jquery.easing.compatibility.js" %>
 	<%=javascript_include_tag "jcarousel.min.js"%>
-	<script>
-	$(document).ready(function() {
-	    // Hides the submit button
-	    $('.new_rating').children('input[type=submit]').addClass('hide');
-
-		<%if !current_user %>
-			$('.star').rating('disable');
-			$('.star').click(function(){
-			        alert("Você precisa estar logado para avaliar um produto!");
-			    });
-		<%else%>
-			// Submits the form (saves data) after user makes a change.
-		  $('.star').click(function(){
-		        form = $(this).parent().parent();
-		        form[0].submit();
-		    });
-		<%end%>
-	
-		$('a.iframe').fancybox({
-			'width'		: 500,
-			'height'	: 280,
-			'centerOnScroll' : true
-		});
-		
-		$('#comments_form').click(function(){
-			$('#Form_Comments').fadeIn('slow');
-		});
-		
-		//MOSTRA COMENTARIOS
-		// Inicia o validador js ao carregar a página
-		// valida o formulário
-		$('#new_product_comment').validate({
-			// define regras para os campos
-			rules: {
-				product_comment_name: {
-					required: true,
-					minlength: 2
-				},
-				product_comment_email: {
-					required: true,
-					email: true
-				},
-				product_comment_comment: {
-					required: true
-				}
-			},
-			// define messages para cada campo
-			messages: {
-				product_comment_name: "Preencha o seu nome",
-				product_comment_email: "Preencha seu e-mail de contato",
-				product_comment_comment: "Insira algum comentário no campo!"
-			}
-		});
-		
-		$('#Recomended_list').jcarousel({
-	        // Configuration goes here
-	    });
-	
-		//IMAGENS PRODUTOS
-		$('#Info_photo').show(); //exibe a div pai  
-			$('#Info_photo').cycle({  
-			fx:     'fade',  
-			timeout: 5000,  
-			speed: 500
-			/*,  
-			next:   '.next',  
-			prev:   '.previous',  
-			pager: '.numbers'  */
-		});
-	
-	});
-	</script>
-<script>
-$(function(){
-	$('#conteudo').hide();
-	var noticia;	
-	var hash = window.location.hash;
-	if (hash !='')
-	{
-		noticia = $(hash).html();
-		$('.abas li a[href="' + hash + '"]').parent().addClass('ativo');		
-	} else {
-		noticia = $('#conteudo div:first-child').html();			
-		$('.abas li:first-child').addClass('ativo');		
-	}
-	$('#noticia').append('<div>' + noticia + '</div>').find('div').slideDown();
-	$('.abas li a').click(function(){
-		$('.abas li').removeClass('ativo');
-		$(this).parent().addClass('ativo');
-		var ancora = $(this).attr('href');
-		var nome = ancora.substr(1, ancora.length);
-		noticia = $('#conteudo div[id="' + nome + '"]').html();
-		$('#noticia').empty();
-		$('#noticia').append('<div>' + noticia + '</div>').find('div').slideDown();
-	return false();
-	})
-})
-
-</script>
 <%end%>
+
+	<%content_for :script do%>
+
+	<%end%>
+	
 	<div id="content-itens">
     	<div id='content-left'>
         	<ul>
