@@ -6,11 +6,11 @@
 	<%=stylesheet_link_tag "skin"%>
 	<%=stylesheet_link_tag "skin-carousel"%>
 	<%=javascript_include_tag "cycle.js" %>
-	<%=javascript_include_tag "jcarousel.min.js"%>
+	<%=javascript_include_tag "jcarousel.js"%>
 <%end%>
 
 	<%content_for :script do%>
-
+		
 	<%end%>
 	
 	<div id="content-itens">
@@ -93,9 +93,10 @@
 	</div>
     <div class="clear"></div>
     <div id='content-footer'>
-				<h5>Recomendamos</h5>
-    		<div id='produtos-bloco'>
-            <div class="produto-um produto">
+		<div id='bloco-recomendamos'>
+			<h5>Recomendamos</h5>
+    		<ul id='produtos-bloco' class="mycarousel jcarousel-skin-tango">
+            <li class="produto-um produto">
             	<div id='prod-top'>
                 	<h3>Lorem ipsum</h3>
                     <p>dolor sit amet, aliquam nunce</p>
@@ -114,8 +115,8 @@
                 <div id='prod-des' class="hide p-des-um">
                 	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
                 </div>
-            </div>
-            <div class="produto-dois produto">
+            </li>
+            <li class="produto-dois produto">
             	<div id='prod-top'>
                 	<h3>Lorem ipsum</h3>
                     <p>dolor sit amet, aliquam nunce</p>
@@ -134,8 +135,8 @@
                 <div id='prod-des' class="hide p-des-dois">
                 	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
                 </div>
-            </div>
-            <div class="produto-tres produto">
+            </li>
+            <li class="produto-tres produto">
             	<div id='prod-top'>
                 	<h3>Lorem ipsum</h3>
                     <p>dolor sit amet, aliquam nunce</p>
@@ -154,8 +155,8 @@
                 <div id='prod-des' class="hide p-des-tres">
                 	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
                 </div>
-            </div>
-            <div class="produto-quatro produto">
+            </li>
+            <li class="produto-quatro produto">
             	<div id='prod-top'>
                 	<h3>Lorem ipsum</h3>
                     <p>dolor sit amet, aliquam nunce</p>
@@ -174,7 +175,89 @@
                 <div id='prod-des' class="hide p-des-quatro">
                 	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
                 </div>
-            </div>
+            </li>
+            <li class="produto-quatro produto">
+            	<div id='prod-top'>
+                	<h3>Lorem ipsum</h3>
+                    <p>dolor sit amet, aliquam nunce</p>
+                </div>
+                <div id='prod-img'>
+                	<img src="images/img_cel.png" border='0' width="194" height="198" />
+                </div>
+                <div id='prod-fot' class="p-fot-quatro">
+                    <div id='prod-add'>
+						<a href="#"><img src="images/bt_add_cart.jpg" border='0' width="81" height="43" /></a>
+                    </div>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b> 80,00</h2>
+                    </div>
+                </div>
+                <div id='prod-des' class="hide p-des-quatro">
+                	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
+                </div>
+            </li>
+            <li class="produto-quatro produto">
+            	<div id='prod-top'>
+                	<h3>Lorem ipsum</h3>
+                    <p>dolor sit amet, aliquam nunce</p>
+                </div>
+                <div id='prod-img'>
+                	<img src="images/img_cel.png" border='0' width="194" height="198" />
+                </div>
+                <div id='prod-fot' class="p-fot-quatro">
+                    <div id='prod-add'>
+						<a href="#"><img src="images/bt_add_cart.jpg" border='0' width="81" height="43" /></a>
+                    </div>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b> 80,00</h2>
+                    </div>
+                </div>
+                <div id='prod-des' class="hide p-des-quatro">
+                	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
+                </div>
+            </li>
+            <li class="produto-quatro produto">
+            	<div id='prod-top'>
+                	<h3>Lorem ipsum</h3>
+                    <p>dolor sit amet, aliquam nunce</p>
+                </div>
+                <div id='prod-img'>
+                	<img src="images/img_cel.png" border='0' width="194" height="198" />
+                </div>
+                <div id='prod-fot' class="p-fot-quatro">
+                    <div id='prod-add'>
+						<a href="#"><img src="images/bt_add_cart.jpg" border='0' width="81" height="43" /></a>
+                    </div>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b> 80,00</h2>
+                    </div>
+                </div>
+                <div id='prod-des' class="hide p-des-quatro">
+                	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
+                </div>
+            </li>
+            <li class="produto-quatro produto">
+            	<div id='prod-top'>
+                	<h3>Lorem ipsum</h3>
+                    <p>dolor sit amet, aliquam nunce</p>
+                </div>
+                <div id='prod-img'>
+                	<img src="images/img_cel.png" border='0' width="194" height="198" />
+                </div>
+                <div id='prod-fot' class="p-fot-quatro">
+                    <div id='prod-add'>
+						<a href="#"><img src="images/bt_add_cart.jpg" border='0' width="81" height="43" /></a>
+                    </div>
+                    <div id='prod-val'>
+                    	<h2><b>R$</b> 80,00</h2>
+                    </div>
+                </div>
+                <div id='prod-des' class="hide p-des-quatro">
+                	<p>Lorem ipsum dolor sit amet, lacus suspendisse porta neque mauris consequat magna, rhoncus nonummy</p>
+                </div>
+            </li>
+            </ul>
+			</div>
             <div class="clear"></div>
     </div>
 </div>

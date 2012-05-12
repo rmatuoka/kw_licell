@@ -46,6 +46,7 @@ function Fancyshow()
 
 function Abas()
 {
+	jQuery('.mycarousel').jcarousel();
 	$('#conteudo').hide();
 		var noticia;	
 		var hash = window.location.hash;
