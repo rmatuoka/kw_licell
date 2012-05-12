@@ -636,13 +636,6 @@ select
 	margin-top:60px !important;
 	}
 
-#bloco-recomendamos{
-	width: 960px;
-    left: 50%;
-    margin-left: -480px;
-    position: absolute;
-	}
-
 .content-footer h4{
 	color:#ff5c1b;
 	font-family:Felix;
