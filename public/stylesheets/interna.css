@@ -217,6 +217,7 @@ body{
 	}
 
 .ipt_busca{
+	position:relative;
 	border:1px solid transparent;
 	background-color:transparent;
 	width:412px;
@@ -232,7 +233,7 @@ body{
 	}
 
 .drop_busca{
-	
+	position:relative;
 	width:204px;
 	height:49px;
 	font-family: Ebrima;
