@@ -17,7 +17,7 @@
         	<ul>
               <% addclass = false
                 @subcategorias.each do |c| %>
-                <li <%=("class='item-b'") if addclass == true %>><%= link_to c.name ,"#"%></li>
+                <li <%=("class='item-b'") if addclass == true %>><%= link_to c.name , subcategoria_path(c.url_slug)%></li>
               <% addclass = !addclass
                  end%>
           </ul>
@@ -41,16 +41,19 @@
 						          <p><%=raw(@produto.description)%><p>
                     </td>
                   </tr>
-                  <%if @produto.discount.blank?%>
-                    <tr>
-                      
-                    </tr>
+                  <%if !(@produto.discount > 0)%>
+	                  <tr>
+						<td> </td>
+	                  </tr>
+					  <tr>
+	                     <td style="background-image:url('../images/bg_prod_2_int2.jpg;'); " height="8"><p style='font-family: Arial; font-size:24px; color:#000000; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
+	                  </tr>
                   <%else%>
                     <tr>
-                      <td style="background-image:url('../images/bg_prod1_int2.jpg;'); background-repeat:no-repeat; background-color:#fff;" height="22"><p style='font-family: Arial; font-size:15px; color:#878787; float:right; margin-right:10px; text-decoration:line-through'><%=number_to_currency(@produto.price)%></p></td>
+                      <td style="background-image:url('../images/bg_prod_1_int2.jpg;'); background-repeat:no-repeat; background-color:#fff;" height="22"><p style='font-family: Arial; font-size:15px; color:#878787; float:right; margin-right:10px; text-decoration:line-through'><%=number_to_currency(@produto.price)%></p></td>
                     </tr>
                     <tr>
-                      <td style="background-image:url('../images/bg_prod2_int2.jpg;'); " height="8"><p style='font-family: Arial; font-size:24px; color:#000000; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
+                      <td style="background-image:url('../images/bg_prod_2_int2.jpg;'); " height="8"><p style='font-family: Arial; font-size:24px; color:#000000; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
                     </tr>
                   <%end%>
                   <tr>                  
