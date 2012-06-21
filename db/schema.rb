@@ -175,7 +175,7 @@ ActiveRecord::Schema.define(:version => 20120611205803) do
     t.text     "usage"
     t.datetime "pub_start"
     t.datetime "pub_end"
-    t.integer  "views"
+    t.integer  "views",                                                  :default => 0
     t.integer  "subcategory_id"
     t.boolean  "published"
     t.string   "tweet_text"
