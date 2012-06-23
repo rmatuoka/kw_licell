@@ -146,13 +146,13 @@ body{
 	}
 
 #header-bread{
-	position:absolute;
-	background-image:url('../images/bg_bread_crumb.png');
-	background-position:top center;
-	background-repeat:no-repeat;
-	height:58px;
-	width:373px;
-	top:320px;
+	position: absolute;
+	background-image: url('../images/bg_bread_crumb.png');
+	background-position: top center;
+	background-repeat: no-repeat;
+	height: 58px;
+	width: 245px;
+	top: 320px;
 	}
 
 #header-bread p {
@@ -185,8 +185,8 @@ body{
 	}
 #header-bread h1 b a {
 
-	font-family: Ebrima !important;
-	font-size:25px !important;
+	font-family: Tahoma !important;
+	font-size:19px !important;
 	color:#00b4ff !important;
 	}
 #header-title h1 {
