@@ -151,7 +151,7 @@ body{
 	margin-top:15px;
 	}
 .nav a{
-	font-family: Ebrima;
+	font-family: Tahoma;
 	font-size:15px;
 	color:#727272;
 	font-weight:600;
@@ -267,13 +267,13 @@ body{
 .prod-top h3{
 	color:#FFFFFF;
 	font-family:Felix;
-	font-size:18px;
+	font-size:15px;
 	}
 
 .prod-top p{
 	font-family:Arial, Helvetica, sans-serif;
 	color:#FFFFFF;
-	font-size:15px;
+	font-size:11px;
 	}
 
 .prod-img{
