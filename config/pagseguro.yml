@@ -8,6 +8,6 @@ test:
   <<: *development
 
 production:
-  authenticity_token: 09069F2462F243E783326AC2E63F9DA5
-  email: alessandra@hdcomputers.com.br
+  authenticity_token: 0F6D6FC847E14AB4BEE3FAAB98B4E861
+  email: sussumu@hdcomputers.com.br
   return_to: "http://www.licell.com.br/payments/efetuado"
