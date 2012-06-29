@@ -52,7 +52,7 @@
 			<%if cart_item.quantity > 0 %>          
 			<table width="960" border="0" cellspacing="0" cellpadding="0" >
 				<tr>
-					<td id="tabela-carrinho-linha" width="108" height="100" align="center" valign="middle" bgcolor="#f6f6f6"><img src="images/img_prod_carrinho.png" style="margin:5px; vertical-align:middle;"/></td>
+					<td id="tabela-carrinho-linha" width="108" height="100" align="center" valign="middle" bgcolor="#f6f6f6"><%=(image_tag(cart_item.product.product_images.first.image.url("thumb"))) if !cart_item.product.product_images.first.blank? %></td>
 					<td id="tabela-carrinho-linha" width="305" height="100" align="left" valign="middle" bgcolor="#f6f6f6"><p><%=link_to cart_item.title, produto_path(cart_item.url_slug)%></p></td>
 					<td id="tabela-carrinho-linha" height="100" width="147" align="center" valign="middle" bgcolor="#f6f6f6" style="vertical-align: midle !important;"><div id='cel-quantidade'  ><%=cart_item.quantity%></div></td>
 					<td id="tabela-carrinho-linha" height="100" width="119" align="center" valign="middle" bgcolor="#f6f6f6" ><div class="cel-alt-quant" style="vertical-align: midle !important;" ><%= link_to(image_tag("desc.png", :width => "45px", :height =>"20px"),add_to_cart_produto_path(cart_item.id_product))%><%=link_to(image_tag("asc.png", :width => "45px", :height =>"20px", :style =>"margin-top: 7px !important;"),remove_from_cart_produto_path(cart_item.id_product))%></div></td>
