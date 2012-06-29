@@ -1,13 +1,193 @@
-	<h1>Esqueceu a senha?</h1> 
-	<p class="Text_tile">Digite seu e-mail abaixo para recuperar sua senha.</p>
-	<div id="flash_error_cadastro" style="display:none;"></div>
-	<%= form_tag password_resets_path, :id=>"frm_password_resets" do%>
-		<%=raw "<div id='aviso_show_notice'>"+notice+"</div>" if !notice.blank?%>
-		<p><%= label "email", "E-mail", :class=>"Text_tile" %>
-			<%= text_field_tag "email","e-mail", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>
-		</p>
-		<div class="Center">
-				<%= submit_tag "Voltar",:type=>"reset",:onclick=>"window.location.href='#{login_path}'", :class => "Bt_enviar", :style=>"margin-right: 5px;"%> 
-				<%= submit_tag "Enviar",:id=>"btn_enviar_password",:class => "Bt_enviar"  %>
+<%content_for :title do%>
+	Login
+<%end%>
+
+<%content_for :head do%>
+	<%=stylesheet_link_tag "rating"%>
+	<%=javascript_include_tag "rating"%>
+	
+	<style>
+	#Login_box
+	{
+		z-index:1300;
+		width:465px;
+		height:243px;
+		margin:auto;
+		margin-top:0px;
+		text-align:center;	
+	}
+
+	.Text_tile
+	{
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:14px;
+		color:#666;
+		font-weight:bold;	
+	}
+	#aviso_show_notice{
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:red;
+		font-weight:bold;		
+	}
+	h1
+	{
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:16px;
+		color:#666;
+		font-weight:bold;	
+	}
+	.Sub_t
+	{
+		color:#999;		
+	}
+	label
+	{
+	}
+	.error_messages
+	{
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		color:red;
+		font-weight:bold;
+	}
+	.error_messages li
+	{
+		list-style:none;
+	}
+	.field_with_errors{
+		width:260px;
+	}
+	.Bt_enviar
+	{
+		position:relative;
+		width:102px;
+		height:32px;	
+	/*	margin-left:152px;*/
+		cursor: pointer;
+		border-radius: 10px;
+		background:#999;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		font-weight:bold;
+		color:#fff;
+		background: linear-gradient(#D6D6D6, #2F2F2F 70%); /* Implementação W3C */
+		background: -moz-linear-gradient(#D6D6D6, #2F2F2F 70%); /* Implementação Mozilla */
+		background: -webkit-gradient(linear, 0 0, 0 70%, from(#D6D6D6), to(#2F2F2F));/* Implementação para browsers que renderizam via webkit */
+		-pie-background: linear-gradient(#D6D6D6, #2F2F2F 70%); /*Propriedade adicionada para renderização das propriedades acima no IE 7 e IE 8 */
+		background: url (image.png) repeat-x 0px 0px; /* Background com imagem para degradê para o Opera 10 */
+		cursor:pointer;
+	}
+	.Bt_enviar {
+	position: relative;
+	margin-top:20px;
+	width: 102px;
+	height: 32px;
+	cursor: pointer;
+	border-radius: 10px;
+	background: #999;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+	background: linear-gradient(#D6D6D6, #2F2F2F 70%);
+	background: -moz-linear-gradient(#D6D6D6, #2F2F2F 70%);
+	background: -webkit-gradient(linear, 0 0, 0 70%, from(#D6D6D6), to(#2F2F2F));
+	-pie-background: linear-gradient(#D6D6D6, #2F2F2F 70%);
+	background: url (image.png) repeat-x 0px 0px;
+	cursor: pointer;
+	}
+	form { padding-top:18px;padding-bottom:18px;}
+	</style>
+	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag "jquery.js" %>
+
+	<script>
+	jQuery.noConflict();
+
+	var htmlold = "";
+
+	function check_text_onfocus(obj)
+	{
+	    if(obj.value == obj.defaultValue)
+	        obj.value = '';
+	}
+	function check_text_onblur(obj)
+	{
+	    if(obj.value=='')
+	        obj.value = obj.defaultValue;
+	}
+	function enviardaodos(obj){
+		if (jQuery('#flash_error_cadastro').show){
+			jQuery('#flash_error_cadastro').hide();
+		}		
+		jQuery(obj).hide();
+		jQuery('#loading-forgot').show();
+		jQuery("#frm_password_resets").livequery('submit', function() {
+		  return request({ url : this.action, type : this.method, data : jQuery(this).serialize() });
+		});
+
+	}
+
+	function novoConteudo(){
+		htmlold = jQuery('#login_show').html();
+		jQuery.ajax({
+			url: '/password_resets/new',
+		    type:'get',
+			beforeSend: function (){
+				jQuery('#login_show').hide();
+				jQuery('#loading-forgot').show();
+			},
+		    success: function(response){
+				jQuery('#loading-forgot').hide();
+				jQuery('#login_show').html(response);
+				jQuery('#login_show').show();
+		    },
+		    error: function(){ 
+				alert('Falha ao carregar a página!') ;
+				jQuery('#loading-forgot').hide();
+				jQuery('#login_show').show();
+			}
+		  })
+	}
+
+	function voltaConteudo(){
+		jQuery('#login_show').html(htmlold); 
+		htmlold = "";		
+	}
+
+	</script>
+	<%=yield :head%>
+<%end%>
+
+<%content_for :breadcrumb do%>
+	<div id='header-bread'>
+      	<p><%=link_to "home", home_index_path%> </p>
+      	<h1>Esqueci a senha <b></b></h1>
+      </div>
+      <div id='header-title'>
+      	<h1>Esqueceu a senha?</h1>
+      </div>
+<%end%>
+
+
+
+<div id="Box_content">
+        <br /><br />
+        <div class="Text_box">       	
+			<p class="Text_tile">Digite seu e-mail abaixo para recuperar sua senha.</p>
+			<div id="flash_error_cadastro" style="display:none;"></div>
+			<%= form_tag password_resets_path, :id=>"frm_password_resets" do%>
+				<%=raw "<div id='aviso_show_notice'>"+notice+"</div>" if !notice.blank?%>
+				<p><%= label "email", "E-mail", :class=>"Text_tile" %>
+					<%= text_field_tag "email","e-mail", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>
+				</p>
+				<div class="Center">
+						<%= submit_tag "Voltar",:type=>"reset",:onclick=>"window.location.href='#{login_path}'", :class => "Bt_enviar", :style=>"margin-right: 5px;"%> 
+						<%= submit_tag "Enviar",:id=>"btn_enviar_password",:class => "Bt_enviar"  %>
+				</div>
+			<% end %>
 		</div>
-	<% end %>
+</div>
+
+	

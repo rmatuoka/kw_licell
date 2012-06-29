@@ -82,7 +82,7 @@ body{
 	height:26px;
 	width:106px;
 	float:left;
-	font-family: Ebrima;
+	font-family: Tahoma;
 	font-size:15px;
 	color:#727272;
 	font-weight:600;
@@ -116,7 +116,7 @@ body{
 	}
 
 #header-bread h1{
-	font-family: Ebrima;
+	font-family: Tahoma;
 	font-size:18px;
 	color:#b9b9b9;
 	margin-left:10px;
@@ -124,7 +124,7 @@ body{
 	}
 
 #header-bread h1 b{
-	font-family: Ebrima;
+	font-family: Tahoma;
 	font-size:25px;
 	color:#00b4ff;
 	}
@@ -164,7 +164,7 @@ body{
 	background:#f1f5f8;
 	display:table-cell;
 	vertical-align:middle;
-	font-family: Ebrima;
+	font-family: Tahoma;
 	font-size:17px;
 	color:#484848;
 	font-weight:600;

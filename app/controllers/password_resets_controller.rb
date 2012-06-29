@@ -1,6 +1,6 @@
 class PasswordResetsController < ApplicationController
-#  layout "interna", :except => [:new, :create]
-  layout "login"
+  layout "interna"
+  before_filter :load_site_categories, :load_cart
   def new
   
   end

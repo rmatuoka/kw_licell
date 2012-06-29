@@ -1,5 +1,7 @@
 class UserSessionsController < ApplicationController
-  layout "login"
+  layout "interna"
+  before_filter :load_site_categories, :load_cart
+  
   def new
     @user_session = UserSession.new
   end

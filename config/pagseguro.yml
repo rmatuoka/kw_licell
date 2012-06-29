@@ -8,6 +8,6 @@ test:
   <<: *development
 
 production:
-  authenticity_token: C31EFEA28C874E85ADB8DFAAD5CBD576
-  email: log@korewa.com.br
+  authenticity_token: 09069F2462F243E783326AC2E63F9DA5
+  email: alessandra@hdcomputers.com.br
   return_to: "http://www.licell.com.br/payments/efetuado"
