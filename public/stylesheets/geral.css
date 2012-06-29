@@ -129,7 +129,7 @@ body{
 	background-image:url('../images/bg_busca.png');
 	background-position:top center;
 	background-repeat:no-repeat;
-	font-family: Tahoma;
+	font-family: Ebrima;
 	font-size:20px;
 	color:#bfbfbf;
 	padding:10px;
@@ -140,7 +140,7 @@ body{
 	
 	width:204px;
 	height:49px;
-	font-family: Tahoma;
+	font-family: Ebrima;
 	font-size:20px;
 	color:#bfbfbf;
 	margin-right:10px;
@@ -149,6 +149,7 @@ body{
 #header-nav{
 	float:left;
 	margin-top:15px;
+	|*margin-top:11px;
 	}
 .nav a{
 	font-family: Tahoma;
