@@ -30,6 +30,11 @@
 
 <div id='content-itens'>
 	<div id='contet-top-fim'>
+	<% if !flash[:notice].blank?%>
+		<script>
+			alert('<%= flash[:notice] %>');
+		</script>
+	<% end %>
 
 	<%if !@cart.items.blank?%>
 		<div id="tabela-carrinho">
