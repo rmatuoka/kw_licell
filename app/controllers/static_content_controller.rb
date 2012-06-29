@@ -1,7 +1,7 @@
 class StaticContentController < ApplicationController
   access_control do
-    allow all
-  end
+    allow logged_in, :all
+  end 
 
   def index
     

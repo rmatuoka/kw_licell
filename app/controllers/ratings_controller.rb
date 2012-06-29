@@ -1,4 +1,7 @@
 class RatingsController < ApplicationController
+  access_control do
+    allow logged_in, :all
+  end 
   def create
       @produto = Product.find_by_id(params[:product_id])
       if @produto.rate_it(params[:rating][@produto.id.to_s], current_user.id)

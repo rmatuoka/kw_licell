@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+
   layout "blank"
   def index
     if !params[:vendasconcluidas].blank?

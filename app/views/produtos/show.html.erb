@@ -57,8 +57,8 @@
                     </tr>
                   <%end%>
                   <tr>                  
-                    <td style="background:#e8e8e8;"><a href="https://twitter.com/share" class="twitter-share-button" >Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com.br&amp;send=false&amp;layout=button_count&amp;width=130&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=228638123874618" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe></td>
+                    <td style="background:#e8e8e8;"><!--<a href="https://twitter.com/share" class="twitter-share-button" >Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com.br&amp;send=false&amp;layout=button_count&amp;width=130&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=228638123874618" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>--></td>
 						        <%if current_user%>
 							        <td width="209"><%=link_to image_tag("bt_add_whish.jpg"), add_to_wishlist_produto_path(@produto)%></td>
 						        <%else%>
@@ -82,10 +82,10 @@
                     <p><%=raw(@produto.description)%></p>
                 </div>
                 <div id="noticia2">
-                    <p><%=raw(@produto.features)%></p>
+                    <p><%#=raw(@produto.features)%></p>
                 </div>
                 <div id="noticia3">
-                    <p><%=raw(@produto.usage)%></p>
+                    <p><%#=raw(@produto.usage)%></p>
                 </div>
                 <div id="noticia4">
                     <p><%=raw(@produto.bibliography)%>

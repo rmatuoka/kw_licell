@@ -50,8 +50,8 @@
 					<td id="tabela-carrinho-linha" width="108" height="100" align="center" valign="top" bgcolor="#f6f6f6"><img src="images/img_prod_carrinho.png" style="margin:5px; vertical-align:middle;"/></td>
 					<td id="tabela-carrinho-linha" width="305" height="100" align="left" valign="top" bgcolor="#f6f6f6"><p><%=link_to cart_item.title, produto_path(cart_item.url_slug)%></p></td>
 					<td id="tabela-carrinho-linha" height="100" width="161" align="center" valign="middle" bgcolor="#f6f6f6"><p><%=number_to_currency(cart_item.price)%></p></td>
-					<td id="tabela-carrinho-linha" height="100" width="147" align="center" valign="middle" bgcolor="#f6f6f6"><div id='cel-quantidade'><%=cart_item.quantity%></div></td>
-					<td id="tabela-carrinho-linha" height="100" width="119" align="center" valign="middle" bgcolor="#f6f6f6"><div class="cel-alt-quant"><%= link_to(image_tag("desc.gif", :width => "45px", :height =>"20px"),add_to_cart_produto_path(cart_item.id_product))%><%=link_to(image_tag("asc.gif", :width => "45px", :height =>"20px"),remove_from_cart_produto_path(cart_item.id_product))%></div></td>
+					<td id="tabela-carrinho-linha" height="100" width="147" align="center" valign="middle" bgcolor="#f6f6f6"><div id='cel-quantidade' style="margin-top:7px;" ><%=cart_item.quantity%></div></td>
+					<td id="tabela-carrinho-linha" height="100" width="119" align="center" valign="middle" bgcolor="#f6f6f6"><div class="cel-alt-quant"><%= link_to(image_tag("desc.png", :width => "45px", :height =>"20px"),add_to_cart_produto_path(cart_item.id_product))%><%=link_to(image_tag("asc.png", :width => "45px", :height =>"20px"),remove_from_cart_produto_path(cart_item.id_product))%></div></td>
 					<td id="tabela-carrinho-linha" height="100" width="120" align="center" valign="middle" bgcolor="#f6f6f6"><%=link_to image_tag("bt_excluir.png" , :style=>"margin:5px; vertical-align:middle;"), remove_all_from_cart_produto_path(cart_item.id_product)%></td>
 				</tr>
 			</table>
