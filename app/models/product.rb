@@ -28,7 +28,7 @@ class Product < ActiveRecord::Base
   end
   
   def self.six_most_viewed  
-    Product.all(:conditions => ['price > 0 AND IF(`products`.`stock_control` = 1, `products`.`stock_quantity` > 0 AND published = 1,  published = 1)'], :order => "views DESC", :limit => 6)
+    Product.all(:conditions => ['price > 0 AND IF(`products`.`stock_control` = 1, `products`.`stock_quantity` > 0 AND published = 1,  published = 1)'], :order => "views DESC", :limit => 8)
   end
   
   def self.all_published
