@@ -1,5 +1,5 @@
 .input_form{
-	height:54px; 
+	height:30px; 
 	border:1px solid #dedede; 
 	background-color:#fff;
 	}
@@ -31,14 +31,18 @@
 	}
 
 #form_linha{
+	/*
 	height:58px;
 	margin-top:10px !important;
 	margin-bottom:10px !important;
-	}
+	*/
+}
 
 #id_sexo{
+	/*
 	margin-left:470px;
 	margin-top:-38px;
+	*/
 	}
 
 #form_cadastro h1{
@@ -51,34 +55,34 @@
 
 #form_cadastro h2{
 	font-family: Tahoma;
-	font-size:20px;
+	font-size:16px;
 	color:#696969;
 	font-style:italic;
 	}
 
 #form_cadastro h3{
 	font-family: Tahoma;
-	font-size:20px;
+	font-size:16px;
 	color:#00b4ff;
 	font-style:italic;
 	}
 
 #form_cadastro h4{
 	font-family: Tahoma;
-	font-size:20px;
+	font-size:16px;
 	color:#fd2ef6;
 	font-style:italic;
 	}
 
 #form_cadastro form{
-	margin-top:50px;
+	margin-top:20px;
 	}
 
 #form_cadastro input{
 	font-family: Tahoma;
-	font-size:20px;
+	font-size:16px;
 	color:#939393;
 	font-style:italic;
 	padding-left:10px;
-	white-space: pre;
+
 	}

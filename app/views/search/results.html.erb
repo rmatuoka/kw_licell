@@ -40,6 +40,12 @@
 			<%= content_tag :div, flash[:error], :id => "flash_error" %>
 		<%end%>
 			<%if !@Results.blank?%>
+			
+				<div id="name">
+					<%= will_paginate @Results, :prev_label => '<< Anterior', :next_label => 'Próximo >>' if !@Results.blank? %>
+					<br /><br />
+				</div>
+			
 				<% count = 0 
 				    @Results.each do |produto|
 				%>
@@ -79,7 +85,12 @@
 			<p>Nenhum registro foi localizado! Tente novamente.</p>
 
 			<%end%>
-     <%= will_paginate @Results if !@Results.blank? %>                                               
+			<div id="name" style="clear:both;"></div>
+			
+			<div id="name">
+				<%= will_paginate @Results, :prev_label => '<< Anterior', :next_label => 'Próximo >>' if !@Results.blank? %>
+			</div>
+     		                                   
      <img src="images/img_line_box_order.png" width="702" height="2" style="margin-top:10px; margin-bottom:10px;" /> 
     </div>
 

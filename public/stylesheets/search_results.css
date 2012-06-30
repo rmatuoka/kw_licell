@@ -1,0 +1,46 @@
+.pagination
+{
+	width:960px;
+	margin:auto;
+	text-align:center;
+}
+
+.pagination span
+{
+	font-family:Tahoma;
+	font-size:16px;
+	color:#999;
+}
+
+.pagination a
+{
+	font-family:Tahoma;
+	font-size:16px;
+	color:#999;
+	text-decoration:none;
+}
+
+.pagination a:hover
+{
+	text-decoration:underline;
+}
+
+.prev_page
+{
+	color:#00B4FF !important;	
+}
+
+.next_page
+{
+	color:#00B4FF !important;
+}
+
+.disabled
+{
+	
+}
+
+.current
+{
+	color:#FF5C1B !important;
+}
