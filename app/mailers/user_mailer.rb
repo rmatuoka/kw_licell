@@ -4,14 +4,14 @@ class UserMailer < ActionMailer::Base
   #Enviado quando ocorrer o primeiro retorno do pagseguro!
   def transaction_initiated(order)
     @order = order
-    mail(:to => order.user.email, :subject => "Transação Iniciada",:reply_to => "daniel@licell.com.br")
+    mail(:to => order.user.email, :subject => "Transação Iniciada", :bcc => "log@korewa.com.br",:reply_to => "daniel@licell.com.br")
   end
   
   #Enviado quando o pagamento for concuido!
   def payment_made(order)
     @order = order
     @order_itens = OrderProduct.all(:conditions => ['order_id = ?', @order.id])
-    mail(:to => order.user.email, :subject => "Pedido Efetuado",:reply_to => "daniel@licell.com.br")
+    mail(:to => order.user.email, :subject => "Pedido Efetuado", :bcc => "log@korewa.com.br",:reply_to => "daniel@licell.com.br")
   end
   
   #Enviado quando o código de rastreamento for inserido na tabela order!
