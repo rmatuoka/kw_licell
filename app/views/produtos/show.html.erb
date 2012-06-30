@@ -46,7 +46,7 @@
 						<td> </td>
 	                  </tr>
 					  <tr>
-	                     <td style="background-image:url('../images/bg_prod2_int2.jpg'); background-repeat:no-repeat; " height="8"><p style='font-family: Arial; font-size:24px; color:#000000; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
+	                     <td style="background-image:url('../images/bg_prod2_int2.jpg'); background-repeat:no-repeat; " height="8"><p style='font-family: Tahoma; font-size:24px; color:#FF5C1B; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
 	                  	 <%if current_user%>
 						        <td width="209"><%=link_to image_tag("bt_add_whish.jpg"), add_to_wishlist_produto_path(@produto)%></td>
 					        <%else%>
@@ -60,7 +60,7 @@
                       <td style="background-image:url('../images/bg_prod1_int2.jpg'); background-repeat:no-repeat; background-color:#fff;" height="22"><p style='font-family: Arial; font-size:15px; color:#878787; float:right; margin-right:10px; text-decoration:line-through'><%=number_to_currency(@produto.price)%></p></td>
                     </tr>
                     <tr>
-                      <td style="background-image:url('../images/bg_prod2_int2.jpg'); " height="8"><p style='font-family: Arial; font-size:24px; color:#000000; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
+                      <td style="background-image:url('../images/bg_prod2_int2.jpg'); " height="8"><p style='font-family: Tahoma; font-size:24px; color:#FF5C1B; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
                      <%if current_user%>
 					        <td width="209"><%=link_to image_tag("bt_add_whish.jpg"), add_to_wishlist_produto_path(@produto)%></td>
 				        <%else%>

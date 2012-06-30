@@ -315,9 +315,10 @@ body{
 	}
 
 .prod-val b{
-	font-family:Arial, Helvetica, sans-serif;
-	color:#ff5c1b;
-	font-size:15px;
+	font-family: Tahoma, Helvetica, sans-serif;
+	color: #FF5C1B;
+	font-size: 21px;
+	font-weight: normal !important;
 	
 	}
 

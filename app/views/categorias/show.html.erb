@@ -34,11 +34,11 @@
                       </div>
                       <%if produto.discount.blank?%>
                       <div class='prod-val'>
-                      	<h2><%=number_to_currency(produto.price)%></h2>
+                      	<h2><b><%=number_to_currency(produto.price)%></b></h2>
                       </div>
                       <%else%>
                       <div class='prod-val'>
-                      	<h2><%=number_to_currency(produto.price - produto.discount)%></h2>
+                      	<h2><b><%=number_to_currency(produto.price - produto.discount)%></b></h2>
                       </div>
                       <%end%>
                   </div>
