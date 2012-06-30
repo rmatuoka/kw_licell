@@ -111,3 +111,9 @@ padding-left:11px;
 #prazos p b{
 	color:#e04000
 	}
+#header-busca {
+position: absolute;
+right: -191px !important;
+top: 16px;
+}
+
