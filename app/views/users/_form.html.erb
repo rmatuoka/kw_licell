@@ -93,9 +93,9 @@
 		<br />
 		</div>
 		<div id='form_linha'>
-			<%=image_submit_tag "bt_finalizar_cadastro.png", :style=>"margin-left:20px; float:right;"%>
+			<%=image_submit_tag "bt_finalizar_cadastro.png", :style=>"float:left;"%>
 			<%if !current_user %>
-			<input type="image" src="../images/bt_limpa_cadastro.png" onclick="document.theForm.reset();return false;" style="float:right; margin-left:20px;" />
+			<input type="image" src="../images/bt_limpa_cadastro.png" onclick="document.theForm.reset();return false;" style="float:left;" />
 			<%end%>	
 		</div>
 <%end%>
