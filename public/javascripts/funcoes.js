@@ -77,7 +77,7 @@ function CycleInit()
 		.cycle({
 			fx:     'turnLeft',
 			speed:  'fast',
-			timeout: 0,
+			timeout: 5000,
 			pager:  '#nav'
 	});
 }
