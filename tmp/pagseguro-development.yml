@@ -1,14 +1,27 @@
 --- 
-"9": !map:ActiveSupport::HashWithIndifferentAccess 
-  tipo: CP
-  encoding: UTF-8
-  ref_transacao: "9"
-  item_valor_1: "2700"
-  commit: Clique aqui para efetuar o pagamento!
-  moeda: BRL
-  item_quant_1: "5"
+"1": !map:ActiveSupport::HashWithIndifferentAccess 
   email_cobranca: log@korewa.com.br
-  cliente_email: rmatuoka@korewa.com.br
+  ref_transacao: "1"
+  item_id_1: "1"
+  encoding: UTF-8
+  commit: Clique aqui para efetuar o pagamento!
+  item_quant_1: "2"
+  cliente_nome: cnascimento
+  item_valor_1: "80"
+  cliente_email: cnascimento@korewa.com.br
+  tipo: CP
+  item_descr_1: CApa silicone verde
+  moeda: BRL
+"9": !map:ActiveSupport::HashWithIndifferentAccess 
+  ref_transacao: "9"
+  email_cobranca: log@korewa.com.br
   item_id_1: "361"
-  item_descr_1: Bateria Nokia BL4B
+  encoding: UTF-8
+  commit: Clique aqui para efetuar o pagamento!
+  item_quant_1: "5"
   cliente_nome: Rafael Matuoka
+  item_valor_1: "2700"
+  cliente_email: rmatuoka@korewa.com.br
+  tipo: CP
+  item_descr_1: Bateria Nokia BL4B
+  moeda: BRL
