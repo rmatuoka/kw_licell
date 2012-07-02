@@ -112,6 +112,7 @@ body{
 	width:960px;
 	float:left;
 	margin-top:15px;
+	*margin-top:15px !important;
 	margin-left:-50px;
 	}
 
@@ -119,7 +120,7 @@ body{
 	position:relative;
 	float:left;
 	margin-top: 16px;
-	*margin-top:11px;
+	*margin-top:12px;
 	}
 .nav a{
 	font-family: Tahoma;
@@ -197,7 +198,7 @@ body{
 	font-family: Felix;
 	font-size:25px;
 	color:#999;
-	margin-top:56px;
+	top:110px;
 	float:right;
 	margin-right:20px;
 	}
@@ -237,6 +238,10 @@ body{
 	}
 
 .drop_busca{
+	position /*\**/: relative \9 !important;
+	top: -0px \9;
+	top /*\**/: 13px \9;
+	
 	position:relative;
 	width:204px;
 	height:49px;
@@ -245,6 +250,10 @@ body{
 	color:#bfbfbf;
 	margin-right:10px;
 	}	
+	
+@media all and (min-width:0) {
+    .drop_busca { top:0px \0/; }  /* IE9-IE10pp4 */
+}	
 /*  fim header busca  */
 .text_search_list
 {

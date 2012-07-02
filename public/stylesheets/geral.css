@@ -109,9 +109,10 @@ body{
 	}
 
 #header-logo{
+position:relative;
 	width:960px;
 	float:left;
-	margin-top:15px;
+	margin-top:30px;
 	margin-left:-50px;
 	}
 /*  inicio header busca  */
@@ -137,19 +138,28 @@ body{
 	}
 
 .drop_busca{
+	position /*\**/: relative \9 !important;
+	top: -0px \9;
+	top /*\**/: 13px \9;
 	
+	position:relative;
 	width:204px;
 	height:49px;
-	font-family: Ebrima;
+	font-family: Tahoma;
 	font-size:20px;
 	color:#bfbfbf;
 	margin-right:10px;
 	}	
+	
+@media all and (min-width:0) {
+    .drop_busca { top:0px \0/; }  /* IE9-IE10pp4 */
+}	
+}	
 /*  fim header busca  */	
 #header-nav{
 	float:left;
 	margin-top:15px;
-	|*margin-top:11px;
+	*margin-top:-4px;
 	}
 .nav a{
 	font-family: Tahoma;

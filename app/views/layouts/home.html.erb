@@ -55,12 +55,12 @@
   <%=render :file => "layouts/_userbar.html.erb"%>
 </div>
 <div id='header'>
-	<div id='header-content'>
+	<div id='header-content' style="position:relative;">
     	  <div id='header-logo'>
         	<%=link_to(image_tag("logo.png"), home_index_path, :class => "top-bar-um" )%>
         </div>
-        <div id='header-busca'>
-            <%=form_tag '/search/results', :method => :get %>
+        <div id='header-busca' style="">
+            <%=form_tag '/search/results', :method => :get%>
                 <%=autocomplete_field_tag 'keyword', 'Digite o nome do produto.', autocomplete_product_name_search_index_path, :size => 20, :class =>"ipt_busca" , :onblur=>"if(this.value == '') this.value='Digite o nome do produto.';", :onfocus=>"if(this.value=='Digite o nome do produto.') this.value='';"%>
                 <%= select_tag(:category, options_from_collection_for_select(@category_site, :id, :name), :include_blank=>"Todos",:class =>"drop_busca") %> 
                 <%=image_submit_tag("bt_busca.png", :style =>"margin-bottom:-19px;"  ,:width=>"61", :height=>"49")%>

@@ -88,6 +88,7 @@ height:37px;
 			{
 				position:relative;
 				left:6px;
+				top /*\*/: 2px \9;
 				font-family:Felix;
 				color:#6d6d6d;
 				font-size:12px;							
@@ -100,6 +101,7 @@ height:37px;
 			{
 				position:relative;
 				left:-5px;
+				top /*\*/: 2px \9;
 				font-family:Felix;
 				color:#6d6d6d;
 				font-size:12px;				
