@@ -59,19 +59,27 @@
 		                    
 					</tr>
                   <%else%>
-                    <tr>
-                      <td style="background-image:url('../images/bg_prod1_int2.jpg'); background-repeat:no-repeat; background-color:#fff;" height="22"><p style='font-family: Arial; font-size:15px; color:#878787; float:right; margin-right:10px; text-decoration:line-through'><%=number_to_currency(@produto.price)%></p></td>
-                    </tr>
-                    <tr>
-                      <td style="background-image:url('../images/bg_prod2_int2.jpg'); " height="8"><p style='font-family: Tahoma; font-size:24px; color:#FF5C1B; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
+
                      <%if current_user%>
+						<tr>
+	                      <td style="background-image:url('../images/bg_prod1_int2.jpg'); background-repeat:no-repeat; background-color:#fff;" height="22"><p style='font-family: Arial; font-size:15px; color:#878787; float:right; margin-right:10px; text-decoration:line-through'><%=number_to_currency(@produto.price)%></p></td>
+	                    </tr>
+	                    <tr>
+							<td style="background-image:url('../images/bg_prod2_int2.jpg'); " height="8"><p style='font-family: Tahoma; font-size:24px; color:#FF5C1B; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
 					        <td width="209"><%=link_to image_tag("bt_add_whish.jpg"), add_to_wishlist_produto_path(@produto)%></td>
-				        <%else%>
-	                 				<td width="209"><%=link_to image_tag("bt_add_whish.jpg"), "/user_sessions/new"%></td>
+							<td width="240" align="right"><%=link_to image_tag("bt_add_cart_int.jpg"), add_to_cart_produto_path(@produto)%></td>
+						</tr>
+				     <%else%>
+						<tr>
+							<td> </td>
+	                  	</tr>
+					  	<tr>
+							<td height="8"><p><%=link_to "Clique para ver o preço!", "/user_sessions/new", :style=>'font-family: Tahoma; font-size:16px; color:#FF5C1B; float:right; margin-right:30px;'%></p></td>						
+	                 		<td width="209"><%=link_to image_tag("bt_add_whish.jpg"), "/user_sessions/new"%></td>
+							<td width="240" align="right"><%=link_to image_tag("bt_add_cart_int.jpg"), "/user_sessions/new"%></td>
 					        <!-- <a href="javascript:void(0);" onclick="alert('Para adicionar um produto a sua lista de desejos\n você deve estar logado!')">+ adicionar a lista de desejos</a> -->
+						</tr>
 				        <%end%>
-	                    <td width="240" align="right"><%=link_to image_tag("bt_add_cart_int.jpg"), add_to_cart_produto_path(@produto)%></td>
-					</tr>
                   <%end%>
                   <tr>                  
                     <td style="background:#fff;"><!--<a href="https://twitter.com/share" class="twitter-share-button" >Tweet</a>
