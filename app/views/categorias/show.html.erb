@@ -29,6 +29,7 @@
 						          <%=link_to(image_tag("missing_thumb.jpg"), produto_path(produto.url_slug)) if produto.product_images.first.blank? %>
                   </div>
                   <div class="prod-fot" id="p-fot-<%=count%>">
+				  <% if current_user %>
                       <div class='prod-add'>
                         <%=link_to image_tag("bt_add_cart.jpg", :width=>"81", :height=>"43"), add_to_cart_produto_path(produto)%>
                       </div>
@@ -41,6 +42,9 @@
                       	<h2><b><%=number_to_currency(produto.price - produto.discount)%></b></h2>
                       </div>
                       <%end%>
+				  <% else %>
+					<p><%=link_to "Clique para ver o preço!", "/user_sessions/new", :style=>'font-family: Tahoma; font-size:16px; color:#FF5C1B; float:right; margin-right:30px;position: relative;top:10px;'%></p>
+				  <% end %>
                   </div>
                   <div class="hide prod-des" id="p-des-<%=count%>">
                   	<p><%=truncate(produto.summary, :length => 55)%></p>
