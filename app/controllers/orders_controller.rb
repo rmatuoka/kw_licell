@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
   end
   
   def create
-	  if (@cart.total_price >= 100.to_i)	    
+    
       #Inicio do Order!
       @order = Order.new
       #GRAVAR TRANSACAO NO BANCO , OS ITENS COMPRADOS ESTAO GRAVADOS NO CARRINHO
@@ -38,18 +38,16 @@ class OrdersController < ApplicationController
               :name                  => current_user.nome,
               :email                 => current_user.email
             }
-          
-            @order_product.add :id => cart_item.id_product, :quantity => cart_item.quantity,  :price => (cart_item.price/cart_item.quantity), :description => cart_item.title #, :weight => 0.250, 
-          
+	          if (@cart.total_price >= 100.to_i)	          
+              @order_product.add :id => cart_item.id_product, :quantity => cart_item.quantity,  :price => (cart_item.price/cart_item.quantity), :description => cart_item.title #, :weight => 0.250, 
+            else
+              @order_product.add :id => cart_item.id_product, :quantity => cart_item.quantity,  :price => (cart_item.price/cart_item.quantity), :description => cart_item.title , :weight => cart_item.product.weight 
+            end
           end
         end
       end
       #LIMPA CARRINHO
       session[:cart] = nil
       #Fim do Order
-    else
-      flash[:notice] = "Valor não pode ser inferior a R$ 100,00."
-      redirect_to carrinhos_path
-    end
   end
 end
