@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120611205803) do
+ActiveRecord::Schema.define(:version => 20120712202241) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -168,8 +168,8 @@ ActiveRecord::Schema.define(:version => 20120611205803) do
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "summary"
-    t.decimal  "price",                   :precision => 10, :scale => 0
-    t.decimal  "discount",                :precision => 10, :scale => 0
+    t.decimal  "price",                   :precision => 10, :scale => 2
+    t.decimal  "discount",                :precision => 10, :scale => 2, :default => 0.0
     t.text     "features"
     t.text     "description"
     t.text     "usage"
@@ -181,7 +181,7 @@ ActiveRecord::Schema.define(:version => 20120611205803) do
     t.string   "tweet_text"
     t.string   "like_link"
     t.string   "video"
-    t.integer  "vendas"
+    t.integer  "vendas",                                                 :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "bibliography"
@@ -301,6 +301,7 @@ ActiveRecord::Schema.define(:version => 20120611205803) do
     t.string   "cep"
     t.string   "quarter"
     t.string   "perishable_token"
+    t.boolean  "active",            :default => false, :null => false
   end
 
   create_table "wishlists", :force => true do |t|

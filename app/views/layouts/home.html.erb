@@ -51,6 +51,12 @@
   })();
 
 </script>
+
+<% if !flash[:notice].blank? %>
+<script type="text/javascript">
+	alert('<%= flash[:notice] %>');
+</script>
+<% end%>
 </head>
 <body>
 	<!-- LiveZilla Chat Button Link Code (ALWAYS PLACE IN BODY ELEMENT) --><div style="display:none;"><a href="javascript:void(window.open('http://chat.licell.com.br/chat.php','','width=590,height=610,left=0,top=0,resizable=yes,menubar=no,location=no,status=yes,scrollbars=yes'))"><img id="chat_button_image" src="http://chat.licell.com.br/image.php?id=03&amp;type=overlay" width="39" height="214" border="0" alt="LiveZilla Live Help"></a></div><!-- http://www.LiveZilla.net Chat Button Link Code --><!-- LiveZilla Tracking Code (ALWAYS PLACE IN BODY ELEMENT) --><div id="livezilla_tracking" style="display:none"></div><script type="text/javascript">

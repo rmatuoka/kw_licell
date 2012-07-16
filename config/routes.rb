@@ -1,11 +1,13 @@
 KwLicell::Application.routes.draw do |map|
 
+
+
   get "reports/index"
 
   get "ratings/create"
   
   
-  
+  resources :activations  
   namespace(:admin){
     resources :newsletters
     resources :gifts
@@ -172,7 +174,6 @@ KwLicell::Application.routes.draw do |map|
   # match ':controller(/:action(/:id(.:format)))'
   
   root :controller => "static_content", :action => "index"
-
   post "pagseguro_developer", :to => "pag_seguro/developer#create"
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"

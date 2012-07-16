@@ -52,6 +52,15 @@ class UserMailer < ActionMailer::Base
   def reports(vendasok)
      @vendasefetuadas = vendasok
      mail(:to => "daniel@licell.com.br", :bcc => "sussumu@hdcomputers.com.br, log@korewa.com.br", :subject => "Relatorio de Vendas aprovadas!")
-   end
+  end
+  
+  def activation_instructions(user)
+    @user = user
+    mail(:to => user.email, :subject => "Licell - Ative sua conta!")    
+  end  
+  
+  def welcome(user)
+    mail(:to => user.email, :subject => "Licell - Bem Vindo!")   
+  end
   
 end

@@ -9,11 +9,17 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @user.role = "user"
-    if @user.save
-      redirect_to accounts_path, :notice => "Usuário Cadastrado com Sucesso!"
+    if @user.save_without_session_maintenance
+      @user.deliver_activation_instructions!
+      redirect_to user_path(@user)
+      #redirect_to accounts_path, :notice => "Usuário Cadastrado com Sucesso!"
     else
       render :action => 'new'
     end
+  end
+
+  def show
+    #@user = User.find(params[:id])
   end
 
   def edit
