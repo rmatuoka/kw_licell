@@ -32,3 +32,30 @@
   commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
   moeda: BRL
   email_cobranca: log@korewa.com.br
+"41": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "41"
+  item_valor_1: "12000"
+  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
+  moeda: BRL
+  item_quant_1: "1"
+  email_cobranca: log@korewa.com.br
+  cliente_email: BSILVA@KOREWA.COM.BR
+  item_id_1: "342"
+  item_descr_1: "Bateria LG 330G 1\xC2\xBA linha"
+  cliente_nome: BRUNO VINICIUS DA SILVA
+"43": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "43"
+  item_valor_1: "2000"
+  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
+  moeda: BRL
+  item_quant_1: "1"
+  email_cobranca: log@korewa.com.br
+  cliente_email: BSILVA@KOREWA.COM.BR
+  item_peso_1: "20"
+  item_id_1: "369"
+  item_descr_1: Bateria Nokia BL5C
+  cliente_nome: BRUNO VINICIUS DA SILVA

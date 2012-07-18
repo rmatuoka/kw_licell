@@ -15,9 +15,9 @@ E-MAIL: <%= @order.user.email %>
 
 TELEFONE: <%= @order.area_code %><%= @order.phone %>
 
-TIPO DE PAGAMENTO: <%= traduz_tipo_do_pagamento(@order.payment_type)%>
+TIPO DE PAGAMENTO: <%= traduz_tipo_do_pagamento(@order.payment_type.to_s.strip)%>
 
-STATUS DO PAGAMENTO: <%= traduz_status_do_pedido(@order.status)%>
+STATUS DO PAGAMENTO: <%= traduz_status_do_pedido(@order.status.to_s.strip)%>
 
 ID TRANSAÇÃO: <%= @order.order_check%>
 

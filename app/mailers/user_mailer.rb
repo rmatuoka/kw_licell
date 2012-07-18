@@ -1,6 +1,5 @@
 class UserMailer < ActionMailer::Base
   helper :application
-  
   default :from => "Licell - Vendas <no-reply@licell.com.br>"
 
 =begin
@@ -67,7 +66,7 @@ class UserMailer < ActionMailer::Base
   #Enviado quando o pedido entrar no sistema!
   def order_start(order)
     @order = order
-    @order_itens = OrderProduct.all(:conditions => ['order_id = ?', @order.id])    
+    @order_itens = OrderProduct.all(:conditions => ['order_id = ?', @order.id]) 
     mail(:to=>"daniel@licell.com.br", :bcc => "sussumu@hdcomputers.com.br, log@korewa.com.br", :subject => @order.user.nome + " - Novo Pedido através do Site")
   end
   

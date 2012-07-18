@@ -94,7 +94,7 @@
   </tr>
   <tr style="font-size:12px;">
 	<td>
-		<b>Tipo de pagamento:</b> <%= traduz_tipo_do_pagamento(@order.payment_type)%>
+		<b>Tipo de pagamento:</b> <%= traduz_tipo_do_pagamento(@order.payment_type.to_s.strip)%>
 		<br />
 		<br />
 		<br />
