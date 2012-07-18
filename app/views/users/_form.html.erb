@@ -32,12 +32,12 @@
 		<div id='form_linha'>
 			<br><br>
 			<h2><%= f.label :phone, "Telefone:" %></h2>
-					<input class="input_form short_input_form" /> 
+					<%=f.text_field :area_phone, :class => "input_form short_input_form" %>
 					<%=f.text_field :phone, :class => "input_form small_input_form" %>
 			
 			<br><br>		
 				<h2><%= f.label :cellphone, "Celular:"%></h2>
-					<input class="input_form short_input_form" /> 
+					<%=f.text_field :area_cellphone, :class => "input_form short_input_form" %>				
 					<%=f.text_field :cellphone, :class => "input_form small_input_form" %>
 			<br />
 		</div>

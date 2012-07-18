@@ -89,6 +89,41 @@ class PaymentsController < ApplicationController
   end
   
   def show
-    
+    order = Order.find_by_order_check(params[:id])    
+    if !order.blank?    
+      order.zipcode = order.user.cep
+      order.street = order.user.address
+      order.number = order.user.number
+      order.complement = order.user.complement
+      order.neighbourood = order.user.quarter
+      order.city = order.user.city
+      order.state = order.user.state
+      order.area_code = order.user.area_phone
+      order.phone = order.user.phone  
+      UserMailer.payment_made(order).deliver
+      UserMailer.order_completed(order).deliver
+      order.completed = true
+      order.status = 'completed'
+      order.save
+      if !order.adjust_stock
+        itens = order.order_products.all
+        itens.each do |item|
+          produto = Product.find(item.product_id)
+          produto.vendas = produto.vendas + item.amount
+          if produto.stock_control
+            produto.stock_quantity = produto.stock_quantity - item.amount
+          end 
+          produto.save
+        end
+        order.adjust_stock = true
+        order.save
+      end
+      flash[:notice] = "Pagamento referente a transação #{order.order_check}, está confirmado!"
+      redirect_to root_path
+    else
+      flash[:notice] = "Não foi possivel localizar a transação #{order.order_check}!"
+      redirect_to root_path
+    end
   end
+  
 end

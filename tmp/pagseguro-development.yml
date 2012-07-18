@@ -1,41 +1,27 @@
 --- 
-"9": !map:ActiveSupport::HashWithIndifferentAccess 
+"36": !map:ActiveSupport::HashWithIndifferentAccess 
   tipo: CP
-  ref_transacao: "9"
   encoding: UTF-8
-  commit: Clique aqui para efetuar o pagamento!
-  item_valor_1: "2700"
-  item_quant_1: "5"
+  ref_transacao: "36"
+  item_valor_1: "5900"
+  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
   moeda: BRL
-  email_cobranca: log@korewa.com.br
-  cliente_email: rmatuoka@korewa.com.br
-  item_id_1: "361"
-  item_descr_1: Bateria Nokia BL4B
-  cliente_nome: Rafael Matuoka
-"1": !map:ActiveSupport::HashWithIndifferentAccess 
-  tipo: CP
-  ref_transacao: "1"
-  encoding: UTF-8
-  commit: Clique aqui para efetuar o pagamento!
-  item_valor_1: "80"
   item_quant_1: "2"
-  moeda: BRL
   email_cobranca: log@korewa.com.br
-  cliente_email: cnascimento@korewa.com.br
-  item_id_1: "1"
-  item_descr_1: CApa silicone verde
-  cliente_nome: cnascimento
-"10": !map:ActiveSupport::HashWithIndifferentAccess 
+  cliente_email: BSILVA@KOREWA.COM.BR
+  item_id_1: "523"
+  item_descr_1: LCD LG GT540
+  cliente_nome: BRUNO VINICIUS DA SILVA
+"38": !map:ActiveSupport::HashWithIndifferentAccess 
   tipo: CP
   encoding: UTF-8
-  ref_transacao: "10"
-  item_valor_1: "1800"
-  commit: Clique aqui para efetuar o pagamento!
+  ref_transacao: "38"
+  item_valor_1: "5900"
+  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
   moeda: BRL
-  item_quant_1: "1"
+  item_quant_1: "2"
   email_cobranca: log@korewa.com.br
-  cliente_email: bsilva@korewa.com.br
-  item_peso_1: "20"
-  item_id_1: "352"
-  item_descr_1: Bateria Motorola BC50 original
-  cliente_nome: Bruno
+  cliente_email: BSILVA@KOREWA.COM.BR
+  item_id_1: "514"
+  item_descr_1: LCD LG GD510
+  cliente_nome: BRUNO VINICIUS DA SILVA

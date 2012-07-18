@@ -6,12 +6,16 @@
         <br /><br />
         <div class="Text_box">       	
         	<p class="Content" style="text-align:left; font-size:12px;">
-			<b>Olá, <%=current_user.nome%></b><br /><br />
-        	Seu Produto será enviado mediante confirmação do pagamento junto à pagseguro.<br /><br />
-			Obrigado por escolher a Licell!<br /><br />
-			Todas as informações cadastrais são de uso exclusivo da Licell.<br /><br />
-			<%= pagseguro_form @order_product, :submit => "Clique aqui para efetuar o pagamento!" %>
-			<br />
+				<b>Olá, <%=current_user.nome%></b><br /><br />
+	        	Seu Produto será enviado mediante confirmação do pagamento junto à pagseguro.<br /><br />
+				Obrigado por escolher a Licell!<br /><br />
+				Todas as informações cadastrais são de uso exclusivo da Licell.<br /><br /><br />
+				<%= pagseguro_form @order_product, :submit => "Pagamento via cartão ou boleto(PagSeguro)" %> <br />
+				<% if @controle100 %>
+					<br />
+					<%= submit_tag "Pagamento via transferência ou depósito",:type=>"button",:onclick=>"window.open('"+edit_order_path(@order.order_check)+"','_self');", :class => "Bt_enviar", :style=>"margin-right: 5px;"%>
+				<%end%>
+				<br />
         	</p>
             <br />
 		</div>
