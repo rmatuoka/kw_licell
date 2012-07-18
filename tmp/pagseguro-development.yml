@@ -25,3 +25,10 @@
   item_id_1: "514"
   item_descr_1: LCD LG GD510
   cliente_nome: BRUNO VINICIUS DA SILVA
+"40": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "40"
+  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
+  moeda: BRL
+  email_cobranca: log@korewa.com.br
