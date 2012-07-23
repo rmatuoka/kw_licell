@@ -69,7 +69,7 @@
 	  	<% for order in @Orders %>
 	    <tr id="tr_show_<%=order.id%>"<%=status_do_pedido(order.status,order.order_send_mail) %>>
 		  <td align="center"><%= order.id %></td>
-	      <td><%#= order.user.nome %></td>
+	      <td><%= order.user.nome if !order.user.nome.blank? %></td>
 	      <td align="center"><%= traduz_status_do_pedido(order.status) %></td>
 	      <td align="center"><%= traduz_tipo_do_pagamento(order.payment_type) %></td>
 		  <td align="center"><%= print_active(order.order_send_mail)  %><%=raw ("<br />"+ link_to("Enviar email", "/admin/searchs/sendmail?cod="+ order.id.to_s, :remote=>true)) if (order.status == "completed" or order.status == "approved")%></td>
