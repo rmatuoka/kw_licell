@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    puts @user.id.to_s
   end
 
   def create
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    puts @user.id.to_s
   end
 
   def update
