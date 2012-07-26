@@ -2,7 +2,7 @@
 	<%= f.error_messages :header_message => "", :message => "", :header_tag => "" %>
 		<div id='form_linha'>
 			<h2><%= f.label :nome, "Nome:" %></h2>
-			<%=f.text_field :nome, :value=>"Nome Completo:",:class => "input_form big_input_form", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)"%>
+			<%=f.text_field :nome, :value=>"Nome Completo:",:class => "input_form big_input_form", :onfocus => "javascript:check_text_onfocus(this)", :onblur => "javascript:check_text_onblur(this)" if params[:users].blank?%>
 			
 			<br><br>
 			<h2 id="id_sexo"><%= f.label :sexo, "Sexo:"%></h2>
