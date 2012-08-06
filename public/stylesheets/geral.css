@@ -67,6 +67,17 @@ body{
 		top:0px;
 		margin-left:15px;
 	}
+	#botao2
+	{
+		cursor:pointer;
+	}
+	.Bt_top_0
+	{
+		position:relative;
+		left:0px;
+		top:0px;
+		margin-left:15px;
+	}
 	.Bt_top_3
 	{
 		position:relative;

@@ -1,11 +1,19 @@
 			<%if current_user%>
       <!-- new USUARIO LOGADO -->
       <div id='itens-top-bar' >   
-          <span class="Header_date"><%=data_atual_extenso%></span>      	
+          <span class="Header_date"><%=data_atual_extenso%></span>  
+		  <%=image_tag("bt_top.png",:width=>"86" , :height=>"17", :class => "closed", :id=>"botao2") %> 	
           <%=link_to(image_tag("bt_top_um.png",:width=>"121" , :height=>"17"), accounts_path, :class => "Bt_top_1" )%>
           <%=image_tag("bt_top_dois.png",:width=>"145" , :height=>"20", :class => "Bt_top_2 closed", :id=>"botao" ) %>
           <%=link_to(image_tag("bt_top_tres.png",:width=>"48" , :height=>"11"), logout_path, :class => "Bt_top_3" )%>
-        	<div id="Menu_Cart">
+			<div id="Menu_Cart">
+				<div id="servicos">
+					<ul>
+						<li>R$ 100,00</li>
+						<li class="zebra">R$ 100,00</li>
+						<li>R$ 100,00</li>
+					</ul>
+				</div>
                 <div id="Menu">
                   <ul>
                       <%if !@cart.items.blank?%>
@@ -28,10 +36,18 @@
 
       <!-- new USUARIO deslogado -->
       <div id='itens-top-bar' style="height:45px !important;">   
-          <span class="Header_date"><%=data_atual_extenso%></span>     	
+          <span class="Header_date"><%=data_atual_extenso%></span>
+		  <%=image_tag("bt_top.png",:width=>"86" , :height=>"17", :class => "Bt_top_0 closed", :id=>"botao2") %>      	
           <%=image_tag("bt_top_dois.png",:width=>"145" , :height=>"20", :class => "Bt_top_2 closed", :id=>"botao" ) %>
           <%=link_to(image_tag("bt_logar.png",:width=>"48" , :height=>"11"), login_path, :class => "Bt_top_3_out" )%>
         	<div id="Menu_Cart">
+				<div id="servicos">
+					<ul>
+						<li>R$ 100,00</li>
+						<li class="zebra">R$ 100,00</li>
+						<li>R$ 100,00</li>
+					</ul>
+				</div>
                 <div id="Menu">
                   <ul>
                       <%if !@cart.items.blank?%>
@@ -46,7 +62,7 @@
 				              <%end%>
                   </ul>
                 </div>
-            </div>	
+            </div>
       </div>
 
 			<%end%>

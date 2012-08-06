@@ -26,6 +26,40 @@ height:37px;
 		background:white;
 		z-index:2000 !important;
 	}
+	
+	#Menu_Cart #servicos
+	{
+		position:relative !important;
+		left:-20px;
+		width:143px;
+		height:auto;
+		border:#8cddff 3px solid;
+		background:white;
+		z-index:2000 !important;
+	}
+	
+	#Menu_Cart #servicos ul
+	{
+		
+	}
+	
+	#Menu_Cart #servicos ul li
+	{
+		height:27px;
+		font-family:Felix;
+		color:#00b4ff;
+		font-size:15pt;
+		padding-top:9px;
+		text-align:left;
+		padding-left:10px;
+	}
+	
+	#Menu_Cart #servicos ul .zebra
+	{
+		background-color:#8cddff;
+		color:#fff;
+	}
+	
 		#Menu_Cart #Menu ul
 		{
 			background-image:url(../images/user_bars/bg_transp.png);
