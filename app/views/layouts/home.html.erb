@@ -51,9 +51,15 @@
   })();
 
 </script>
+
+<% if !flash[:notice].blank? %>
+<script type="text/javascript">
+	alert('<%= flash[:notice] %>');
+</script>
+<% end%>
 </head>
 <body>
-	<!-- LiveZilla Chat Button Link Code (ALWAYS PLACE IN BODY ELEMENT) --><div style="display:none;"><a href="javascript:void(window.open('http://chat.licell.com.br/chat.php','','width=590,height=610,left=0,top=0,resizable=yes,menubar=no,location=no,status=yes,scrollbars=yes'))"><img id="chat_button_image" src="http://chat.licell.com.br/image.php?id=03&amp;type=overlay" width="39" height="214" border="0" alt="LiveZilla Live Help"></a></div><!-- http://www.LiveZilla.net Chat Button Link Code --><!-- LiveZilla Tracking Code (ALWAYS PLACE IN BODY ELEMENT) --><div id="livezilla_tracking" style="display:none"></div><script type="text/javascript">
+	<!-- LiveZilla Chat Button Link Code (ALWAYS PLACE IN BODY ELEMENT) --><div style="display:none;"><a href="javascript:void(window.open('http://chat.licell.com.br/chat.php','','width=590,height=610,left=0,top=0,resizable=yes,menubar=no,location=no,status=yes,scrollbars=yes'))"><img id="chat_button_image" src="http://chat.licell.com.br/image.php?id=03&amp;type=overlay" width="65" height="101" border="0" alt="LiveZilla Live Help"></a></div><!-- http://www.LiveZilla.net Chat Button Link Code --><!-- LiveZilla Tracking Code (ALWAYS PLACE IN BODY ELEMENT) --><div id="livezilla_tracking" style="display:none"></div><script type="text/javascript">
 	var script = document.createElement("script");script.type="text/javascript";var src = "http://chat.licell.com.br/server.php?request=track&output=jcrpt&fbpos=10&fbml=0&fbmt=0&fbmr=0&fbmb=0&fbw=39&fbh=214&nse="+Math.random();setTimeout("script.src=src;document.getElementById('livezilla_tracking').appendChild(script)",1);</script><noscript><img src="http://chat.licell.com.br/server.php?request=track&amp;output=nojcrpt&amp;fbpos=10&amp;fbml=0&amp;fbmt=0&amp;fbmr=0&amp;fbmb=0&amp;fbw=39&amp;fbh=214" width="0" height="0" style="visibility:hidden;" alt=""></noscript><!-- http://www.LiveZilla.net Tracking Code -->
 <div id='top-bar'>
   <%=render :file => "layouts/_userbar.html.erb"%>
@@ -82,8 +88,23 @@
 <div id='slider'>
 	<div id="slider-container">
         <div id='s4'>
-            <a href="http://www.licell.com.br/produtos/509-lcd-iphone-4g-c-touch-branco"><img src="images/509-lcd-iphone-4g-c-touch-branco.jpg" border='0' width="942" height="264" /></a>
-            <a href="http://www.licell.com.br/produtos/501-tecla-de-navegacao-s3350"><img src="images/501-tecla-de-navegacao-s3350.jpg" border='0' width="942" height="264" /></a>
+	
+	
+	
+	
+	
+	
+	
+			<a href="#"><img src="images/destaques/destaque_texto01.jpg" border='0'/></a>
+            <a href="#"><img src="images/destaques/destaque_texto02.jpg" border='0'/></a>
+			<a href="http://www.licell.com.br/produtos/674-lcd-samsung-b5510-original"><img src="images/destaques/samsungb5510.jpg" border='0'/></a>
+			<a href="http://www.licell.com.br/produtos/675-lcd-samsung-i9100-galaxy-sii-original"><img src="images/destaques/samsungi9100.jpg" border='0'/></a>
+			<a href="http://www.licell.com.br/produtos/745-lcd-samsung-i9300-galaxy-s3"><img src="images/destaques/samsungl9300.jpg" border='0'/></a>
+			<!-- 
+			<a href="http://www.licell.com.br/produtos/510-lcd-iphone-4g-c-touch-preto"><img src="images/destaques/4g_ctouch_preto.jpg" border='0'  /></a>
+            <a href="http://www.licell.com.br/produtos/568-lcd-nokia-5200"><img src="images/destaques/lokia_lcd.jpg" border='0'  /></a>
+            <a href="http://www.licell.com.br/produtos/561-lcd-noka-5800"><img src="images/destaques/lokia_lcd2.jpg" border='0'  /></a>
+			-->
         </div>
   
     </div>
@@ -105,8 +126,9 @@
 						        <%=link_to(image_tag("missing_thumb.jpg"), produto_path(produto.url_slug)) if produto.product_images.first.blank? %>
                 </div>
                 <div class="prod-fot" id="p-fot-<%=count%>">
+				<% if current_user %>
                     <div class='prod-add'>
-                      <%=link_to image_tag("bt_add_cart.jpg", :width=>"81", :height=>"43"), add_to_cart_produto_path(produto)%>
+                    <%=link_to image_tag("bt_add_cart.jpg", :width=>"81", :height=>"43"), add_to_cart_produto_path(produto)%>
                     </div>
                     <%if produto.discount.blank?%>
                     <div class='prod-val'>
@@ -117,6 +139,9 @@
                     	<h2><b>R$ <%=number_to_currency(produto.price - produto.discount , :unit=>"")%></b></h2>
                     </div>
                     <%end%>
+				<% else %>
+					<p><%=link_to "Clique para ver o preço!", "/user_sessions/new", :style=>'font-family: Tahoma; font-size:16px; color:#FF5C1B; float:right; margin-right:30px;position: relative;top:10px;'%></p>
+				<% end %>
                 </div>
                 <div class="hide prod-des" id="p-des-<%=count%>">
                 	<p><%=truncate(produto.summary, :length => 55)%></p>

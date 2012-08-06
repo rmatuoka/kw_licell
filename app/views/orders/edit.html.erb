@@ -1,0 +1,42 @@
+<%content_for :title do%>
+	Pagamento !
+<%end%>
+
+<%content_for :head do%>
+	
+<%end%>
+
+<%content_for :breadcrumb do%>
+	<div id='header-bread'>
+      	<p><%=link_to "home", home_index_path%> </p>
+      	<h1>Pagamento <b></b></h1>
+      </div>
+      <div id='header-title'>
+      	<h1>Sua compra foi efetuada com sucesso!</h1>
+      </div>
+<%end%>
+
+
+<div id="Box_content">
+        <br /><br />
+        <div class="Text_box">       	
+        	<p class="Content" style="text-align:left; font-size:12px;">
+				Você optou por depósito ou transferência, segue abaixo os dados para efetuar o pagamento:<br /><br />
+				<b>Banco Itau</b><br />
+				<b>Agência: 0007</b><br />
+				<b>Conta Corrente: 02939-0</b><br />
+				<b>Nome: Licell Comercio e Serviços de Eletrônicos</b><br />
+				<br /><br />
+				Nos próximos minutos você receberá um email com os dados acima, este email foi eviado para: <b><%= @order.user.email%></b><br />
+				Agradecemos a confiança,<br />
+				Equipe Licell<br />
+				<br /><br />
+				
+				<a href="mailto:contato@licell.com.br">contato@licell.com.br</a><br>
+				<a href="mailto:sac@licell.com.br">sac@licell.com.br</a><br>
+				<br />
+        	</p>
+            <br />
+		</div>
+</div>
+

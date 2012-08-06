@@ -1,0 +1,46 @@
+<%= @order.user.nome %> - Novo pedido através do site - Depósito/Transferência!
+
+
+Olá ADM.
+
+
+Um novo pedido foi feito através do site.
+
+		
+NOME: <%= @order.user.nome %> <%= @order.user.sobrenome %>
+
+CPF: <%= @order.user.cpf %>
+
+E-MAIL: <%= @order.user.email %>
+
+TELEFONE: <%= @order.area_code %><%= @order.phone %>
+
+TIPO DE PAGAMENTO: <%= traduz_tipo_do_pagamento(@order.payment_type.to_s.strip)%>
+
+STATUS DO PAGAMENTO: <%= traduz_status_do_pedido(@order.status.to_s.strip)%>
+
+ID TRANSAÇÃO: <%= @order.order_check%>
+
+
+Pedido:
+
+
+Quantidade		Produto		Valor Unitário		Sub Total
+<% 
+$subtotal = 0
+$valor_total = 0
+@order_itens.each do |item|
+%>			
+<%= item.amount %>		<%= item.product.name %> - <%= item.product.features %>		<%= number_to_currency(item.price / item.amount) %>		<%= number_to_currency($subtotal = (item.price)) %>
+<%
+$valor_total += $subtotal
+end
+%>
+
+
+Total		<%= number_to_currency($valor_total) %>
+
+
+
+Para confirmar o pagamento desta transação(<%= @order.order_check%>), copie e cole esta url em seu navegador <%= payment_url(@order.order_check)  %>
+

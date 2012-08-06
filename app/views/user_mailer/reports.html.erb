@@ -40,11 +40,15 @@
 			<br />
 			<b>TELEFONE:</b> <%= vendas.area_code %><%= vendas.phone %>
 			<br />
-			<b>TIPO DE PAGAMENTO:</b> <%= vendas.payment_type%>
+			<b>TIPO DE PAGAMENTO:</b> <%= traduz_tipo_do_pagamento(vendas.payment_type.to_s.strip)%>
 			<br />
-			<b>STATUS DO PAGAMENTO:</b> <%= vendas.status%>
+			<b>STATUS DO PAGAMENTO:</b> <%= traduz_status_do_pedido(vendas.status.to_s.strip)%>
 			<br />
-			<b>ID PAGSEGURO:</b> <%= vendas.pagseguro_id%>
+			<%if !vendas.pagseguro_id.blank?%>
+				<b>ID PAGSEGURO:</b> <%= vendas.pagseguro_id%>
+			<%else%>
+				<b>ID TRANSAÇÃO:</b> <%= vendas.order_check%>
+			<%end%>			
 			<br />
 			<br />
 			<b>ENDEREÇO:</b> <%= vendas.street%>, <%= vendas.number%> <%= " - " + vendas.complement if !vendas.complement.blank?%>

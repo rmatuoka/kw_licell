@@ -71,6 +71,9 @@ module ApplicationHelper
         
       when "donation"
         retorno = "Doação"
+        
+      when "own_payment"
+        retorno = "Transferência/Depósito próprio"
 
     end
     

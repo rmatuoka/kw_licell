@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  require 'digest/md5'
   access_control do
     allow logged_in, :all
   end 
@@ -10,7 +11,6 @@ class OrdersController < ApplicationController
   end
   
   def create
-	  if (@cart.total_price >= 100.to_i)	    
       #Inicio do Order!
       @order = Order.new
       #GRAVAR TRANSACAO NO BANCO , OS ITENS COMPRADOS ESTAO GRAVADOS NO CARRINHO
@@ -22,7 +22,13 @@ class OrdersController < ApplicationController
         #erro
         flash[:notice] = "Erro ao gravar transação"
       else
+        @controle100 = false
+        if (@cart.total_price >= 100.to_i)
+          @controle100 = true
+        end
         #GERAR PEDIDO
+        @order.order_check = Digest::MD5.hexdigest(@order.id.to_s + @order.user_id.to_s + @order.created_at.to_s)
+        @order.save
         @order_product = PagSeguro::Order.new(@order.id)
         #PEGA ITENS DO CARRINHO E ADICIONA AO PEDIDO E FINALIZA
       
@@ -38,18 +44,26 @@ class OrdersController < ApplicationController
               :name                  => current_user.nome,
               :email                 => current_user.email
             }
-          
-            @order_product.add :id => cart_item.id_product, :quantity => cart_item.quantity,  :price => (cart_item.price/cart_item.quantity), :description => cart_item.title #, :weight => 0.250, 
-          
+	          if (@cart.total_price >= 100.to_i)	          
+              @order_product.add :id => cart_item.id_product, :quantity => cart_item.quantity,  :price => (cart_item.price/cart_item.quantity), :description => cart_item.title #, :weight => 0.250, 
+            else
+              @order_product.add :id => cart_item.id_product, :quantity => cart_item.quantity,  :price => (cart_item.price/cart_item.quantity), :description => cart_item.title , :weight => cart_item.product.weight 
+            end
           end
         end
       end
       #LIMPA CARRINHO
       session[:cart] = nil
       #Fim do Order
-    else
-      flash[:notice] = "Valor não pode ser inferior a R$ 100,00."
-      redirect_to carrinhos_path
+  end
+  
+  def edit
+    @order = Order.find_by_order_check(params[:id], :conditions=>['user_id = ?', current_user.id])
+    @order.status = "pending"
+    @order.payment_type = "own_payment"
+    if @order.save
+      UserMailer.transaction_own(@order).deliver
+      UserMailer.order_own(@order).deliver
     end
   end
 end

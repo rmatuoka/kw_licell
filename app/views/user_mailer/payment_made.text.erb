@@ -30,4 +30,4 @@ Quantidade	Produto				Valor Unitário	Sub Total
 
 Total:	 <%= number_to_currency($valor_total) %>
 
-Tipo de pagamento: <%= @order.payment_type%>
+Tipo de pagamento: <%= traduz_tipo_do_pagamento(@order.payment_type.to_s.strip)%>

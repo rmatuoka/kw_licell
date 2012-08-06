@@ -35,11 +35,15 @@
 		<br />
 		<b>TELEFONE:</b> <%= @order.area_code %><%= @order.phone %>
 		<br />
-		<b>TIPO DE PAGAMENTO:</b> <%= @order.payment_type%>
+		<b>TIPO DE PAGAMENTO:</b> <%= traduz_tipo_do_pagamento(@order.payment_type.to_s.strip)%>
 		<br />
-		<b>STATUS DO PAGAMENTO:</b> <%= @order.status%>
+		<b>STATUS DO PAGAMENTO:</b> <%= traduz_status_do_pedido(@order.status.to_s.strip)%>
 		<br />
-		<b>ID PAGSEGURO:</b> <%= @order.pagseguro_id%>
+		<%if !@order.pagseguro_id.blank?%>
+			<b>ID PAGSEGURO:</b> <%= @order.pagseguro_id%>
+		<%else%>
+			<b>ID TRANSAÇÃO:</b> <%= @order.order_check%>
+		<%end%>
 		<br />
 		<br />
 		<b>ENDEREÇO:</b> <%= @order.street%>, <%= @order.number%> <%= " - " + @order.complement if !@order.complement.blank?%>

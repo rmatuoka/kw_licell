@@ -19,7 +19,14 @@ class SearchController < ApplicationController
       @keyword.tag_list = params[:keyword]
       @keyword.save
       
-      key = "%"+params[:keyword]+"%"
+      showparam = ''
+      paramkey = params[:keyword].split(' ')
+      paramkey.each do |pkey| 
+        showparam += " AND (`products`.`name` like '%"+pkey+"%' or `products`.`summary` like '%"+pkey+"%' or `products`.`description` like '%"+pkey+"%')"
+      end
+      
+      
+      key = showparam
 
       #Se não for passado a categoria irá carregar todas!
       if !params[:category].blank? 
@@ -48,12 +55,12 @@ class SearchController < ApplicationController
       if !params[:pag].blank? 
         qtdade = params[:pag]
       else
-        qtdade = '10'
+        qtdade = '12'
       end      
       @Results = Product.find(:all,
                               :select=> "`products`.*, `subcategories`.`name` as scatname,`categories`.`id` as catid ,`categories`.`name` as catname ",
                               :joins=>"`products` INNER JOIN `subcategories` ON `products`.`subcategory_id` = `subcategories`.`id` INNER JOIN `categories` ON `subcategories`.`category_id` = `categories`.`id` ",
-                              :conditions=>["(`products`.`name` like ? or `products`.`summary` like ? or `products`.`description` like ?) AND price > 0 AND IF(`products`.`stock_control` = 1, `products`.`stock_quantity` > 0 AND published = 1,  published = 1)"+cat,key,key,key],
+                              :conditions=>["price > ? AND IF(`products`.`stock_control` = 1, `products`.`stock_quantity` > 0 AND published = 1,  published = 1)"+showparam+cat, "0"],
                               :order=> order
                               ).paginate(:page => params[:page], :per_page => qtdade)
     else

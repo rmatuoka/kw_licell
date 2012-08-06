@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>Licell - Ative sua conta!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<p>Obrigado por se cadastrar em nosso sistema.</p><br />
+<p>Para ativar a sua conta <%=link_to "clique aqui", edit_activation_url(@user.perishable_token) %>.</p><br />
+<p>Em caso de problemas ao clicar no link, copie e cole esta url em seu navegador <%= edit_activation_url(@user.perishable_token) %></p><br />
+<p>Caso o problema persista, entre em contato com nosso suporte.</p><br /><br />
+<p>Equipe Licell.</p><br />
+</body>
+</html>
