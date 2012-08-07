@@ -1,3 +1,11 @@
+class Cart < ActiveRecord::Base
+  belongs_to :user  
+  belongs_to :product  
+  
+end
+
+
+=begin
 class Cart
   attr_reader :items
   
@@ -41,3 +49,4 @@ class Cart
     @items.sum {|item| (item.price)}
   end
 end
+=end

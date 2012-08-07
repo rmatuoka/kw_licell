@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
   has_many :product_comments, :dependent => :destroy
   has_many :product_images, :dependent => :destroy
   has_many :wishlists, :dependent => :destroy
+  has_many :carts
   
   has_and_belongs_to_many :recommendeds,
                           :class_name => 'Product',

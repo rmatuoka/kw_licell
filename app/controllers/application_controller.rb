@@ -35,6 +35,8 @@ class ApplicationController < ActionController::Base
   end
   
   def load_cart
+    @carts = Cart.all(:conditions => ['user_id = ?', current_user])
+=begin    
     @cart = session[:cart] ||= Cart.new
     
     #VERIFICA SE O CARRINHO ESTA EM BRANCO
@@ -52,7 +54,7 @@ class ApplicationController < ActionController::Base
       puts "apagar carrinho"
       session[:cart] = nil
     end 
-    
+=end    
     #carrega_tagcloud
     @tagcloud = Keyword.tag_counts_on(:tags, :limit => 50)
   end

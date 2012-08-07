@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120717230454) do
+ActiveRecord::Schema.define(:version => 20120807150022) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(:version => 20120717230454) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "carts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.decimal  "price",      :precision => 10, :scale => 0
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "categories", :force => true do |t|
@@ -169,8 +178,8 @@ ActiveRecord::Schema.define(:version => 20120717230454) do
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "summary"
-    t.decimal  "price",                   :precision => 10, :scale => 0
-    t.decimal  "discount",                :precision => 10, :scale => 0
+    t.decimal  "price",                   :precision => 10, :scale => 2
+    t.decimal  "discount",                :precision => 10, :scale => 2, :default => 0.0
     t.text     "features"
     t.text     "description"
     t.text     "usage"
@@ -182,7 +191,7 @@ ActiveRecord::Schema.define(:version => 20120717230454) do
     t.string   "tweet_text"
     t.string   "like_link"
     t.string   "video"
-    t.integer  "vendas"
+    t.integer  "vendas",                                                 :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "bibliography"
