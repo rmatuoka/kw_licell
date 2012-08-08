@@ -3,9 +3,7 @@ class CreateCarts < ActiveRecord::Migration
     create_table :carts do |t|
       t.integer :user_id
       t.integer :product_id
-      t.decimal :price
-      t.integer :amount
-
+      t.integer :amount,       :null => false, :default => 0
       t.timestamps
     end
   end

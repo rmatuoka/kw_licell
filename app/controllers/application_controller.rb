@@ -35,26 +35,12 @@ class ApplicationController < ActionController::Base
   end
   
   def load_cart
-    @carts = Cart.all(:conditions => ['user_id = ?', current_user])
-=begin    
-    @cart = session[:cart] ||= Cart.new
-    
-    #VERIFICA SE O CARRINHO ESTA EM BRANCO
-    apagar = true
-
-    if @cart.items.count > 0
-      @cart.items.each do |item| 
-        if item.quantity > 0
-          apagar = false
-        end
-      end
-    end
-
-    if apagar
-      puts "apagar carrinho"
-      session[:cart] = nil
-    end 
-=end    
+    @cart = Cart.all(:select => '`carts`.*, `products`.`price`, `products`.`discount`, `products`.`name`',
+                     :joins => 'INNER JOIN `products` ON `carts`.`product_id` = `products`.`id`',
+                     :conditions => ['`products`.`price` > 0 AND IF(`products`.`stock_control` = 1, `products`.`stock_quantity` > 0 AND `products`.`published` = 1,  `products`.`published` = 1) and user_id = ?', current_user],
+                     :include => [:product])
+    @cart_total = @cart.sum {|item| ((item.price - item.discount) * item.amount)}
+     
     #carrega_tagcloud
     @tagcloud = Keyword.tag_counts_on(:tags, :limit => 50)
   end

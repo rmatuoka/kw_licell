@@ -24,7 +24,7 @@
       	<h1>Carrinho <b></b></h1>
       </div>
       <div id='header-title'>
-      	<h1>Meu Carrinho</h1>
+      	<h1><%= "Meu Carrinho" if !@cart.blank? %></h1>
       </div>
 <%end%>
 
@@ -36,7 +36,7 @@
 		</script>
 	<% end %>
 
-	<%if !@cart.items.blank?%>
+	<%if !@cart.blank?%>
 		<div id="tabela-carrinho">
 			<table width="960" border="0" cellspacing="0" cellpadding="0" >
 				<tr>
@@ -48,16 +48,16 @@
 					<td id="tabela-carrinho-titulo" width="120" align="center" valign="middle" bgcolor="#bcbcbc"><h2>Excluir</h2></td>
 				</tr>
 			</table>
-		<%for cart_item in @cart.items%>
-			<%if cart_item.quantity > 0 %>          
+		<%for cart_item in @cart%>
+			<%if cart_item.amount > 0 %>          
 			<table width="960" border="0" cellspacing="0" cellpadding="0" >
 				<tr>
 					<td id="tabela-carrinho-linha" width="108" height="100" align="center" valign="middle" bgcolor="#f6f6f6"><%=(image_tag(cart_item.product.product_images.first.image.url("thumb"))) if !cart_item.product.product_images.first.blank? %></td>
-					<td id="tabela-carrinho-linha" width="305" height="100" align="left" valign="middle" bgcolor="#f6f6f6"><p><%=link_to cart_item.title, produto_path(cart_item.url_slug)%></p></td>
-					<td id="tabela-carrinho-linha" height="100" width="147" align="center" valign="middle" bgcolor="#f6f6f6" style="vertical-align: midle !important;"><div id='cel-quantidade'  ><%=cart_item.quantity%></div></td>
-					<td id="tabela-carrinho-linha" height="100" width="119" align="center" valign="middle" bgcolor="#f6f6f6" ><div class="cel-alt-quant" style="vertical-align: midle !important;" ><%= link_to(image_tag("desc.png", :width => "45px", :height =>"20px"),add_to_cart_produto_path(cart_item.id_product))%><%=link_to(image_tag("asc.png", :width => "45px", :height =>"20px", :style =>"margin-top: 7px !important;"),remove_from_cart_produto_path(cart_item.id_product))%></div></td>
-					<td id="tabela-carrinho-linha" height="100" width="161" align="center" valign="middle" bgcolor="#f6f6f6"><p><%=number_to_currency(cart_item.price)%></p></td>
-					<td id="tabela-carrinho-linha" height="100" width="120" align="center" valign="middle" bgcolor="#f6f6f6"><%=link_to image_tag("bt_excluir.png" , :style=>"margin:5px; vertical-align:middle;"), remove_all_from_cart_produto_path(cart_item.id_product)%></td>
+					<td id="tabela-carrinho-linha" width="305" height="100" align="left" valign="middle" bgcolor="#f6f6f6"><p><%=link_to cart_item.name, produto_path(cart_item.url_slug)%></p></td>
+					<td id="tabela-carrinho-linha" height="100" width="147" align="center" valign="middle" bgcolor="#f6f6f6" style="vertical-align: midle !important;"><div id='cel-quantidade'  ><%=cart_item.amount%></div></td>
+					<td id="tabela-carrinho-linha" height="100" width="119" align="center" valign="middle" bgcolor="#f6f6f6" ><div class="cel-alt-quant" style="vertical-align: midle !important;" ><%= link_to(image_tag("desc.png", :width => "45px", :height =>"20px"),add_to_cart_produto_path(cart_item.product_id))%><%=link_to(image_tag("asc.png", :width => "45px", :height =>"20px", :style =>"margin-top: 7px !important;"),remove_from_cart_produto_path(cart_item.product_id))%></div></td>
+					<td id="tabela-carrinho-linha" height="100" width="161" align="center" valign="middle" bgcolor="#f6f6f6"><p><%=number_to_currency(((cart_item.price - cart_item.discount) * cart_item.amount))%></p></td>
+					<td id="tabela-carrinho-linha" height="100" width="120" align="center" valign="middle" bgcolor="#f6f6f6"><%=link_to image_tag("bt_excluir.png" , :style=>"margin:5px; vertical-align:middle;"), remove_all_from_cart_produto_path(cart_item.product_id)%></td>
 				</tr>
 			</table>
 			<%end%>
@@ -107,9 +107,9 @@
 				</tr>
 			</table>
 	<%else%>
-	<div id="Warning"style="margin-top:110px;text-align:center;">
-		<b style="color:red; font-size:30px;">Seu carrinho está vazio!</b>
-	</div>
+		<div id="Warning"style="margin-top:110px;text-align:center;">
+			<b style="color:red; font-size:30px;">Seu carrinho está vazio!</b>
+		</div>
 	<%end%>
 
 	</div>

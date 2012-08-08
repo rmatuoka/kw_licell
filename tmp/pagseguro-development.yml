@@ -1,61 +1,20 @@
 --- 
-"36": !map:ActiveSupport::HashWithIndifferentAccess 
+"49": !map:ActiveSupport::HashWithIndifferentAccess 
   tipo: CP
   encoding: UTF-8
-  ref_transacao: "36"
-  item_valor_1: "5900"
+  ref_transacao: "49"
+  item_valor_1: "3000"
   commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
   moeda: BRL
   item_quant_1: "2"
+  item_valor_2: "1400"
   email_cobranca: log@korewa.com.br
-  cliente_email: BSILVA@KOREWA.COM.BR
-  item_id_1: "523"
-  item_descr_1: LCD LG GT540
-  cliente_nome: BRUNO VINICIUS DA SILVA
-"38": !map:ActiveSupport::HashWithIndifferentAccess 
-  tipo: CP
-  encoding: UTF-8
-  ref_transacao: "38"
-  item_valor_1: "5900"
-  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
-  moeda: BRL
-  item_quant_1: "2"
-  email_cobranca: log@korewa.com.br
-  cliente_email: BSILVA@KOREWA.COM.BR
-  item_id_1: "514"
-  item_descr_1: LCD LG GD510
-  cliente_nome: BRUNO VINICIUS DA SILVA
-"40": !map:ActiveSupport::HashWithIndifferentAccess 
-  tipo: CP
-  encoding: UTF-8
-  ref_transacao: "40"
-  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
-  moeda: BRL
-  email_cobranca: log@korewa.com.br
-"41": !map:ActiveSupport::HashWithIndifferentAccess 
-  tipo: CP
-  encoding: UTF-8
-  ref_transacao: "41"
-  item_valor_1: "12000"
-  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
-  moeda: BRL
-  item_quant_1: "1"
-  email_cobranca: log@korewa.com.br
-  cliente_email: BSILVA@KOREWA.COM.BR
-  item_id_1: "342"
-  item_descr_1: "Bateria LG 330G 1\xC2\xBA linha"
-  cliente_nome: BRUNO VINICIUS DA SILVA
-"43": !map:ActiveSupport::HashWithIndifferentAccess 
-  tipo: CP
-  encoding: UTF-8
-  ref_transacao: "43"
-  item_valor_1: "2000"
-  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
-  moeda: BRL
-  item_quant_1: "1"
-  email_cobranca: log@korewa.com.br
+  item_quant_2: "1"
   cliente_email: BSILVA@KOREWA.COM.BR
   item_peso_1: "20"
-  item_id_1: "369"
-  item_descr_1: Bateria Nokia BL5C
+  item_id_1: "341"
+  item_peso_2: "0"
+  item_id_2: "427"
+  item_descr_1: Bateria  LG 330G
+  item_descr_2: FLEX LG GD330
   cliente_nome: BRUNO VINICIUS DA SILVA

@@ -16,21 +16,26 @@ class CarrinhosController < ApplicationController
       
         if @gift
           #ACHOU
-          @total_final = @cart.total_price - @gift.discount
+          @total_final = @cart_total - @gift.discount
         else
           #NAO ACHOU
-          @total_final = @cart.total_price
+          @total_final = @cart_total
         end
       end
     else
-      @total_final = @cart.total_price
+      @total_final = @cart_total
     end
 
     
   end
   
   def empty_cart
-    session[:cart] = nil
+    
+    if !@cart.blank?
+      @cart.each do |item|
+        item.destroy
+      end
+    end
     redirect_to carrinhos_path
   end
 end

@@ -114,7 +114,10 @@ KwLicell::Application.routes.draw do |map|
     
   get "static_content/denied"
   get "static_content/index"
-
+  get "static_content/services"
+  
+  match 'servicos' => 'static_content#services'
+  
   root :to => "home#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

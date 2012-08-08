@@ -17,23 +17,26 @@ class ProdutosController < ApplicationController
   end
   
   def add_to_cart
-    @cart = find_cart
     product = Product.find(params[:id])
-    @cart.add_product product
+    if !product.blank?
+      Cart.add_product(product,current_user)
+    end
     redirect_to carrinhos_path
   end
   
   def remove_from_cart
-    @cart = find_cart
     product = Product.find(params[:id])
-    @cart.remove_product product
+    if !product.blank?    
+      Cart.remove_product(product,current_user)
+    end
     redirect_to carrinhos_path
   end
   
   def remove_all_from_cart
-    @cart = find_cart
     product = Product.find(params[:id])
-    @cart.remove_product_all product
+    if !product.blank?    
+      Cart.remove_product_all(product,current_user)
+    end
     redirect_to carrinhos_path
   end
   
@@ -60,10 +63,5 @@ class ProdutosController < ApplicationController
     if !@produto.published
       redirect_to home_path
     end
-  end
-  
-  private
-  def find_cart
-    session[:cart] ||= Cart.new
   end
 end

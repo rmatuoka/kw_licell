@@ -96,11 +96,8 @@
 	}
 	form { padding-top:18px;padding-bottom:18px;}
 	</style>
-	<%= javascript_include_tag :defaults %>
-	<%= javascript_include_tag "jquery.js" %>
 
 	<script>
-	jQuery.noConflict();
 
 	var htmlold = "";
 
@@ -155,6 +152,11 @@
 
 	</script>
 	<%=yield :head%>
+	<script>
+		$(document).ready(function(e) {
+			CartSlider();
+	    });
+	</script>	
 <%end%>
 
 <%content_for :breadcrumb do%>

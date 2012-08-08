@@ -35,43 +35,6 @@ function CartSlider(){
 	//$("#tabs").tabs();
 }
 
-function Services(){
-    $("#servicos").hide();
-//	$("#botao").addClass("closed");  
-	
-	$("#botao2").click(function(){
-		if($("#botao2").hasClass("closed"))
-		{
-		  $("#servicos").slideDown();
-		  $("#botao2").removeClass("closed");
-		  $("#botao2").addClass("open");
-		}
-		else
-		{
-			$("#servicos").slideUp();
-			$("#botao2").removeClass("open");
-		  	$("#botao2").addClass("closed");
-		}
-	});
-	
-
-	
-	 $(".p").mouseover(function() {
-      	//alert("a");
-	  	$(this).toggleClass("Product_on");
-		//alert($(this > "#Buttons"));
-		//alert($(this + " .Buttons").html());
-    });
-	
-	$(".p").mouseout(function() {
-      	//alert("a");
-	  	$(this).toggleClass("Product_on");
-		//$(this > ".Buttons").fadeOut("slow");
-    });
-	
-	//$("#tabs").tabs();
-}
-
 function Fancyshow()
 {
 	$('a.iframe').fancybox({

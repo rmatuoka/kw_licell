@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
         flash[:notice] = "Erro ao gravar transação"
       else
         @controle100 = false
-        if (@cart.total_price >= 100.to_i)
+        if (@cart_total >= 100.to_i)
           @controle100 = true
         end
         #GERAR PEDIDO
@@ -32,28 +32,31 @@ class OrdersController < ApplicationController
         @order_product = PagSeguro::Order.new(@order.id)
         #PEGA ITENS DO CARRINHO E ADICIONA AO PEDIDO E FINALIZA
       
-        if !@cart.items.blank?
-          for cart_item in @cart.items
+        if !@cart.blank?
+          for cart_item in @cart
             @pedidos = @order.order_products.build
-            @pedidos.product_id = cart_item.id_product
-            @pedidos.amount = cart_item.quantity
-            @pedidos.price = cart_item.price
+            @pedidos.product_id = cart_item.product_id
+            @pedidos.amount = cart_item.amount
+            @pedidos.price = ((cart_item.price - cart_item.discount) * cart_item.amount)
             @pedidos.save
           
             @order_product.billing = {
               :name                  => current_user.nome,
               :email                 => current_user.email
             }
-	          if (@cart.total_price >= 100.to_i)	          
-              @order_product.add :id => cart_item.id_product, :quantity => cart_item.quantity,  :price => (cart_item.price/cart_item.quantity), :description => cart_item.title #, :weight => 0.250, 
+	          if @controle100	          
+              @order_product.add :id => cart_item.product_id, :quantity => cart_item.amount,  :price => (cart_item.price - cart_item.discount), :description => cart_item.name #, :weight => 0.250, 
             else
-              @order_product.add :id => cart_item.id_product, :quantity => cart_item.quantity,  :price => (cart_item.price/cart_item.quantity), :description => cart_item.title , :weight => cart_item.product.weight 
+              @order_product.add :id => cart_item.product_id, :quantity => cart_item.amount,  :price => (cart_item.price - cart_item.discount), :description => cart_item.name , :weight => cart_item.product.weight 
             end
           end
         end
       end
       #LIMPA CARRINHO
-      session[:cart] = nil
+      @carts = Cart.all(:conditions => ['user_id = ?', current_user.id])
+      @carts.each do |item|
+        item.destroy
+      end
       #Fim do Order
   end
   

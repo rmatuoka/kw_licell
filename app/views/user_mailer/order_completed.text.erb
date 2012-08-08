@@ -20,7 +20,11 @@ TIPO DE PAGAMENTO: <%= traduz_tipo_do_pagamento(@order.payment_type.to_s.strip)%
 
 STATUS DO PAGAMENTO: <%= traduz_status_do_pedido(@order.status.to_s.strip)%>
 
-ID PAGSEGURO: <%= @order.pagseguro_id%>
+<%if !@order.pagseguro_id.blank?%>
+	ID PAGSEGURO: <%= @order.pagseguro_id%>
+<%else%>
+	ID TRANSAÇÃO: <%= @order.order_check%>
+<%end%>
 
 
 
