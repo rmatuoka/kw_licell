@@ -48,7 +48,9 @@
 				<b>ID PAGSEGURO:</b> <%= vendas.pagseguro_id%>
 			<%else%>
 				<b>ID TRANSAÇÃO:</b> <%= vendas.order_check%>
-			<%end%>			
+			<%end%>	
+			<br />
+			<b>ORDEM(CÓD PEDIDO):</b> <%= vendas.id %>		
 			<br />
 			<br />
 			<b>ENDEREÇO:</b> <%= vendas.street%>, <%= vendas.number%> <%= " - " + vendas.complement if !vendas.complement.blank?%>

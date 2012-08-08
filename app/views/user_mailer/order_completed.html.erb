@@ -45,6 +45,8 @@
 			<b>ID TRANSAÇÃO:</b> <%= @order.order_check%>
 		<%end%>
 		<br />
+		<b>ORDEM(CÓD PEDIDO):</b> <%= @order.id %>
+		<br />
 		<br />
 		<b>ENDEREÇO:</b> <%= @order.street%>, <%= @order.number%> <%= " - " + @order.complement if !@order.complement.blank?%>
 		<br />

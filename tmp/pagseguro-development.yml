@@ -18,3 +18,41 @@
   item_descr_1: Bateria  LG 330G
   item_descr_2: FLEX LG GD330
   cliente_nome: BRUNO VINICIUS DA SILVA
+"50": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  item_descr_3: LCD LG GB230
+  encoding: UTF-8
+  ref_transacao: "50"
+  item_valor_1: "4000"
+  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
+  moeda: BRL
+  item_quant_1: "1"
+  item_valor_2: "2200"
+  email_cobranca: log@korewa.com.br
+  item_quant_2: "1"
+  item_valor_3: "2900"
+  item_quant_3: "1"
+  cliente_email: BSILVA@KOREWA.COM.BR
+  item_peso_1: "20"
+  item_id_1: "339"
+  item_peso_2: "20"
+  item_id_2: "344"
+  item_peso_3: "20"
+  item_descr_1: Bateria Black Berry B9000
+  item_id_3: "512"
+  item_descr_2: Bateria LG 470A original
+  cliente_nome: BRUNO VINICIUS DA SILVA
+"52": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "52"
+  item_valor_1: "1400"
+  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
+  moeda: BRL
+  item_quant_1: "1"
+  email_cobranca: log@korewa.com.br
+  cliente_email: BSILVA@KOREWA.COM.BR
+  item_peso_1: "0"
+  item_id_1: "427"
+  item_descr_1: FLEX LG GD330
+  cliente_nome: BRUNO VINICIUS DA SILVA
