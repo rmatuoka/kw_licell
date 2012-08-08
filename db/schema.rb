@@ -201,7 +201,7 @@ ActiveRecord::Schema.define(:version => 20120807150022) do
     t.boolean  "stock_control",                                          :default => false
     t.integer  "stock_quantity",                                         :default => 0
     t.string   "code"
-    t.decimal  "weight",                  :precision => 10, :scale => 2, :default => 0.0
+    t.decimal  "weight",                  :precision => 10, :scale => 2, :default => 0.02
   end
 
   create_table "products_recommendeds", :id => false, :force => true do |t|
@@ -274,6 +274,17 @@ ActiveRecord::Schema.define(:version => 20120807150022) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "tbl_tmp", :id => false, :force => true do |t|
+    t.integer "cod_pro"
+    t.decimal "preco",   :precision => 10, :scale => 2
+    t.integer "estoque",                                :default => 0, :null => false
+  end
+
+  create_table "tbl_tmp_desc", :id => false, :force => true do |t|
+    t.integer "cod_pro"
+    t.text    "descricao"
   end
 
   create_table "transactions", :force => true do |t|
