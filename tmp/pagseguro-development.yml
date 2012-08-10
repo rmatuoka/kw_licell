@@ -1,23 +1,4 @@
 --- 
-"49": !map:ActiveSupport::HashWithIndifferentAccess 
-  tipo: CP
-  encoding: UTF-8
-  ref_transacao: "49"
-  item_valor_1: "3000"
-  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
-  moeda: BRL
-  item_quant_1: "2"
-  item_valor_2: "1400"
-  email_cobranca: log@korewa.com.br
-  item_quant_2: "1"
-  cliente_email: BSILVA@KOREWA.COM.BR
-  item_peso_1: "20"
-  item_id_1: "341"
-  item_peso_2: "0"
-  item_id_2: "427"
-  item_descr_1: Bateria  LG 330G
-  item_descr_2: FLEX LG GD330
-  cliente_nome: BRUNO VINICIUS DA SILVA
 "50": !map:ActiveSupport::HashWithIndifferentAccess 
   tipo: CP
   item_descr_3: LCD LG GB230
@@ -42,6 +23,25 @@
   item_id_3: "512"
   item_descr_2: Bateria LG 470A original
   cliente_nome: BRUNO VINICIUS DA SILVA
+"49": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "49"
+  item_valor_1: "3000"
+  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
+  moeda: BRL
+  item_quant_1: "2"
+  item_valor_2: "1400"
+  email_cobranca: log@korewa.com.br
+  item_quant_2: "1"
+  cliente_email: BSILVA@KOREWA.COM.BR
+  item_peso_1: "20"
+  item_id_1: "341"
+  item_peso_2: "0"
+  item_id_2: "427"
+  item_descr_1: Bateria  LG 330G
+  item_descr_2: FLEX LG GD330
+  cliente_nome: BRUNO VINICIUS DA SILVA
 "52": !map:ActiveSupport::HashWithIndifferentAccess 
   tipo: CP
   encoding: UTF-8
@@ -55,4 +55,18 @@
   item_peso_1: "0"
   item_id_1: "427"
   item_descr_1: FLEX LG GD330
+  cliente_nome: BRUNO VINICIUS DA SILVA
+"53": !map:ActiveSupport::HashWithIndifferentAccess 
+  tipo: CP
+  encoding: UTF-8
+  ref_transacao: "53"
+  item_valor_1: "2900"
+  commit: "Pagamento via cart\xC3\xA3o ou boleto(PagSeguro)"
+  moeda: BRL
+  item_quant_1: "1"
+  email_cobranca: log@korewa.com.br
+  cliente_email: BSILVA@KOREWA.COM.BR
+  item_peso_1: "20"
+  item_id_1: "513"
+  item_descr_1: LCD LG GB280
   cliente_nome: BRUNO VINICIUS DA SILVA
