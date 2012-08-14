@@ -1,0 +1,17 @@
+one:
+  name: MyString
+  published: false
+  check_date: false
+  pub_start: 2012-08-14 09:56:52
+  pub_end: 2012-08-14 09:56:52
+  link: MyString
+  link_target: MyString
+
+two:
+  name: MyString
+  published: false
+  check_date: false
+  pub_start: 2012-08-14 09:56:52
+  pub_end: 2012-08-14 09:56:52
+  link: MyString
+  link_target: MyString

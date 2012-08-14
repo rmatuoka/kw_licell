@@ -55,13 +55,21 @@ class ProdutosController < ApplicationController
     
     redirect_to wishlists_path
   end
+  
   def before
-    @produto = Product.find(params[:id])
-    @subcategory = @produto.subcategory
-    @category = @subcategory.category
-    @subcategorias = @category.subcategories.all
-    if !@produto.published
-      redirect_to home_path
+    @produto = Product.find_by_id(params[:id])
+    if @produto.blank?
+      flash[:notice] = "Este produto não existe, tente novamente!"
+      redirect_to root_path
+    else    
+      if !@produto.published
+        redirect_to root_path
+      else
+        @subcategory = @produto.subcategory
+        @category = @subcategory.category
+        @subcategorias = @category.subcategories.all
+      end
     end
   end
+  
 end

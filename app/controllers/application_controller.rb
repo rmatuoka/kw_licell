@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
     @cart_total = @cart.sum {|item| ((item.price - item.discount) * item.amount)}
      
     #carrega_tagcloud
-    @tagcloud = Keyword.tag_counts_on(:tags, :limit => 50)
+    @tagcloud = Keyword.tag_counts_on(:tags, :limit => 50, :order => 'count desc')
   end
   
   def logado

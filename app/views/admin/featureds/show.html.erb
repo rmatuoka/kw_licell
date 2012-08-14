@@ -1,0 +1,47 @@
+<% title "Admin/Featured" %>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @featured.name %>
+</p>
+<p>
+  <strong>Publicado?</strong>
+  <%= print_active(@featured.published) %>
+</p>
+<p>
+  <strong>Verifica Data?</strong>
+  <%= print_active(@featured.check_date) %>
+</p>
+<% if @featured.check_date %>
+<p>
+  <strong>Inicio:</strong>
+  <%= I18n.localize(@featured.pub_start, :format => :personalizado)%>
+</p>
+<p>
+  <strong>Fim:</strong>
+  <%= I18n.localize(@featured.pub_end, :format => :personalizado)%>
+</p>
+<% end %>
+<p>
+  <strong>Link:</strong>
+  <%= @featured.link %>
+</p>
+<p>
+  <strong>Abre em:</strong>
+  <%= @featured.link_target %>
+</p>
+<p>
+  <strong>Ordem:</strong>
+  <%= @featured.featured_order %>
+</p>
+<% if @featured.featured_image.exists?%>
+<p>
+	<strong>Imagem atual:</strong><br /><br />
+	<%= image_tag(@featured.featured_image.url(:featured_home))%>
+</p>
+<%end%>
+<p>
+  <%= link_to "Editar", edit_admin_featured_path(@featured) %> |
+  <%= link_to "Excluir", [:admin, @featured], :confirm => 'Está ação não pode ser revertida, deseja realmente excluir o registro?', :method => :delete %> |
+  <%= link_to "Ver Todos", admin_featureds_path %>
+</p>

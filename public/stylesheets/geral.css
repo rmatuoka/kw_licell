@@ -273,7 +273,7 @@ position:relative;
 	position:relative;
 	float:left;
 	width:240px;
-	height:325px;
+	height:340px;
 	}
 
 .produto:hover #prod-top{
@@ -302,7 +302,7 @@ position:relative;
 
 .prod-img{
 	position:absolute;
-	top:42px;
+	top:52px;
 	background-image:url('../images/bg_img_prod.jpg');
 	background-position:top center;
 	width:235px;
@@ -316,7 +316,7 @@ position:relative;
 
 .prod-fot{
 	position:absolute;
-	top:270px;
+	top:280px;
 	width:235px;
 	height:44px;
 	background-color:#d7d7d7;

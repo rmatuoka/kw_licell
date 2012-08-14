@@ -1,7 +1,5 @@
 KwLicell::Application.routes.draw do |map|
 
-
-
   get "reports/index"
 
   get "ratings/create"
@@ -9,6 +7,7 @@ KwLicell::Application.routes.draw do |map|
   
   resources :activations  
   namespace(:admin){
+    resources :featureds
     resources :newsletters
     resources :gifts
     resources :users do

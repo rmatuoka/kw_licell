@@ -1,0 +1,49 @@
+<%= form_for ([:admin, @featured], :html => { :multipart => :true }) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name, "Nome" %>
+    <%= f.text_field :name, :style=>"width: 400px;" %>
+  </p>
+  <p>
+    <%= f.label :published, "Publicado" %>
+    <%= f.check_box :published %>
+  </p>
+  <p>
+    <%= f.label :check_date, "Verifica Data" %>
+    <%= f.check_box :check_date %>
+  </p>
+  <p>
+    <%= f.label :pub_start, "Inicio do Destaque" %>
+    <%= f.datetime_select :pub_start %>
+  </p>
+  <p>
+    <%= f.label :pub_end, "Fim do Destaque" %>
+    <%= f.datetime_select :pub_end %>
+  </p>
+  <p>
+    <%= f.label :link, "Link" %>
+    <%= f.text_field :link, :style=>"width: 400px;" %>
+  </p>
+  <p>
+    <%= f.label :link_target, "Abre na" %>
+	<%= f.select :link_target,([
+			["Mesma Página", "_self"], 
+			["Nova Página", "_blank"]						
+		]) %>
+  </p>
+  <% if @featured.featured_image.exists?%>
+  <p>
+	<span>Imagem atual:</span><br />
+	<%= image_tag(@featured.featured_image.url(:thumb))%>
+  </p>
+  <%end%>
+  <p>
+  	<%= f.label :featured_image, "Selecionar imagem"%>
+	<%= f.file_field :featured_image%>	
+  </p>
+  <p>
+    <%= f.label :featured_order, "Ordem" %>
+	<%= f.select :featured_order,(01..100) %>
+  </p>
+  <p><%= f.submit "Salvar Destaque" %></p>
+<% end %>

@@ -18,22 +18,23 @@
 		<% if current_user %>
 			<%= link_to "Editar", edit_user_path(:current) %>
 			<%= link_to "Logout", logout_path %> 
-			<span> Bem vindo <strong><%= current_user.nome %></strong>!</span>
+			<span>  Bem vindo <strong><%= current_user.nome %></strong>!</span>
 		<% else %>
 			<%= link_to "Registrar", new_admin_user_path %>
 			<%= link_to "Login", login_path %>
 		<% end %>
 	</div>
 	<div id="menu">
-		<%=link_to "Gerenciar Produtos", admin_categories_path%> | 
-		<%=link_to "Gerenciar Banners", admin_banner_categories_path%> | 
-		<%#=link_to "Gerenciar Páginas", admin_pages_path%> | 
-		<%=link_to "Gerenciar Usuários", admin_users_path%> | 
-		<%=link_to "Gerenciar Vale-Presente", admin_gifts_path%> |
-		<%=link_to "Gerenciar Compras", admin_searchs_path%> |
-		<%=link_to "Gerenciar Comentários", admin_product_comments_path%>|
-    	<%=link_to "Newsletters", admin_newsletters_path%> |
-		<%=link_to "Relatórios", admin_reports_path%>
+		<%=link_to "Gerenciar Produtos |", admin_categories_path%> 
+		<%=link_to "Gerenciar Destaque |", admin_featureds_path%>
+		<%=link_to "Gerenciar Banners |", admin_banner_categories_path%> 
+		<%#=link_to "Gerenciar Páginas  |", admin_pages_path%> 
+		<%=link_to "Gerenciar Usuários |", admin_users_path%> 
+		<%=link_to "Gerenciar Vale-Presente |", admin_gifts_path%>
+		<%=link_to "Gerenciar Compras |", admin_searchs_path%>
+		<%=link_to "Gerenciar Comentários |", admin_product_comments_path%>
+    	<%=link_to "Newsletters |", admin_newsletters_path%>
+		<%=link_to "Relatórios |", admin_reports_path%>
 	</div>
     <div id="container">
       <% flash.each do |name, msg| %>

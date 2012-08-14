@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120807150022) do
+ActiveRecord::Schema.define(:version => 20120814190450) do
 
   create_table "banner_categories", :force => true do |t|
     t.string   "name"
@@ -49,6 +49,23 @@ ActiveRecord::Schema.define(:version => 20120807150022) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "featureds", :force => true do |t|
+    t.string   "name"
+    t.boolean  "published"
+    t.boolean  "check_date"
+    t.datetime "pub_start"
+    t.datetime "pub_end"
+    t.string   "link"
+    t.string   "link_target"
+    t.string   "featured_image_file_name"
+    t.string   "featured_image_content_type"
+    t.integer  "featured_image_file_size"
+    t.datetime "featured_image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "featured_order",              :default => 1, :null => false
   end
 
   create_table "galleries", :force => true do |t|
@@ -201,7 +218,7 @@ ActiveRecord::Schema.define(:version => 20120807150022) do
     t.boolean  "stock_control",                                          :default => false
     t.integer  "stock_quantity",                                         :default => 0
     t.string   "code"
-    t.decimal  "weight",                  :precision => 10, :scale => 2, :default => 0.02
+    t.decimal  "weight",                  :precision => 10, :scale => 2, :default => 0.0
   end
 
   create_table "products_recommendeds", :id => false, :force => true do |t|
@@ -274,17 +291,6 @@ ActiveRecord::Schema.define(:version => 20120807150022) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
-  end
-
-  create_table "tbl_tmp", :id => false, :force => true do |t|
-    t.integer "cod_pro"
-    t.decimal "preco",   :precision => 10, :scale => 2
-    t.integer "estoque",                                :default => 0, :null => false
-  end
-
-  create_table "tbl_tmp_desc", :id => false, :force => true do |t|
-    t.integer "cod_pro"
-    t.text    "descricao"
   end
 
   create_table "transactions", :force => true do |t|
