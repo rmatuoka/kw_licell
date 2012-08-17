@@ -51,7 +51,7 @@ td img {display: block;}
   %>
   <tr>
    <td class="<%= classe %>linha celula titulo"><%= produto.name %></td>
-   <td class="<%= classe %>linha celula descricao"><%= produto.description%></td>
+   <td class="<%= classe %>linha celula descricao"><%= raw(produto.description)%></td>
    <td class="<%= classe %>celula preco"><%= number_to_currency(produto.price - produto.discount)%></td>
    <td><%= wicked_pdf_image_tag("spacer.gif")%></td>
   </tr>
