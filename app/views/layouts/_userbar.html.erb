@@ -2,6 +2,9 @@
       <!-- new USUARIO LOGADO -->
       <div id='itens-top-bar' >   
           <span class="Header_date"><%=data_atual_extenso%></span>  
+		  <% if !User.find(current_user.id).has_role? :user%>
+			<%= link_to "Administrar Site", admin_root_path%>
+		  <% end%>
 		  <%=link_to(image_tag("bt_top.png",:width=>"86" , :height=>"17", :class => "closed", :id=>"botao2"), servicos_path) %> 	
           <%=link_to(image_tag("bt_top_um.png",:width=>"121" , :height=>"17"), accounts_path, :class => "Bt_top_1" )%>
           <%=image_tag("bt_top_dois.png",:width=>"145" , :height=>"20", :class => "Bt_top_2 closed", :id=>"botao" ) %>
