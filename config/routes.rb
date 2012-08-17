@@ -77,6 +77,9 @@ KwLicell::Application.routes.draw do |map|
       get :remove_from_wishlist
       get :remove_all_from_cart
     end
+    collection do
+      get 'spreadsheet'
+    end
   }
   resources :search  do
     get :autocomplete_product_name, :on => :collection

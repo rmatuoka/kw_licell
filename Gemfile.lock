@@ -81,7 +81,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.32)
+    wicked_pdf (0.7.9)
     will_paginate (2.3.16)
+    wkhtmltopdf-binary (0.9.9.1)
 
 PLATFORMS
   ruby
@@ -94,4 +96,6 @@ DEPENDENCIES
   pagseguro (~> 0.1.12)
   rails (= 3.0.3)
   rails3-jquery-autocomplete
+  wicked_pdf
   will_paginate
+  wkhtmltopdf-binary

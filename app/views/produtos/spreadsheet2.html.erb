@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Tabela de Preço</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+table{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#4c4c4c;
+	}
+td img {display: block;}
+.zebra{background-color:#CCC; color:#4c4c4c;}
+.linha{border-right:1px solid #ccc;}
+.celula{padding:5px;}
+.titulo{font-size:16px;}
+.descricao{font-size:14px;}
+.preco{font-size:26px;}
+</style>
+<!--Fireworks CS6 Dreamweaver CS6 target.  Created Fri Jul 27 16:30:30 GMT-0300 (Hora oficial do Brasil) 2012-->
+</head>
+<body bgcolor="#ffffff">
+<table style="display: inline-table;" border="0" cellpadding="0" cellspacing="0" width="850">
+<!-- fwtable fwsrc="../images/Untitled" fwpage="Page 1" fwbase="lamina.jpg" fwstyle="Dreamweaver" fwdocid = "198029006" fwnested="0" -->
+  <tr>
+   <td><%= wicked_pdf_image_tag("spacer.gif")%></td>
+   <td><%= wicked_pdf_image_tag("spacer.gif")%></td>
+   <td><%= wicked_pdf_image_tag("spacer.gif")%></td>
+   <td><%= wicked_pdf_image_tag("spacer.gif")%></td>
+  </tr>
+
+  <tr>
+   <td colspan="3"><%= link_to(pdf_image_tag("lamina_r1_c1.jpg"),"http://www.licell.com.br")%></td>
+   <td><%= wicked_pdf_image_tag("spacer.gif")%></td>
+  </tr>
+  <tr>
+   <td><%= wicked_pdf_image_tag("lamina_r2_c1.jpg")%></td>
+   <td><%= wicked_pdf_image_tag("lamina_r2_c2.jpg")%></td>
+   <td><%= wicked_pdf_image_tag("lamina_r2_c3.jpg")%></td>
+   <td><%= wicked_pdf_image_tag("spacer.gif")%></td>
+  </tr>
+  <%contador = 0 
+	classe = ''
+	@productsall.each do |produto| 
+		if (contador == 0)
+			classe = ''
+		else
+			classe = 'zebra '	
+		end 
+  %>
+  <tr>
+   <td class="<%= classe %>linha celula titulo"><%= produto.name %></td>
+   <td class="<%= classe %>linha celula descricao"><%= produto.description%></td>
+   <td class="<%= classe %>celula preco"><%= number_to_currency(produto.price - produto.discount)%></td>
+   <td><%= wicked_pdf_image_tag("spacer.gif")%></td>
+  </tr>
+
+  <%(contador == 0) ? contador = 1 : contador = 0
+	end %>
+  <tr>
+   <td colspan="3"><%= wicked_pdf_image_tag("lamina_r6_c1.jpg")%></td>
+   <td><%= wicked_pdf_image_tag("spacer.gif")%></td>
+  </tr>
+</table>
+</body>
+</html>

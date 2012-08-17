@@ -2,8 +2,11 @@ class ProdutosController < ApplicationController
 #  access_control do
 #    allow logged_in, :all
 #  end 
-  before_filter :load_site_categories, :before, :load_cart
-  layout "interna"
+  before_filter :load_site_categories,  :load_cart
+  before_filter :before, :except => :spreadsheet
+  
+  layout "interna", :except => [:spreadsheet]
+  layout "blank", :only => [:spreadsheet]
   
   def show
     @produto = Product.find(params[:id])
@@ -70,6 +73,31 @@ class ProdutosController < ApplicationController
         @subcategorias = @category.subcategories.all
       end
     end
+  end
+  
+  def spreadsheet
+    @productsall = Product.all_published  
+    respond_to do |format|
+        format.html
+        format.pdf do
+          
+          d = DateTime.now.strftime("%d-%m-%Y")
+          render  :pdf => "Tabela Preços Licell #{d}", 
+                  :template => "/produtos/spreadsheet2.html.erb",
+                  :show_as_html => params[:debug].present?,
+                  :margin => {:top                => 15,                     # default 10 (mm)
+                              :bottom             => 15,
+                              :left               => 10,
+                              :right              => 10},                  
+                  :page_size => 'A4'#,
+                 # :header => {:html => { :template => '/static_content/denied.html.erb',  # use :template OR :url      # optional, use 'pdf_plain.html' for a pdf_plain.html.erb file, defaults to main layout
+                  #                       :url      => 'www.example.com',
+                   #                      :locals   => { :foo => @bar }
+                    #                   },
+                     #         }                  
+                  
+        end
+    end     
   end
   
 end

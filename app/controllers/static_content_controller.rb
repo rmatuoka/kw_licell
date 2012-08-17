@@ -15,7 +15,7 @@ class StaticContentController < ApplicationController
   end
 
   def services
-    
+
   end
   
 end

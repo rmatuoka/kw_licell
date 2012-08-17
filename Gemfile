@@ -14,6 +14,9 @@ gem 'mongrel'
 gem 'will_paginate'
 gem "pagseguro", "~> 0.1.12"
 gem 'rails3-jquery-autocomplete'
+#gem "wkhtmltopdf", "~> 0.1.2"
+gem 'wicked_pdf'
+gem "wkhtmltopdf-binary"
 
 # Use unicorn as the web server
 # gem 'unicorn'
