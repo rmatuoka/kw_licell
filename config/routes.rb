@@ -7,12 +7,17 @@ KwLicell::Application.routes.draw do |map|
   
   resources :activations  
   namespace(:admin){
+    get "static_contents/index"
+     
     resources :featureds
     resources :newsletters
     resources :gifts
     resources :users do
       collection do
         get 'search'
+      end
+      member do 
+        get 'user_active'
       end
     end
     resources :orders
@@ -58,7 +63,7 @@ KwLicell::Application.routes.draw do |map|
       end
     end
     
-    root :to => "categories#index"
+    root :to => "static_contents#index"
   }
   
   resources(:carrinhos){

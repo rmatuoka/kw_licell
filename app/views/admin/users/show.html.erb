@@ -1,5 +1,8 @@
-<% title "Product" %>
-
+<% title "Usuário #{@user.nome}" %>
+<p>
+  <strong>Cadastro Ativado?</strong>
+  <%= print_active(@user.active) %>
+</p>
 <p>
   <strong>Nome:</strong>
   <%= @user.nome %>
@@ -17,7 +20,38 @@
   <%= @user.email %>
 </p>
 <p>
-  <%= link_to "Edit", edit_admin_user_path(@user) %> |
-  <%= link_to "Destroy", admin_user_path(@user), :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", admin_users_path %>
+  <strong>Sexo:</strong>
+  <%= @user.sexo %>
+</p>
+<p>
+  <strong>Nascimento:</strong>
+  <%= @user.nascimento.strftime("%d/%m/%Y") %>
+</p>
+<p>
+  <strong>Telefone:</strong>
+  (<%= @user.area_phone %>)<%= @user.phone %>
+</p>
+<p>
+  <strong>Celular:</strong>
+  (<%= @user.area_cellphone %>)<%= @user.cellphone %>
+</p>
+<p>
+  <strong>Endereço:</strong>
+  <%= @user.address %>, <%= @user.number %> - <%= @user.complement %>
+</p>
+<p>
+  <strong>Bairro:</strong>
+  <%= @user.quarter %>
+</p>
+<p>
+  <strong>Cidade:</strong>
+  <%= @user.city %>/<%= @user.state %>
+</p>
+<p>
+  <strong>CEP:</strong>
+  <%= @user.cep %>
+</p>
+<p>
+  <%= link_to "Editar", edit_admin_user_path(@user) %> |
+  <%= link_to "Ver todos", admin_users_path %>
 </p>

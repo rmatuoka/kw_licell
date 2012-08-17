@@ -1,9 +1,13 @@
-    <div id="Box_register_form">	
+	<% title "Editar Usuário - #{@user.nome}" %>  
+  <div id="Box_register_form">	
 		<%= form_for [:admin, @user] do |f| %>
 			<%= f.error_messages %>
 			<p>
-				<%= f.label :nome, "Nome completo:" %>
-	            <%=f.text_field :nome%>
+				<span>Cadastro Ativado?</span>
+				<b><%=print_active(@user.active)%></b>
+				<%if !@user.active %>
+					<%= link_to "Ativar Cadastro", user_active_admin_user_path(@user)%>
+				<%end%>
 			</p>
 			<p>
 				<%= f.label :email, "Email:"%>
@@ -18,22 +22,6 @@
 		        <%=f.text_field :rg%>
 			</p>
 			<p>
-				<%= f.label :city, "Cidade:"%>
-		        <%=f.text_field :city%>
-			</p>
-			<p>
-				<%= f.label :state, "Uf:", :style=>" vertical-align:middle;" %>
-				<%= f.select :state, ([["AC", "AC"], ["AL","AL"], ["AP", "AP"],
-				["AM", "AM"], ["BA", "BA"], ["CE", "CE"],
-				["DF", "DF"], ["ES", "ES"], ["GO", "GO"],
-				["MA", "MA"], ["MT", "MT"], ["MS", "MS"],
-				["MG", "MG"], ["PA", "PA"], ["PB", "PB"],
-				["PR", "PR"], ["PE", "PE"], ["PI", "PI"],
-				["RJ", "RJ"], ["RN", "RN"], ["RS", "RS"],
-				["RO", "RO"], ["RR", "RR"], ["SC", "SC"],
-				["SP", "SP"], ["SE", "SE"], ["TO", "TO"]]) %>
-			</p>
-			<p>
 				<%= f.label :password, "Senha:" %>
 				<%=f.password_field :password%>
 			</p>
@@ -41,13 +29,16 @@
 				<%= f.label :password_confirmation, "Repita Senha:" %>
 			 	<%=f.password_field :password_confirmation%>
 			</p>
+		  <%if User.find(current_user.id).has_role? :admin%>
 		  <h1>Regras</h1>
 		  <p>
 			Tipo:<br />
 			<%= f.radio_button :role, :admin%>Administrador
 			<%= f.radio_button :role, :supervisor %>Supervisor
 			<%= f.radio_button :role, :seller %>Usuário
-		  </p><br />
-  		<p><%= f.submit %></p>
+		  </p>
+		  <%end%>
+		<br />
+  		<p><%= f.submit %> |   <%= link_to "Voltar", admin_users_path %></p>
 		<%end%>
 	</div>

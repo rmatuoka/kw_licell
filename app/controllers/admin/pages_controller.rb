@@ -1,6 +1,6 @@
 class Admin::PagesController < ApplicationController
   access_control do
-    allow :admin, :supervisor
+    allow :admin
   end
   
   layout "admin"

@@ -1,6 +1,6 @@
 class Admin::SubcategoriesController < ApplicationController
   access_control do
-    allow :admin, :supervisor
+    allow :admin
   end
   
   before_filter :load_category

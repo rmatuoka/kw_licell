@@ -25,6 +25,7 @@
 		<% end %>
 	</div>
 	<div id="menu">
+	<%if User.find(current_user.id).has_role? :admin %>	
 		<%=link_to "Gerenciar Produtos |", admin_categories_path%> 
 		<%=link_to "Gerenciar Destaque |", admin_featureds_path%>
 		<%=link_to "Gerenciar Banners |", admin_banner_categories_path%> 
@@ -35,6 +36,11 @@
 		<%=link_to "Gerenciar Comentários |", admin_product_comments_path%>
     	<%=link_to "Newsletters |", admin_newsletters_path%>
 		<%=link_to "Relatórios |", admin_reports_path%>
+	<%end%>
+	<%if User.find(current_user.id).has_role? :supervisor %>
+		<%=link_to "Gerenciar Compras |", admin_searchs_path%>
+		<%=link_to "Gerenciar Usuários |", admin_users_path%>		
+	<%end%>
 	</div>
     <div id="container">
       <% flash.each do |name, msg| %>

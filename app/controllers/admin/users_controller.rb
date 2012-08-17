@@ -33,4 +33,16 @@ class Admin::UsersController < ApplicationController
     end
   end
   
+  def user_active
+    @user = User.find_by_id(params[:id])
+    if !@user.blank?
+      @user.active = true
+      @user.save
+      redirect_to admin_user_path(@user), :notice  => "Dados Atualizados com sucesso!"
+    else
+      redirect_to admin_root_path
+    end
+    
+  end
+  
 end
