@@ -44,7 +44,9 @@ class UserMailer < ActionMailer::Base
   
   #Enviado quando o código de rastreamento for inserido na tabela order!
   def inserting_tracking_code(order) 
-    #codigo...
+    @order = order
+    @order_itens = OrderProduct.all(:conditions => ['order_id = ?', @order.id])
+    mail(:to => order.user.email, :subject => "Pedido Enviado", :bcc => "log@korewa.com.br, daniel@licell.com.br",:reply_to => "daniel@licell.com.br")    
   end
   
  #Envia email (instruções para recuperar a senha)

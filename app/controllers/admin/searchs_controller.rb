@@ -115,9 +115,12 @@ class Admin::SearchsController < ApplicationController
   def save_track
     @order = Order.find(params[:order_id])
     @order.rastreamento = params[:code]
+    @order.status = "sent"
     
     if !params[:code].blank?
       if @order.save
+        #ENVIAR E-MAIL E ATUALIZAR STATUS
+        UserMailer.inserting_tracking_code(@order).deliver
         @out = "Código inserido com sucesso!"
       else
         @out = "Falha ao salvar o código"

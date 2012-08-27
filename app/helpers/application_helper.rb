@@ -49,6 +49,9 @@ module ApplicationHelper
         
       when "refunded"
         retorno = "Devolvido"
+      
+      when "sent"
+        retorno = "Enviado"
     end
     
     return retorno

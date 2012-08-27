@@ -47,8 +47,10 @@
 							&nbsp;</h2>
 						</td>
 						<td  class="Table_tit_sumary">
-							<span class="Table_tit_sumary">Status:<%=traduz_tipo_do_pagamento(order.payment_type)%></span>
+							<span class="Table_tit_sumary">Status:</span>
 							<div id="Status"><%=traduz_status_do_pedido(order.status)%></div>
+							
+							
 						</td>
 					</tr>                 
 				</table>
@@ -58,15 +60,18 @@
 					<table width="960" height="26">
 						<tr>
 							<td width="400"  class="Tit_text">
-								<h2 class="Table_tit3">Data do Pedido: <%= I18n.localize(order.created_at, :format => "%d/%m/%Y")%></h2>
+								<h2 class="Table_tit3">
+									Data do Pedido: <%= I18n.localize(order.created_at, :format => "%d/%m/%Y")%>
+								</h2>
 							</td>
 							<td width="280"  class="Tit_text">
-								<h2 class="Table_tit3"></h2>
+								<h2 class="Table_tit3">Forma de pagamento: <%=traduz_tipo_do_pagamento(order.payment_type)%></h2>
 							</td>
 							<td width="280" class="Tit_text Cel_Cust">
-								<h2 class="Table_tit3"><!-- Data do Entrega: 00/00/0000 - 00:00 --></h2>
+								<h2 class="Table_tit3"><%=link_to "Clique aqui para ver o status do envio", "http://websro.correios.com.br/sro_bin/txect01$.QueryList?P_LINGUA=001&P_TIPO=001&P_COD_UNI=#{order.rastreamento}", :target =>"_blank" if !order.rastreamento.blank?%></h2>
 							</td>
 						</tr>             
+
 					</table>
 				</div>
 				<div class="Title_table2">
