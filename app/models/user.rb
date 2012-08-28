@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_presence_of :nome
   validates_presence_of :rg
-  validates_presence_of :cpf
+  validates_presence_of :cpf, :message => "/ CNPJ não pode ficar em branco"
   validates_presence_of :phone
   validates_presence_of :address
   validates_presence_of :quarter
@@ -89,11 +89,11 @@ class User < ActiveRecord::Base
       return false # CPF inválido
     end
 
-    def check_cnpj(cnpj=nil)
-      return false if cnpj.nil?
+    def check_cnpj
+      return false if cpf.nil?
 
       nulos = %w{11111111111111 22222222222222 33333333333333 44444444444444 55555555555555 66666666666666 77777777777777 88888888888888 99999999999999 00000000000000}
-      valor = cnpj.scan /[0-9]/
+      valor = cpf.scan /[0-9]/
       if valor.length == 14
         unless nulos.member?(valor.join)
           valor = valor.collect{|x| x.to_i}
@@ -112,10 +112,6 @@ class User < ActiveRecord::Base
     end
     
     def validates_cpf
-      errors.add(:cpf, "Inválido") if !check_cpf
-    end
-    
-    def validates_cnpj
-      errors.add(:cpf, "Inválido") if !check_cnpj
+      errors.add(:cpf, "/ CNPJ Inválido") if !check_cpf && !check_cnpj
     end
 end
