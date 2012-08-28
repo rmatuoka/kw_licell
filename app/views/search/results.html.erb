@@ -62,17 +62,24 @@
 						  <div class="prod-fot" id="p-fot-<%=count%>">
 							<% if current_user %>
 						      <div class='prod-add'>
-								<%=link_to image_tag("bt_add_cart.jpg", :width=>"81", :height=>"43"), add_to_cart_produto_path(produto)%>
-						      </div>
-						      <%if produto.discount.blank?%>
-						      <div class='prod-val'>
-								<h2><b>R$</b><%=number_to_currency(produto.price)%></h2>
-						      </div>
-						      <%else%>
-						      <div class='prod-val'>
-								<h2><b>R$:</b><%=number_to_currency(produto.price - produto.discount , :unit=>"")%></h2>
-						      </div>
-						      <%end%>
+		                        <%=link_to image_tag("bt_add_cart.jpg", :width=>"81", :height=>"43"), add_to_cart_produto_path(produto)%>
+		                      </div>
+		                      <%if produto.discount.blank?%>
+		                      <div class='prod-val'>
+		                      	<h2><b><%=number_to_currency(produto.price)%></b></h2>
+		                      </div>
+		                      <%else%>
+							  	<%if produto.subcategory.category.discount > 0%>
+								  	<div class='prod-val'>
+				                      	<h2><b><%=number_to_currency((produto.price - produto.discount) - (produto.price - produto.discount) * (produto.subcategory.category.discount / 100))%></b></h2>
+				                    </div>
+								<%else%>
+									<div class='prod-val'>
+				                      	<h2><b><%=number_to_currency(produto.price - produto.discount)%></b></h2>
+				                      </div>
+								<%end%>
+
+		                      <%end%>
 							<% else %>
 								<p><%=link_to "Clique para ver o preço!", "/user_sessions/new", :style=>'font-family: Tahoma; font-size:16px; color:#FF5C1B; float:right; margin-right:30px;position: relative;top:10px;'%></p>
 							<% end %>

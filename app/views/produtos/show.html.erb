@@ -47,15 +47,24 @@
 	                  </tr>
 					  <tr>
 	                  	 <%if current_user%>
-								<td style="background-image:url('../images/bg_prod2_int2.jpg'); background-repeat:no-repeat; " height="8"><p style='font-family: Tahoma; font-size:24px; color:#FF5C1B; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
-						        <td width="209"><%=link_to image_tag("bt_add_whish.jpg"), add_to_wishlist_produto_path(@produto)%></td>
+					
+								<%if @produto.subcategory.category.discount > 0%>
+
+								  	<td style="background-image:url('../images/bg_prod2_int2.jpg'); background-repeat:no-repeat; " height="8"><p style='font-family: Tahoma; font-size:24px; color:#FF5C1B; float:right; margin-right:8px;'><%=number_to_currency((@produto.price - @produto.discount) - (@produto.price - @produto.discount) * (@produto.subcategory.category.discount / 100))%></p></td>
+									
+								<%else%>
+									<td style="background-image:url('../images/bg_prod2_int2.jpg'); background-repeat:no-repeat; " height="8"><p style='font-family: Tahoma; font-size:24px; color:#FF5C1B; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
+								<%end%>
+
+								<td width="209"><%=link_to image_tag("bt_add_whish.jpg"), add_to_wishlist_produto_path(@produto)%></td>
 								<td width="240" align="right"><%=link_to image_tag("bt_add_cart_int.jpg"), add_to_cart_produto_path(@produto)%></td>
-					        <%else%>
+
+						<%else%>
 								<td height="8"><p><%=link_to "Clique para ver o preço!", "/user_sessions/new", :style=>'font-family: Tahoma; font-size:16px; color:#FF5C1B; float:right; margin-right:30px;'%></p></td>
 		                 		<td width="209"><%=link_to image_tag("bt_add_whish.jpg"), "/user_sessions/new"%></td>
 								<td width="240" align="right"><%=link_to image_tag("bt_add_cart_int.jpg"), "/user_sessions/new"%></td>
 						        <!-- <a href="javascript:void(0);" onclick="alert('Para adicionar um produto a sua lista de desejos\n você deve estar logado!')">+ adicionar a lista de desejos</a> -->
-					        <%end%>
+					    <%end%>
 		                    
 					</tr>
                   <%else%>
@@ -65,8 +74,19 @@
 	                      <td style="background-image:url('../images/bg_prod1_int2.jpg'); background-repeat:no-repeat; background-color:#fff;" height="22"><p style='font-family: Arial; font-size:15px; color:#878787; float:right; margin-right:10px; text-decoration:line-through'><%=number_to_currency(@produto.price)%></p></td>
 	                    </tr>
 	                    <tr>
-							<td style="background-image:url('../images/bg_prod2_int2.jpg'); " height="8"><p style='font-family: Tahoma; font-size:24px; color:#FF5C1B; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
-					        <td width="209"><%=link_to image_tag("bt_add_whish.jpg"), add_to_wishlist_produto_path(@produto)%></td>
+							
+							<%if @produto.subcategory.category.discount > 0%>
+
+								<td style="background-image:url('../images/bg_prod2_int2.jpg'); " height="8"><p style='font-family: Tahoma; font-size:24px; color:#FF5C1B; float:right; margin-right:8px;'><%=number_to_currency((@produto.price - @produto.discount) - (@produto.price - @produto.discount) * (@produto.subcategory.category.discount / 100))%></p></td>
+								
+							<%else%>
+								<td style="background-image:url('../images/bg_prod2_int2.jpg'); " height="8"><p style='font-family: Tahoma; font-size:24px; color:#FF5C1B; float:right; margin-right:8px;'><%=number_to_currency(@produto.price - @produto.discount)%></p></td>
+							<%end%>
+							
+					        
+					
+					
+							<td width="209"><%=link_to image_tag("bt_add_whish.jpg"), add_to_wishlist_produto_path(@produto)%></td>
 							<td width="240" align="right"><%=link_to image_tag("bt_add_cart_int.jpg"), add_to_cart_produto_path(@produto)%></td>
 						</tr>
 				     <%else%>

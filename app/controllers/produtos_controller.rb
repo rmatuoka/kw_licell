@@ -5,8 +5,9 @@ class ProdutosController < ApplicationController
   before_filter :load_site_categories,  :load_cart
   before_filter :before, :except => :spreadsheet
   
-  layout "interna", :except => [:spreadsheet]
   layout "blank", :only => [:spreadsheet]
+  layout "interna", :except => [:spreadsheet]
+  
   
   def show
     @produto = Product.find(params[:id])

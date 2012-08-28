@@ -38,9 +38,16 @@
                       	<h2><b><%=number_to_currency(produto.price)%></b></h2>
                       </div>
                       <%else%>
-                      <div class='prod-val'>
-                      	<h2><b><%=number_to_currency(produto.price - produto.discount)%></b></h2>
-                      </div>
+					  	<%if produto.subcategory.category.discount > 0%>
+						  	<div class='prod-val'>
+		                      	<h2><b><%=number_to_currency((produto.price - produto.discount) - (produto.price - produto.discount) * (produto.subcategory.category.discount / 100))%></b></h2>
+		                    </div>
+						<%else%>
+							<div class='prod-val'>
+		                      	<h2><b><%=number_to_currency(produto.price - produto.discount)%></b></h2>
+		                      </div>
+						<%end%>
+                      
                       <%end%>
 				  <% else %>
 					<p><%=link_to "Clique para ver o preço!", "/user_sessions/new", :style=>'font-family: Tahoma; font-size:16px; color:#FF5C1B; float:right; margin-right:30px;position: relative;top:10px;'%></p>
